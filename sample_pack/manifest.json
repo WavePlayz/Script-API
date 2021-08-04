@@ -13,7 +13,7 @@
 		  "type": "javascript",
 		  "uuid": "47120bfa-430f-4e6b-8eec-645fc8d4b2e3",
 		  "version": [0, 0, 1],
-		  "entry": "scripts/index.js"
+		  "entry": "scripts/script.js"
 		}
 	],
 	"dependencies": [
