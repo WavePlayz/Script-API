@@ -1,0 +1,34 @@
+{
+	"format_version": 2,
+	
+	"header": {
+		"name": "FlyBy",
+		"description": "Example vanilla behavior pack",
+		"uuid": "b3bc569d-3144-4473-82ae-c5704a6064e3",
+		"version": [0, 0, 1],
+		"min_engine_version": [1, 14, 0]
+	},
+	
+	"modules": [
+		{
+			"description": "Example vanilla behavior pack",
+			"type": "javascript",
+			"uuid": "9e896681-01d8-4a21-b1e2-e350e3c9c1ae",
+			"version": [0, 0, 1],
+			"entry": "scripts/script.js"
+		}
+	],
+	
+	"dependencies": [
+		{
+			// Minecraft native module - needed to use the "mojang-minecraft" module
+			"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
+			"version": [0, 1, 0]
+		},
+		{
+			// GameTest native module - needed to use the "mojang-gametest" module
+			"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
+			"version": [0, 1, 0]
+		}
+	]
+}
