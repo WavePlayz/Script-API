@@ -2,7 +2,7 @@
 	"format_version": 2,
 	
 	"header": {
-		"name": "FlyBy",
+		"name": "Example gametest pack",
 		"description": "Example vanilla behavior pack",
 		"uuid": "b3bc569d-3144-4473-82ae-c5704a6064e3",
 		"version": [0, 0, 1],
