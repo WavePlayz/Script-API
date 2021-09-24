@@ -13,7 +13,7 @@ Folder structure
   - `pack_icon.png`
 ---
 ```javascript
-import FAsync from <PATH-TO-FILE>
+import FAsync from "./packages/FAsync.js"
 import { World } from "mojang-minecraft"
 
 // Required step
