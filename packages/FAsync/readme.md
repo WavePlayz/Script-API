@@ -1,3 +1,8 @@
+# Features
+- timeouts
+- intervals
+- async loops
+
 # Usage
 ```javascript
 import FAsync from <PATH-TO-FILE>
