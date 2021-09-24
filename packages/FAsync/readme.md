@@ -4,6 +4,15 @@
 - async loops
 
 # Usage
+##### Folder structure
+- **pack/**
+  - **scripts/**
+    - **packages/**
+      - `FAsync.js`
+    - `script.js`
+  - `manifest.json`
+  - `pack_icon.png`
+---
 ```javascript
 import FAsync from <PATH-TO-FILE>
 import { World } from "mojang-minecraft"
