@@ -5,7 +5,7 @@
 
 # Usage
 ##### Folder structure
-- **pack/**
+**pack/**
   - **scripts/**
     - **packages/**
       - `FAsync.js`
