@@ -4,7 +4,7 @@
 - async loops
 
 # Usage
-##### Folder structure
+Folder structure
   - **scripts/**
     - **packages/**
       - `FAsync.js`
