@@ -1,6 +1,6 @@
 import {
 	World,
-	Commamds
+	Commands
 } from "mojang-minecraft";
 
 const OVERWORLD = World.getDimension("overworld")
