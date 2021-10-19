@@ -18,15 +18,16 @@ World.events.beforeChat.subscribe(eventData => {
 	if (message = "set.perms") {
 		try {
 			run("scoreboard objectives add script:roles dummy")
-		}
+		}catch(e){}
 	}
 	
 	if (message.startsWith("set.perms")) {
 		let [ a, b, name, ...perms ] message.split(".")
 		
 		let sum = perms.reduce((r,perm) => r + (permissions[perm] ?? 0), 0)
-		
+		try {
 		run(`scoreboard players set "${name}" script:roles ${sum}`)
+		}catch(e){}
 	}
 	
 	
