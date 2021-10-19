@@ -2,6 +2,8 @@ import { World, Commands } from "mojang-minecraft";
 
 const DIMENSION = World.getDimension()
 
+// WIP
+
 const permissions = {
 	view: 2,
 	send: 4,
