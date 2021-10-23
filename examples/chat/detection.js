@@ -24,7 +24,7 @@ World.events.chat.subscribe(eventData => {
 	}
 })
 
-const N_WORDS = [ "fuq", "hi", "hello" ]
+const N_WORDS = [ "fuq", "fuck" ]
 
 World.events.beforeChat.subscribe(eventData => {
 	const { entity, message } = eventData
