@@ -5,4 +5,4 @@
 - **scripts/**
   - `script.js`
 - `manifest.json`
-- pack_icon.png
+- `pack_icon.png`
