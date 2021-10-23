@@ -1,6 +1,6 @@
 # Gametest-API
 
-### Folder structure
+#### Folder structure
 **my_behavior_pack/**
 - **scripts/**
   - `script.js`
