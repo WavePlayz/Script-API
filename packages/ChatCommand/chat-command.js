@@ -1,3 +1,6 @@
+// by WavePlayz
+// v1
+
 String.prototype.toArguments = function(shouldTypeConvert = true) {
 	const content = this.toString()
 	const contentLength = content.length
