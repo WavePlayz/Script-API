@@ -1,5 +1,5 @@
-// by WavePlayz
-// v1
+//by WavePlayz
+//v1
 
 String.prototype.toArguments = function(shouldTypeConvert = true) {
 	const content = this.toString()
@@ -48,7 +48,7 @@ String.prototype.toArguments = function(shouldTypeConvert = true) {
 	return arguments
 }
 
-export default class ChatCommand {
+class ChatCommand {
 	static #data = new Map()
 	
 	static group (prefix) {
@@ -70,13 +70,20 @@ export default class ChatCommand {
 	}
 	
 	static onChatMessage(message) {
+		let status = false
+		
 		this.#data.forEach( (commands, prefix ) => {
 			if ( !message.startsWith(prefix) ) return;
 			
 			let [ namespace, ...parameters ] = message.replace(prefix, "").toArguments()
 			
-			commands.get(namespace)?.(...parameters)
+			if (!commands.has(namespace)) return;
+			
+			commands.get(namespace)(...parameters)
+			
+			status = true
 		})
-		return true
+		
+		return { isCommand: status }
 	}
 }
