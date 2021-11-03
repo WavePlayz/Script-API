@@ -48,7 +48,7 @@ String.prototype.toArguments = function(shouldTypeConvert = true) {
 	return arguments
 }
 
-class ChatCommand {
+export default class ChatCommand {
 	static #data = new Map()
 	
 	static group (prefix) {
