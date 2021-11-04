@@ -69,17 +69,17 @@ export default class ChatCommand {
 		this.#data.get(prefix).set(namespace, callback)
 	}
 	
-	static onChatMessage(message) {
+	static onChatMessage(chatData) {
 		let status = false
 		
 		this.#data.forEach( (commands, prefix ) => {
 			if ( !message.startsWith(prefix) ) return;
 			
-			let [ namespace, ...parameters ] = message.replace(prefix, "").toArguments()
+			let [ namespace, ...parameters ] = chatData.message.replace(prefix, "").toArguments()
 			
 			if (!commands.has(namespace)) return;
 			
-			commands.get(namespace)(...parameters)
+			commands.get(namespace)(chatData, ...parameters)
 			
 			status = true
 		})
