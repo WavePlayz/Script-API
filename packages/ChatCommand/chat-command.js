@@ -77,11 +77,11 @@ export default class ChatCommand {
 			
 			let content = chatData.message.replace(prefix, "")
 			
-			let [ namespace, ...parameters ] = content.toArguments()
+			let [ namespace, ...arguments ] = content.toArguments()
 			
 			if (!commands.has(namespace)) return;
 			
-			commands.get(namespace)(chatData, parameters, content)
+			commands.get(namespace)(chatData, arguments, content)
 			
 			status = true
 		})
