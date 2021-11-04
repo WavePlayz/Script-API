@@ -69,7 +69,7 @@ export default class ChatCommand {
 		this.#data.get(prefix).set(namespace, callback)
 	}
 	
-	static onChatMessage(chatData) {
+	static onChat(chatData) {
 		let status = false
 		
 		this.#data.forEach( (commands, prefix ) => {
