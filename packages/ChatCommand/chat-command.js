@@ -1,5 +1,16 @@
 //by WavePlayz
-//v1
+//v2
+
+import { World, Commands } from "mojang-minecraft"
+
+const DIMENSIONS = [
+	World.getDimension("overworld"),
+	World.getDimension("nether"),
+	World.getDimension("the end")
+]
+
+
+const EXECUTION_KEY = Symbol()
 
 String.prototype.toArguments = function(shouldTypeConvert = true) {
 	const content = this.toString()
@@ -48,8 +59,16 @@ String.prototype.toArguments = function(shouldTypeConvert = true) {
 	return arguments
 }
 
-export default class ChatCommand {
+class ChatCommand {
 	static #data = new Map()
+	
+	static HELPER = {
+		teleport (x, y, z, dimension) {
+			return function({ sender: { nameTag } }) {
+				Commands.run(`tp "${nameTag}" ${x} ${y} ${z}`, DIMENSIONS[dimension])
+			}
+		}
+	}
 	
 	static group (prefix) {
 		const classContext = this
@@ -69,7 +88,9 @@ export default class ChatCommand {
 		this.#data.get(prefix).set(namespace, callback)
 	}
 	
-	static onChat(chatData) {
+	static onChat(chatData, key) {
+		if (key != EXECUTION_KEY) return;
+		
 		let status = false
 		
 		this.#data.forEach( (commands, prefix ) => {
@@ -89,3 +110,11 @@ export default class ChatCommand {
 		return { isCommand: status }
 	}
 }
+
+World.events.beforeChat.subscribe(eventData => {
+	if (ChatCommand.onChat( eventData, EXECUTION_KEY ).isCommand ) {
+		eventData.cancel = true
+	}
+})
+
+export default ChatCommand
