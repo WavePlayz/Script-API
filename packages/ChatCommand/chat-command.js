@@ -1,13 +1,13 @@
 //by WavePlayz
-//v3
+//v3.1
 
 import { World, Commands } from "mojang-minecraft"
 
-const DIMENSIONS = [
-	World.getDimension("overworld"),
-	World.getDimension("nether"),
-	World.getDimension("the end")
-]
+const DIMENSIONS = {
+	"overworld": World.getDimension("overworld"),
+	"nether": World.getDimension("nether"),
+	"end": World.getDimension("the end")
+}
 
 const EXECUTION_KEY = Symbol()
 
@@ -142,9 +142,9 @@ class ChatCommand {
 		return { isCommand: status }
 	}
 	
-	static hExecute (command, dimension = 0) {
+	static hExecute (command, dimension = "overworld") {
 		return function() {
-			Commands.run(command, DIMENSIONS[ dimension ] ?? DIMENSIONS[ 0 ] )
+			Commands.run(command, DIMENSIONS[ dimension ] ?? DIMENSIONS[ "overworld" ] )
 		}
 	}
 		
