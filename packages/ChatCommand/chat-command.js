@@ -9,7 +9,6 @@ const DIMENSIONS = [
 	World.getDimension("the end")
 ]
 
-
 const EXECUTION_KEY = Symbol()
 
 String.prototype.toArguments = function(shouldTypeConvert = true) {
