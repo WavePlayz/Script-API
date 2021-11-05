@@ -62,9 +62,15 @@ class ChatCommand {
 	static #data = new Map()
 	
 	static HELPER = {
-		teleport (x, y, z, dimension) {
+		command (command, dimension = 0) {
+			return function() {
+				Commands.run(command, DIMENSIONS[dimension])
+			}
+		}
+		
+		teleport (x, y, z, dimension = 0) {
 			return function({ sender: { nameTag } }) {
-				Commands.run(`tp "${nameTag}" ${x} ${y} ${z}`, DIMENSIONS[dimension])
+				this.command(`tp "${nameTag}" ${x} ${y} ${z}`)
 			}
 		}
 	}
