@@ -68,7 +68,7 @@ class ChatCommand {
 			}
 		}
 		
-		teleport (x, y, z, dimension = 0) {
+		teleport (x, y, z, dimension) {
 			return function({ sender: { nameTag } }) {
 				this.command(`tp "${nameTag}" ${x} ${y} ${z}`)
 			}
