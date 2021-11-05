@@ -69,8 +69,9 @@ class ChatCommand {
 		}
 		
 		teleport (x, y, z, dimension) {
+			let context = this
 			return function({ sender: { nameTag } }) {
-				this.execute(`tp "${nameTag}" ${x} ${y} ${z}`)
+				context.execute(`tp "${nameTag}" ${x} ${y} ${z}`)
 			}
 		}
 	}
