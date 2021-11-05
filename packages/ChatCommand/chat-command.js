@@ -160,10 +160,9 @@ class ChatCommand {
 
 World.events.beforeChat.subscribe(eventData => {
 	try {
-	if (ChatCommand.onChat( eventData, EXECUTION_KEY ).isCommand ) {
-		eventData.cancel = true
-	}
-	
+		if (ChatCommand.onChat( eventData, EXECUTION_KEY ).isCommand ) {
+			eventData.cancel = true
+		}
 	} catch (error) {
 		console.warn(error)
 		console.warn(error.stack)
