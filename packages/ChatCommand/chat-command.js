@@ -1,6 +1,6 @@
 //by WavePlayz
-//v2.2
-
+//v2.
+3
 import { World, Commands } from "mojang-minecraft"
 
 const DIMENSIONS = [
@@ -62,7 +62,7 @@ class ChatCommand {
 	static #data = new Map()
 	
 	static HELPER = {
-		command (command, dimension = 0) {
+		execute (command, dimension = 0) {
 			return function() {
 				Commands.run(command, DIMENSIONS[dimension] ?? DIMENSIONS[0] )
 			}
@@ -70,7 +70,7 @@ class ChatCommand {
 		
 		teleport (x, y, z, dimension) {
 			return function({ sender: { nameTag } }) {
-				this.command(`tp "${nameTag}" ${x} ${y} ${z}`)
+				this.execute(`tp "${nameTag}" ${x} ${y} ${z}`)
 			}
 		}
 	}
