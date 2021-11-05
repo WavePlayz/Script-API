@@ -1,6 +1,6 @@
 //by WavePlayz
-//v2.
-3
+//v2.3
+
 import { World, Commands } from "mojang-minecraft"
 
 const DIMENSIONS = [
