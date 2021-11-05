@@ -1,5 +1,5 @@
 //by WavePlayz
-//v2.5
+//v3
 
 import { World, Commands } from "mojang-minecraft"
 
@@ -29,8 +29,19 @@ String.prototype.toArguments = function(shouldTypeConvert = true) {
 		}
 	}
 	
+	let ignoreCharacter = false
+	
 	for (let i = 0; i <= contentLength; i++) {
 		const character = content[ i ]
+		
+		if (ignoreCharacter) {
+			currentArgument += character
+			ignoreCharacter = false
+		}
+		
+		if ( character == "\\" ) {
+			ignoreCharacter = true
+		}
 		
 		if ( character == isSingleOpen || character == isDoubleOpen ) {
 			quotes[character] = !quotes[character]
@@ -61,18 +72,17 @@ String.prototype.toArguments = function(shouldTypeConvert = true) {
 class ChatCommand {
 	static #data = new Map()
 	
-	static HELPER = {
-		execute (command, dimension = 0) {
-			return function() {
-				Commands.run(command, DIMENSIONS[dimension] ?? DIMENSIONS[0] )
-			}
+	static #create(prefix, namespaces, callback) {
+		if (!this.#data.has( prefix )) {
+			this.#data.set( prefix, new Map());
 		}
 		
-		teleport (x, y, z, dimension) {
-			let context = this
-			return function({ sender: { nameTag } }) {
-				context.execute(`tp "${nameTag}" ${x} ${y} ${z}`)
-			}
+		let group = this.#data.get( prefix )
+		
+		if (Array.isArray( namespaces )) {
+			namespaces.forEach( value => group.set(value, callback) )
+		} else {
+			group.set( namespaces, callback)
 		}
 	}
 	
@@ -80,48 +90,73 @@ class ChatCommand {
 		const classContext = this
 		return {
 			add( ...args ) {
-				classContext.create( prefix, ...args )
+				classContext.#create( prefix, ...args )
 				return this
 			}
-		}
-	}
-	
-	static create(groupname, namespace, callback) {
-		if (!this.#data.has(groupname)) {
-			this.#data.set(groupname, new Map());
-		}
-		
-		let group = this.#data.get(groupname)
-		
-		if (Array.isArray(namespace)) {
-			namespace.forEach(value => group.set(namespace, callback))
-		} else {
-			group.set(namespace, callback)
 		}
 	}
 	
 	static onChat(chatData, key) {
 		if (key != EXECUTION_KEY) return;
 		
+		const { message, sender } = chatData
+		const { location, velocity, name, nameTag, isSneaking } = sender ?? {}
+		const { x, y, z } = location ?? {}
+		const { x: vx, y: vy, z: vz } = velocity ?? {}
+		 
+		const context = this
+		
 		let status = false
 		
 		this.#data.forEach( (commands, prefix ) => {
-			if ( !message.startsWith(prefix) ) return;
+			if ( !message.startsWith( prefix ) ) return;
 			
-			let content = chatData.message.replace(prefix, "")
+			let content = message.replace( prefix, "")
 			
-			let [ namespace, ...arguments ] = content.toArguments()
+			let [ command, ...args ] = content.toArguments()
 			
-			if (!commands.has(namespace)) return;
+			let body = content.substr( content.indexOf(args[0]) )
 			
-			commands.get(namespace)(chatData, arguments, content)
+			if (!commands.has( command )) return;
+			
+			let data = {
+				message,
+				player: {
+					x, y, z, 
+					vx, vy, vz,
+					name, nameTag, 
+					isSneaking
+				},
+				prefix,
+				content,
+				command,
+				arguments: args,
+				body
+			}
+			
+			commands.get( command ).call(context, data, arguments, content)
 			
 			status = true
 		})
 		
 		return { isCommand: status }
 	}
+	
+	static hExecute (command, dimension = 0) {
+		return function() {
+			Commands.run(command, DIMENSIONS[ dimension ] ?? DIMENSIONS[ 0 ] )
+		}
+	}
+		
+	static hTeleport (x, y, z, dimension) {
+		return function(data) {
+			let { nameTag } = data
+			this.hExecute(`tp "${nameTag}" ${x} ${y} ${z}`, dimension)
+		}
+	}
 }
+
+
 
 World.events.beforeChat.subscribe(eventData => {
 	try {
@@ -135,4 +170,7 @@ World.events.beforeChat.subscribe(eventData => {
 	}
 })
 
+
+
 export default ChatCommand
+
