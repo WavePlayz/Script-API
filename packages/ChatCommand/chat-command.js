@@ -85,12 +85,18 @@ class ChatCommand {
 		}
 	}
 	
-	static create(prefix, namespace, callback) {
-		if (!this.#data.has(prefix)) {
-			this.#data.set(prefix, new Map());
+	static create(groupname, namespace, callback) {
+		if (!this.#data.has(groupname)) {
+			this.#data.set(groupname, new Map());
 		}
 		
-		this.#data.get(prefix).set(namespace, callback)
+		let group = this.#data.get(groupname)
+		
+		if (Array.isArray(namespace)) {
+			namespace.forEach(value => group.set(namespace, callback))
+		} else {
+			group.set(namespace, callback)
+		}
 	}
 	
 	static onChat(chatData, key) {
