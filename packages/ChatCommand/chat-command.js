@@ -1,5 +1,5 @@
 //by WavePlayz
-//v2.1
+//v2.2
 
 import { World, Commands } from "mojang-minecraft"
 
@@ -64,7 +64,7 @@ class ChatCommand {
 	static HELPER = {
 		command (command, dimension = 0) {
 			return function() {
-				Commands.run(command, DIMENSIONS[dimension])
+				Commands.run(command, DIMENSIONS[dimension] ?? DIMENSIONS[0] )
 			}
 		}
 		
