@@ -130,7 +130,7 @@ class ChatCommand {
 				prefix,
 				content,
 				command,
-				argument: args,
+				arguments: args,
 				body
 			}
 			
