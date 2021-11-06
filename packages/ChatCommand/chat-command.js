@@ -15,7 +15,7 @@ String.prototype.toArguments = function(shouldTypeConvert = true) {
 	const content = this.toString()
 	const contentLength = content.length
 	
-	let arguments = []
+	let _arguments = []
 	let currentArgument = ""
 	
 	let isSingleOpen = "'"
@@ -56,7 +56,7 @@ String.prototype.toArguments = function(shouldTypeConvert = true) {
 			} 
 			
 			if (currentArgument) {
-				arguments.push( currentArgument )
+				_arguments.push( currentArgument )
 			}
 			
 			currentArgument = ""
@@ -66,7 +66,7 @@ String.prototype.toArguments = function(shouldTypeConvert = true) {
 		currentArgument += character
 	}
 	
-	return arguments
+	return _arguments
 }
 
 class ChatCommand {
