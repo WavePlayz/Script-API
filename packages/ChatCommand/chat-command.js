@@ -148,7 +148,7 @@ World.events.beforeChat.subscribe(eventData => {
 		}
 	} catch (error) {
 		console.warn(TAG + error)
-		console.warn( TAG + error.stack)
+		console.warn(TAG + error.stack)
 	}
 })
 
