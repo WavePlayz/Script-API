@@ -134,7 +134,7 @@ class ChatCommand {
 				body
 			}
 			
-			commands.get( command ).call(context, data, arguments, content)
+			commands.get( command ).call(context, data)
 			
 			status = true
 		})
