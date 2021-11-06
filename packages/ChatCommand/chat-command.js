@@ -1,13 +1,7 @@
 //by WavePlayz
-//v3.3
+//v3.4
 
 import { World, Commands } from "mojang-minecraft"
-
-const DIMENSIONS = {
-	"overworld": World.getDimension("overworld"),
-	"nether": World.getDimension("nether"),
-	"end": World.getDimension("the end")
-}
 
 const EXECUTION_KEY = Symbol()
 
@@ -141,21 +135,10 @@ class ChatCommand {
 		
 		return { isCommand: status }
 	}
-	
-	static hExecute (command, dimension = "overworld") {
-		return function() {
-			Commands.run(command, DIMENSIONS[ dimension ] ?? DIMENSIONS[ "overworld" ] )
-		}
-	}
-		
-	static hTeleport (x, y, z, dimension) {
-		return function(data) {
-			let { nameTag } = data
-			this.hExecute(`tp "${nameTag}" ${x} ${y} ${z}`, dimension)
-		}
-	}
 }
 
+
+const TAG = "[ChatCommand]"
 
 
 World.events.beforeChat.subscribe(eventData => {
@@ -164,8 +147,8 @@ World.events.beforeChat.subscribe(eventData => {
 			eventData.cancel = true
 		}
 	} catch (error) {
-		console.warn(error)
-		console.warn(error.stack)
+		console.warn(TAG + error)
+		console.warn( TAG + error.stack)
 	}
 })
 
