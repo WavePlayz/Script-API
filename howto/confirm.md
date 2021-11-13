@@ -3,7 +3,7 @@
 const OVERWORLD = World.getDimension("overworld")
 const record = {}
 
-function conform(playerName, title, callback) {
+function confirm(playerName, title, callback) {
 	Commands.run(`msg "${playerName}" ${title}`, OVERWORLD )
 	record[playerName] = callback
 }
@@ -19,7 +19,7 @@ World.events.beforeChat.subscribe(eventData => {
 })
 
 // usage
-conform("Steve", "Are ypu sure?", response => {
+confirm("Steve", "Are ypu sure?", response => {
 	if (response == "yes") {
 		// do stuff
 	}
