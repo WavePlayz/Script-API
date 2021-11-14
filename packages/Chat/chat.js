@@ -264,3 +264,5 @@ World.events.beforeChat.subscribe(eventData => {
 })
 
 
+export Chat
+export ChatCommand
