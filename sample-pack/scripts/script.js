@@ -1,16 +1,20 @@
 // Native Modules
 import * as Minecraft from "mojang-minecraft";
-import * as Gametest from "mojang-gametest";
 
-const OVERWORLD = Minecraft.World.getDimension("overworld");
-
-let playerJoined = false 
-let tick = 0
+let worldHasPlayer = false 
 
 Minecraft.World.events.tick.subscribe(eventData => {
-    if (playerJoined || tick < 20 * 5) return;
+    const { currentTick } = eventData
     
-    Minecraft.Commands.run("say Hello World", OVERWORLD)
+    if (worldHasPlayer || currentTick % 20 * 5 !== 0) return;
+    
+    let players = Minecraft.world.getPlayers()
+    
+    players.forEach(
+        player => player.runCommand("say Hello " + player.nameTag)
+    )
+    
+    worldHasPlayer = true
 })
 
 
