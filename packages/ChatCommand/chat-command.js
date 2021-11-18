@@ -1,7 +1,7 @@
 //by WavePlayz
 //v3.4
 
-import { World, Commands } from "mojang-minecraft"
+import { world } from "mojang-minecraft"
 
 const EXECUTION_KEY = Symbol()
 
@@ -141,7 +141,7 @@ class ChatCommand {
 const TAG = "[ChatCommand]"
 
 
-World.events.beforeChat.subscribe(eventData => {
+world.events.beforeChat.subscribe(eventData => {
 	try {
 		if (ChatCommand.onChat( eventData, EXECUTION_KEY ).isCommand ) {
 			eventData.cancel = true
