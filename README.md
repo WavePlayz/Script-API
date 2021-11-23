@@ -150,6 +150,75 @@ As of 1.18.10.20 we have two native modules to work with
 the gametest module is not something to excite about, its not very useful for us users as its intended for mojang devlopers to automate the game mechanics testing process and stuff plus it only works with in the range of stucture blocks on the other hand minecraft module is where all the intresting things exists 
 
 ##### Importing pack
-once your done with the above steps, you can now load the pack into the world, lets create a new one, then head over **Behavior Packs** button in the lower-left corner of the "Add-Ons" sub-menu. 
-![addon section](/Screenshot_2021-11-23-12-32-42-95.jpg "Title")
+once your done with the above steps, you can now load the pack into the world, lets create a new one, in the game option scroll down till you see an option with title **Enable Gametest Framework** enable it, 
 
+![gametest-option](/gametest-option.jpg)
+
+then head over **Behavior Packs** button in the lower-left corner of the "Add-Ons" sub-menu. 
+
+![addon-button](/addon-button.jpg "Addon")
+
+Click `Behavior Packs > My Packs`
+your add-on now should show up in the list of behavior packs!
+
+Clicking on your add-on should bring up a button titled "Activate". Click it.
+
+![pack-section](/pack-section.jpg "Pack")
+
+your behavior pack now should have been moved to the "Active" section! 
+
+now you can join the world to see everything works, but wait if you join you wont see anything diffrent its obvious since we have nothing added in the script file yet
+
+##### Creating first script - script.js
+the very first thing we need to do in the script is to import the native minecraft modules like that
+```js
+// importing native munecraft module
+import * as Minecraft from "mojang-minecraft"
+```
+next thing we need to do is listen for some event in this tutorial we will use the tick event which runs every tick, here is how we you it
+```js
+Minecraft.world.events.tick.subscribe(eventData => {
+	const { currentTick } = eventData
+	
+	// your code here
+
+})
+```
+lets create a chat spam as our first script to see if everything is working all right
+```js
+
+// importing native munecraft module
+import * as Minecraft from "mojang-minecraft";
+
+// variable to track world is empty or filled
+let worldHasPlayer = false 
+
+// player join event triggered when a player joins
+Minecraft.world.events.playerJoin(player => {
+	
+	// as player has joined set worldHasPlayer to yes
+	worldHasPlayer = true
+})
+
+const TICKS_IN_FIVE_SECONDS = 20 * 5
+
+// world tick event that fires our function every tick - 20 time in a sec
+Minecraft.world.events.tick.subscribe(eventData => {
+
+	// current world tick count value returned by the event
+	const { currentTick } = eventData
+	
+	// if world not has player or current tick is not divisable by TICKS_IN_FIVE_SECONDS the break the code
+	if (worldHasPlayer || currentTick % TICKS_IN_FIVE_SECONDS !== 0) return;
+	
+	// get all players 
+	let players = Minecraft.world.getPlayers()
+	
+	// loop through players 
+	players.forEach(
+		// run command as player 
+		player => player.runCommand("say Hello " + player.nameTag)
+	)
+})
+```
+save the code in your `script.js` main file and open the world, you should now see spam in the chat if not then something might be wrong :( recheck what went wromg.
