@@ -1,5 +1,5 @@
 //by WavePlayz
-//v4.0
+//v4.1
 
 import { world } from "mojang-minecraft"
 
