@@ -192,7 +192,7 @@ import * as Minecraft from "mojang-minecraft";
 let worldHasPlayer = false 
 
 // player join event triggered when a player joins
-Minecraft.world.events.playerJoin(player => {
+Minecraft.world.events.playerJoin.subscribe(player => {
 	
 	// as player has joined set worldHasPlayer to yes
 	worldHasPlayer = true
