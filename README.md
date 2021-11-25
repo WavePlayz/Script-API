@@ -28,9 +28,7 @@ Some resources below to get started.
 this is the place where we will spend most of our time and work.
 
 **Win10** users can find this at the given path
-`C:\Users\<USERNAME>\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`
-
-\* make sure to replace the **\<USERNAME\>** with your Windows 10 username
+`%localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`
 
 
 **Android** users can find this by visiting the following path
