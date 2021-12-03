@@ -1,4 +1,5 @@
 
+```javascript
 import ChatCommand from "./packages/chat-command.js"
 
 ChatCommand
@@ -33,6 +34,12 @@ ChatCommand
 		{ whitelist:  [ "Steve", "Alex" ] }
 	)
 	
+	
+world.events.beforeChat.subscribe(eventData => {
+	ChatCommand.onChatTrigger( eventData )
+})
+	
+```
 	
 
 
