@@ -1,5 +1,6 @@
 
 ```javascript
+import { world } from "mojang-minecraft"
 import ChatCommand from "./packages/chat-command.js"
 
 ChatCommand
