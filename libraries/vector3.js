@@ -15,10 +15,10 @@ class Vector3 {
 		let pitchRad = this.degreeToRadians(pitch)
 		let yawRad = this.degreeToRadians(yaw)
 		
-		let sinYaw = Math.sin(yaw)
-		let sinPitch = Math.sin(pitch)
-		let cosYaw = Math.cos(yaw)
-		let cosPitch = Math.cos(pitch)
+		let sinYaw = Math.sin(yawRad)
+		let sinPitch = Math.sin(pitchRad)
+		let cosYaw = Math.cos(yawRad)
+		let cosPitch = Math.cos(pitchRad)
 		
 		return {
 			x : distance * -sinYaw * cosPitch ,
