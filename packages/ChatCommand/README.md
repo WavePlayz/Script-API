@@ -43,7 +43,7 @@ world.events.beforeChat.subscribe(eventData => {
 ```
 
 `data` parameter contains
-```JSON
+```js
 {
 	sender,
 	player: {
