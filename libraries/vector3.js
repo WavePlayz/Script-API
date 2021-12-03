@@ -11,7 +11,7 @@ class Vector3 {
 		return radians * this.DEGREES_IN_RADIAN
 	}
 	
-	static fromAngle (pitch, yaw) {
+	static fromAngle (pitch, yaw, distance = 1) {
 		let pitchRad = this.degreeToRadians(pitch)
 		let yawRad = this.degreeToRadians(yaw)
 		
