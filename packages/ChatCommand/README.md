@@ -56,7 +56,7 @@ world.events.beforeChat.subscribe(eventData => {
 	content,
 	command,
 	commandArguments,
-	body: content.substr( content.indexOf( commandArguments[0] ) )
+	body
 }
 ```
 
