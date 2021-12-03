@@ -1,158 +1,195 @@
-//by WavePlayz
-//v4.1
-
-import { world } from "mojang-minecraft"
+// by WavePlayz
+// v5.0
 
 const EXECUTION_KEY = Symbol()
 
-String.prototype.toArguments = function(shouldTypeConvert = true) {
+String.prototype.toArguments = function(doTypeConversion = true, spliters = /[\s\b]/) {
 	const content = this.toString()
 	const contentLength = content.length
 	
 	let _arguments = []
 	let currentArgument = ""
 	
-	let isSingleOpen = "'"
-	let isDoubleOpen = '"'
+	let SINGLE_QUOTE = "'"
+	let DOUBLE_QUOTE = '"'
 	
 	let quotes = {
-		[isSingleOpen]: false,
-		[isDoubleOpen]: false,
-		get notOpened() {
-			return !this[isSingleOpen] && !this[isDoubleOpen]
+		[SINGLE_QUOTE]: false,
+		[DOUBLE_QUOTE]: false,
+		get isOpen() {
+			return this[SINGLE_QUOTE] || this[DOUBLE_QUOTE]
 		}
 	}
 	
-	let ignoreCharacter = false
+	let shouldIgnoreCharacter = false
 	
 	for (let i = 0; i <= contentLength; i++) {
-		const character = content[ i ]
+		const currentCharacter = content[ i ]
 		
-		if (ignoreCharacter) {
-			currentArgument += character
-			ignoreCharacter = false
+		if (shouldIgnoreCharacter) {
+			currentArgument += currentCharacter
+			shouldIgnoreCharacter = false
 		}
 		
-		if ( character == "\\" ) {
-			ignoreCharacter = true
+		else if ( currentCharacter == "\\" ) {
+			shouldIgnoreCharacter = true
 		}
 		
-		if ( character == isSingleOpen || character == isDoubleOpen ) {
-			quotes[character] = !quotes[character]
-			continue
+		else if ( currentCharacter in quotes && (!quotes.isOpen || quotes[currentCharacter] )) {
+			quotes[currentCharacter] = !quotes[currentCharacter]
 		}
 		
-		if ( (/[\s\b]/.test( character ) && quotes.notOpened) || (i == contentLength) ) {
-			if (shouldTypeConvert) {
+		else if (
+			!quotes.isOpen && 
+			spliters.test( currentCharacter ) || 
+			currentCharacter === undefined
+		) {
+			if (doTypeConversion) {
 				try {
 					currentArgument = JSON.parse(currentArgument)
 				} catch (error) {}
-			} 
-			
-			if (currentArgument) {
-				_arguments.push( currentArgument )
 			}
 			
+			currentArgument && _arguments.push(currentArgument)
+			
 			currentArgument = ""
-			continue
-		}
+		} 
 		
-		currentArgument += character
+		else {
+			currentArgument += currentCharacter
+		}
 	}
 	
 	return _arguments
 }
 
+function getTellrawString (string) {
+	return `tellraw @s { "rawtext": [{ "text": "${string}" }] }`
+}
+
 class ChatCommand {
 	static #data = new Map()
 	
-	static #create(prefix, namespaces, callback) {
-		if (!this.#data.has( prefix )) {
-			this.#data.set( prefix, new Map());
+	static #createCommand(prefix, configuration0, namespaces, callback, configuration1 ) {
+		if (typeof namespaces !== "string") {
+			throw new Error("<TypeError> command name must be string")
 		}
 		
-		let group = this.#data.get( prefix )
+		if (!this.#data.has( prefix )) {
+			this.#data.set( prefix, new Map() )
+		}
+		
+		let configuration = {...configuration0, ...configuration1}
+		
+		let commandGroup = this.#data.get( prefix )
+		let commandData = { callback, configuration, lastCalled: {} }
 		
 		if (Array.isArray( namespaces )) {
-			namespaces.forEach( value => group.set(value, callback) )
+			namespaces.forEach( 
+				namespace => commandGroup.set(namespace, commandData)
+			)
 		} else {
-			group.set( namespaces, callback)
+			commandGroup.set(namespaces, commandData)
 		}
 	}
 	
-	static group (prefix) {
-		const classContext = this
-		return {
-			add( ...args ) {
-				classContext.#create( prefix, ...args )
+	static createCommandGroup(groupPrefix, configuration) {
+		if (typeof groupPrefix !== "string") {
+			throw new Error("<TypeError> group prefix must be string")
+		}
+		
+		const context = this
+		
+		return { // anonymous command group object
+			addCommand(...args) {
+				context.#createCommand(groupPrefix, configuration, ...args)
 				return this
 			}
 		}
 	}
 	
-	static onChat(chatData, key) {
-		if (key != EXECUTION_KEY) return;
-		
+	static onChatTrigger (chatData, key) {
 		const { message, sender } = chatData
-		const { location, velocity, name, nameTag, isSneaking } = sender ?? {}
-		const { x, y, z } = location ?? {}
-		const { x: vx, y: vy, z: vz } = velocity ?? {}
-		 
+		
+		let { 
+			location = {}, 
+			velocity = {}, 
+			name, 
+			nameTag, 
+			isSneaking
+		} = sender ?? {}
+		
+		location = { ...location }
+		velocity = { ...velocity }
+		
 		const context = this
 		
 		let status = false
 		
-		this.#data.forEach( (commands, prefix ) => {
-			if ( !message.startsWith( prefix ) ) return;
+		this.#data.forEach( (commandGroup, prefix ) => {
+			if ( ! message.startsWith( prefix ) ) return;
 			
-			let content = message.replace( prefix, "")
+			chatData.cancel = true
 			
-			let [ command, ...args ] = content.toArguments()
+			let content = message.replace( prefix, "" )
 			
-			let body = content.substr( content.indexOf(args[0]) )
+			let [ command, ...commandArguments ] = content.toArguments()
 			
-			if (!commands.has( command )) return;
+			if (! commandGroup.has( command )) return;
+			
+			let currentTime = Date.now()
+			
+			let commandData = commandGroup.get( command )
+			let { callback, configuration } = commandData
+			let { requires, requiresAny, cooldown, whitelist } = configuration ?? {}
+			
+			if (Array.isArray(whitelist) && whitelist.includes(nameTag)) {}
+			
+			else if (cooldown && commandData.lastCalled[nameTag] && currentTime - commandData.lastCalled[nameTag] < cooldown) {
+				sender.runCommand(getTellrawString(`You are on cooldown of ${cooldown}ms`))
+				return
+			}
+			
+			else if (Array.isArray(requires) && requires.length) {
+				if (requires.some(tag => !sender.hasTag(tag))) {
+					sender.runCommand(getTellrawString(`You dont have permissions to use this command`))
+					return
+				}
+			} 
+			
+			else if (Array.isArray(requiresAny) && requiresAny.length) {
+				if (!requiresAny.some(tag => sender.hasTag(tag))) {
+					sender.runCommand(getTellrawString(`You dont have permissions to use this command`))
+					return
+				}
+			}
 			
 			let data = {
-				message,
+				sender,
 				player: {
-					x, y, z, 
-					vx, vy, vz,
 					name, nameTag, 
+					location, velocity,
 					isSneaking
 				},
 				prefix,
+				message,
 				content,
 				command,
-				arguments: args,
-				body
+				commandArguments,
+				body: content.substr( content.indexOf( commandArguments[0] ) )
 			}
 			
-			commands.get( command ).call(context, data)
+			callback && callback.call(context, data)
+			
+			commandData.lastCalled[nameTag] = currentTime
 			
 			status = true
 		})
 		
-		return { isCommand: status }
+		return status
+	
 	}
 }
 
 
-const TAG = "[ChatCommand]"
-
-
-world.events.beforeChat.subscribe(eventData => {
-	try {
-		if (ChatCommand.onChat( eventData, EXECUTION_KEY ).isCommand ) {
-			eventData.cancel = true
-		}
-	} catch (error) {
-		console.warn(TAG + error)
-		console.warn(TAG + error.stack)
-	}
-})
-
-
-
 export default ChatCommand
-
