@@ -1,4 +1,23 @@
 
+`data` parameter contains
+```json
+{
+	sender,
+	player: {
+		name, nameTag, 
+		location, velocity,
+		isSneaking
+	},
+	prefix,
+	message,
+	content,
+	command,
+	commandArguments,
+	body: content.substr( content.indexOf( commandArguments[0] ) )
+}
+```
+
+
 ```javascript
 import { world } from "mojang-minecraft"
 import ChatCommand from "./packages/chat-command.js"
