@@ -170,7 +170,8 @@ your behavior pack now should have been moved to the "Active" section!
 
 now you can join the world to see everything works, but wait if you join you wont see anything diffrent its obvious since we have nothing added in the script file yet
 
-##### Creating first script - script.js
+##### `script.js`
+##### creating our first script
 the very first thing we need to do in the script is to import the native minecraft modules like that
 ```js
 // importing native minecraft module
@@ -185,7 +186,7 @@ Minecraft.world.events.tick.subscribe(eventData => {
 
 })
 ```
-### `script.js`
+##### chat spam, our first script
 lets create chat spam as our first script to see if everything is all right
 ```js
 
