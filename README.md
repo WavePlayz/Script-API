@@ -52,11 +52,11 @@ to start with we will first need to create the folder in the `development_behavi
 
 ```
 development_behavior_packs/
-└── sample_pack/
-     ├── scripts/
-     │    └── script.js
-     ├── manifest.json
-     └── pack_icon.png
+┗━ sample_pack/
+    ┣━ scripts/
+    ┇    ┗━ script.js
+    ┣━ manifest.json
+    ┗━ pack_icon.png
 ```
 [download sample pack](/sample-pack)
 
