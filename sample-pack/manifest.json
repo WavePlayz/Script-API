@@ -6,7 +6,7 @@
 		"description": "Example vanilla behavior pack",
 		"uuid": "b3bc569d-3144-4473-82ae-c5704a6064e3",
 		"version": [0, 0, 1],
-		"min_engine_version": [1, 18, 10, 20 ]
+		"min_engine_version": [1, 18, 10 ]
 	},
 	
 	"modules": [
