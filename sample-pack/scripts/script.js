@@ -12,7 +12,7 @@ const TICKS_IN_FIVE_SECONDS = 20 * 5
 Minecraft.world.events.tick.subscribe(eventData => {
     const { currentTick } = eventData
     
-    if (worldHasPlayer || currentTick % TICKS_IN_FIVE_SECONDS !== 0) return;
+    if (!worldHasPlayer || currentTick % TICKS_IN_FIVE_SECONDS !== 0) return;
     
     let players = Minecraft.world.getPlayers()
     
