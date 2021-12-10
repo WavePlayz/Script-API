@@ -153,18 +153,18 @@ on the other side `mojang-minecraft` module is what we can consider as the "new 
 ##### Importing pack
 once your done with the above steps, you can now load the pack into the world, lets create a new one, in the game option scroll down till you see an option with title **Enable Gametest Framework** enable it, 
 
-![gametest-option](/gametest-option.jpg)
+![gametest-option](images/gametest-option.jpg)
 
 then head over **Behavior Packs** button in the lower-left corner of the "Add-Ons" sub-menu. 
 
-![addon-button](/addon-button.jpg "Addon")
+![addon-button](images/addon-button.jpg "Addon")
 
 Click `Behavior Packs > My Packs`
 your add-on now should show up in the list of behavior packs!
 
 Clicking on your add-on should bring up a button titled "Activate". Click it.
 
-![pack-section](/pack-section.jpg "Pack")
+![pack-section](images/pack-section.jpg "Pack")
 
 your behavior pack now should have been moved to the "Active" section! 
 
