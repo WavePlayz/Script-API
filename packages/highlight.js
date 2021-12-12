@@ -46,7 +46,7 @@ export default function (code) {
 		},
 		method: {
 			priority: 8,
-			regex: /\b(?<!§)\w+(\.\w+?)\b/g,
+			regex: /\b(?<!§)(\.\w+?)\b/g,
 			style: "§6"
 		},
 		string: {
