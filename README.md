@@ -52,13 +52,13 @@ to start with we will first need to create the folder in the `development_behavi
 
 ```
 development_behavior_packs/
-┗━ sample_pack/
-    ┣━ scripts/
-    ┇    ┗━ script.js
-    ┣━ manifest.json
-    ┗━ pack_icon.png
+┗━• sample_pack/
+    ┣━• scripts/
+    ┇    ┗━• script.js
+    ┣━• manifest.json
+    ┗━• pack_icon.png
 ```
-[download sample pack](/sample-pack)
+[**•** Download sample pack](/sample-pack)
 
 thats not it, the pack is not a gametest pack until we do the following changes in the `manifest.json`
 1. format version needs to be 2
