@@ -6,7 +6,7 @@ export default function (code) {
 	const match = {
 		opretor: {
 			priority: 0,
-			regex: new RegExp("(" + opretors.map(v => "\\" + v).join("|") + ")+", "g"),
+			regex: new RegExp("([" + opretors.map(v => "\\" + v) + "]+)", "g"),
 			style: "§7"
 		},
 		int: {
