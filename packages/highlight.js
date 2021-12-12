@@ -7,7 +7,7 @@ export default function (code) {
 		opretor: {
 			priority: 0,
 			regex: new RegExp("([" + opretors.map(v => "\\" + v) + "]+)", "g"),
-			style: "§7"
+			style: "§c"
 		},
 		int: {
 			priority: 1,
