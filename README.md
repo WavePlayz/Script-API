@@ -218,10 +218,10 @@ Minecraft.world.events.tick.subscribe(eventData => {
 	let players = Minecraft.world.getPlayers()
 	
 	// loop through players 
-	players.forEach(
+	for (let player of players) {
 		// run command as player 
-		player => player.runCommand("say Hello " + player.nameTag)
-	)
+		player.runCommand("say Hello " + player.nameTag)
+	}
 })
 ```
 save the code in your `script.js` / main file then open the world, you should now see a spam in the chat.. if not then something is wrong :( recheck what went wrong.
