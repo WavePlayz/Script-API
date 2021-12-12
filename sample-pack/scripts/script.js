@@ -16,9 +16,9 @@ Minecraft.world.events.tick.subscribe(eventData => {
     
     let players = Minecraft.world.getPlayers()
     
-    players.forEach(
-        player => player.runCommand("say Hello " + player.nameTag)
-    )
+    for (let player of players) {
+        player.runCommand("say Hello " + player.nameTag)
+    }
 })
 
 
