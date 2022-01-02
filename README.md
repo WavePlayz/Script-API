@@ -1,4 +1,4 @@
-# Gametest-API `BETA`
+# Gametest-API `BETA 1.18.10.24`
 guide to get you started with the new scripting api, **The GameTest Framework** \!
 
 ### Prerequisites
