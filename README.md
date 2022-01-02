@@ -5,23 +5,24 @@ guide to get you started with the new scripting api, **The GameTest Framework** 
 - Basic understanding of **Javascript**,  
 Some resources below to get started.
   - Crash Course by Amazing instructor [**Mosh Hamedani**](https://codewithmosh.com/) (Highly Recommended)  
-[Javascript in 1 hour](https://youtu.be/W6NZfCO5SIk)  
-[ES6 / Modern Javascript in 1 Hour](https://youtu.be/NCwa_xi0Uuc)  
+१ [Javascript in 1 hour](https://youtu.be/W6NZfCO5SIk)  
+२ [ES6 / Modern Javascript in 1 Hour](https://youtu.be/NCwa_xi0Uuc)  
   - [W3schools](https://www.w3schools.com/js/js_statements.asp) (Recommended)
   - [Javascript info](https://javascript.info/)
 
 -  **Android**, **IOS** or **Win10** device with Minecraft Bedrock Edition installed.
 - Code editor
   - Desktop  
-[Visual Studio Code (Recommended)](https://code.visualstudio.com/)  
-[Sublime Text](https://www.sublimetext.com/)  
+१ [Visual Studio Code (Recommended)](https://code.visualstudio.com/)  
+२ [Sublime Text](https://www.sublimetext.com/)  
   - Android  
-[QuickEdit (Recommended)](https://play.google.com/store/apps/details?id=com.rhmsoft.edit)  
-[Squircle - Code Editor](https://play.google.com/store/apps/details?id=com.blacksquircle.ui)  
+१ [QuickEdit (Recommended)](https://play.google.com/store/apps/details?id=com.rhmsoft.edit)  
+२ [Squircle - Code Editor](https://play.google.com/store/apps/details?id=com.blacksquircle.ui)  
 - A Javascript runner for mobile users - *optional but useful*
   - Android  
-[JS Run (Preferred)](https://play.google.com/store/apps/details?id=com.mia.jsrun)  
-[JavaScript Editor](https://play.google.com/store/apps/details?id=com.sorincovor.javascript_editor)
+१ [JS Run (Preferred)](https://play.google.com/store/apps/details?id=com.mia.jsrun)  
+२ [JavaScript Editor](https://play.google.com/store/apps/details?id=com.sorincovor.javascript_editor)  
+३ [Termux with quickjs]()
 
 ### Setup
 ##### Accessing Minecraft directory
