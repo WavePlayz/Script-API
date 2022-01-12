@@ -1,4 +1,4 @@
-1. Install termux from Fdroid the play store version is no longger mantained.
+1. Install termux from Fdroid the play store version is no longger maintained.
 2. Initialize it by commamds  
 `pkg update && pkg upgarde`
 3. Install quickjs javascript engine by  
