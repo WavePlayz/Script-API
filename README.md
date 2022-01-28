@@ -240,7 +240,7 @@ Minecraft.world.events.tick.subscribe(eventData => {
 save the code in your `script.js` / main file then open the world, you should now see a spam in the chat.. if not then something is wrong :( recheck what went wrong.
 
 ##### 1.18.20.21 Ui API Demo
-![imgur-mp4](images/uidemo.gif)
+![imgur-mp4](images/20220128_165128.gif)
 
 ```javascript
 import { world as World } from "mojang-minecraft"
