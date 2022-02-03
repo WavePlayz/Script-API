@@ -144,13 +144,13 @@ the complete `manifest.json` will look something like this
 	]
 }
 ```
-> you can add additional properties such as metadata for additional info
+> **Tip:** Add additional properties such as metadata for additional info
 > ```json
 > "metadata": {
 > 	"authors": ["<your-name>"],
 > 	"url": "<your-github-repo-url>",
 > 	"license": "TBD"
-> },
+> }
 
 
 ##### Native modules
