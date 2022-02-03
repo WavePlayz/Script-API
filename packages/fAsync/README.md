@@ -1,23 +1,14 @@
-# Features
+## Features
 - timeouts
 - intervals
 - async loops
 
 # Usage
-Folder structure
-  - **scripts/**
-    - **packages/**
-      - `FAsync.js`
-    - `script.js`
-  - `manifest.json`
-  - `pack_icon.png`
----
 ```javascript
-import FAsync from "./packages/FAsync.js"
-import { World } from "mojang-minecraft"
+import { world as World } from "mojang-minecraft"
+import FAsync from "./fAsync.js"
 
-
-// Required step
+// Required
 World.events.tick.subscribe(eventData => {
 	FAsync.update()
 })
@@ -26,17 +17,28 @@ World.events.tick.subscribe(eventData => {
 let func = function() {}
 let delayInTicks = 10
 
-
+// timeout - equals to setTimeout
 FAsync.timeout(func, delayInTicks)
 
+// interval - equals to setInterval
 FAsync.interval(func, delayInTicks)
 
+// timeout - equals to for (let i; i; i++)
 FAsync.forloop(
-	{ i: 0}, //initialization
-	v => v.i < 10, //condition
-	v => v.i++, //statement
-	v => {}, //body
-	delayInTicks //iteration delay in ticks
+	// initialization
+	{ i: 0},
+	
+	// condition
+	v => v.i < 10,
+	
+	// statement
+	v => v.i++,
+	
+	// body
+	v => {}, 
+	
+	// iteration delay in ticks
+	delayInTicks
 )
 
 ```
