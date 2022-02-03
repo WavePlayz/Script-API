@@ -1,21 +1,21 @@
 # Prefered Style Guide
 
-## STRUCTURE
+### STRUCTURE
 `root/libraries/` for general utilities  
 `root/packages/` for gametest utilities  
 `root/modules/` for project utilities  
 
-## NAMING
-#### Folders
+### NAMING
+##### Folders
 `camaleCase`
   
-#### Files
+##### Files
 `spinal-case` / `kebab-case`
 
-#### Main file
+##### Main file
 `PascalCase`
 
-## Imports
+### Imports
 less than 2
 ```js
 import { one, two } from <file>
@@ -29,7 +29,7 @@ import {
 } from <file>
 ```
 
-## Exports
+### Exports
 everything as class
 ```js
 export default class {
