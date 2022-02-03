@@ -18,7 +18,7 @@ Some resources below to get started.
   - Android  
 १ [QuickEdit (Recommended)](https://play.google.com/store/apps/details?id=com.rhmsoft.edit)  
 २ [Squircle - Code Editor](https://play.google.com/store/apps/details?id=com.blacksquircle.ui)  
-- A Javascript executer- *optional but useful*
+- Javascript executer - *optional but useful*
   - Android  
 १ [JS Run (Preferred)](https://play.google.com/store/apps/details?id=com.mia.jsrun)  
 २ [JavaScript Editor](https://play.google.com/store/apps/details?id=com.sorincovor.javascript_editor)  
