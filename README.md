@@ -1,4 +1,4 @@
-# Gametest-API × `BETA` `1.18.10.24`  
+# Gametest-API × `BETA` `1.18.20.21`  
 guide to begain with the new scripting api, **The GameTest Framework** \!
 
 ### Prerequisites
