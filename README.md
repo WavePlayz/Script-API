@@ -112,7 +112,7 @@ the complete `manifest.json` will look something like this
 		"description": "Example gametest behavior pack",
 		"uuid": "b3bc569d-3144-4473-82ae-c5704a6064e3",
 		"version": [0, 0, 1],
-		"min_engine_version": [1, 17, 30]
+		"min_engine_version": [1, 18, 20]
 	},
 	
 	"modules": [
