@@ -13,7 +13,7 @@
 #### Main file
 `PascalCase`
 
-#### Imports
+## Imports
 less than 2
 ```js
 import { one, two } from <file>
@@ -27,7 +27,7 @@ import {
 } from <file>
 ```
 
-#### Exports
+## Exports
 everything as class
 ```js
 export default class {
