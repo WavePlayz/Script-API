@@ -59,7 +59,7 @@ development_behavior_packs/
     ┣━• manifest.json
     ┗━• pack_icon.png
 ```
-[**•** Download sample pack](https://github.com/WavePlayz/Gametest-API/releases/latest)
+[**•** DOWNLOAD SAMPLE PACK](https://github.com/WavePlayz/Gametest-API/releases/latest)
 
 thats not it, the pack is not a gametest pack until we do the following changes in the `manifest.json`
 1. format version needs to be 2
