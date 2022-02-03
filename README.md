@@ -41,7 +41,7 @@ but if you are a **Android 10+** user you won't be able to access the folder dir
 - [Explorer](https://play.google.com/store/apps/details?id=com.speedsoftware.explorer)
 - [X-plore](https://play.google.com/store/apps/details?id=com.lonelycatgames.Xplore)
 
-> Tip: Create shortcuts to those directories for quicker access.
+> **Tip:** Create shortcuts to those directories for quicker access.
 
 once done, you will see bunch of folder in the directory, mainly we are only intrested in two of them during the development process
  - `development_behavior_packs`
