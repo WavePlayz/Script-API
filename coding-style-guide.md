@@ -17,7 +17,7 @@
 less than 2
 ```js
 import { one, two } from <file>
-```
+```  
 greater than 2
 ```js
 import {
@@ -25,6 +25,15 @@ import {
 	two,
 	three
 } from <file>
+```
+
+#### Exports
+everything as class
+```js
+export default class {
+	static variable = ""
+	static function() {}
+}
 ```
 
 
