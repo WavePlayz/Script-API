@@ -1,4 +1,4 @@
-# Style Guide
+# Prefered Style Guide
 
 ## STRUCTURE
 `root/libraries/` for general utilities  
