@@ -68,7 +68,7 @@ thats not it, the pack is not a gametest pack until we do the following changes 
 ```
 2. min version needs to be 1.17.30 or above
 ```json
-"min_engine_version": [ 1, 17, 30 ]
+"min_engine_version": [ 1, 18, 20 ]
 ```
 3. modules section must contain one module object with the type javascript and an entry point to a javascript file, which will be the main file for our gametest
 ```json
