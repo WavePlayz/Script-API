@@ -1,4 +1,4 @@
-# Wave's Prefered Style Guide
+# Wave's Preferred Style Guide
 
 ### STRUCTURE
 `root/libraries/` for general utilities  
