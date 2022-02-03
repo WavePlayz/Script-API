@@ -6,9 +6,9 @@
 `root/modules/` for project utilities  
 
 ### NAMING
-Folders `camaleCase`
-Files `spinal-case` / `kebab-case`
-Main file `PascalCase`
+`camaleCase` for folders  
+`spinal-case` / `kebab-case` for files  
+`PascalCase` for main file  
 
 ### Imports
 less than 2
