@@ -1,4 +1,4 @@
-### STRUCTURE
+## STRUCTURE
 `root/libraries/` for general utilities  
 `root/packages/` for gametest utilities  
 `root/modules/` for project utilities  
