@@ -11,11 +11,11 @@
 `PascalCase` for main file  
 
 ### Imports
-less than 2
+for less imports
 ```js
 import { one, two } from <file>
 ```  
-greater than 2
+for large imports
 ```js
 import {
 	one,
