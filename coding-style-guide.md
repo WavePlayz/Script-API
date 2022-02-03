@@ -1,3 +1,5 @@
+# Style Guide
+
 ## STRUCTURE
 `root/libraries/` for general utilities  
 `root/packages/` for gametest utilities  
