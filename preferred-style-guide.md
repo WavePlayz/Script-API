@@ -6,7 +6,7 @@
 `root/modules/` for project utilities  
 
 ### NAMING
-`camaleCase` for folders  
+`camaleCase` or `snake_case` for folders  
 `spinal-case` / `kebab-case` for files  
 `PascalCase` for main file  
 
