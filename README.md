@@ -1,6 +1,8 @@
 # Gametest-API × `BETA` `1.18.20.21`  
 guide to begain with the new scripting api, **The GameTest Framework** \!
 
+[**• DOWNLOAD SAMPLE PACK**](https://github.com/WavePlayz/Gametest-API/releases/latest)
+
 ### Prerequisites
 - Basic understanding of **Javascript**,  
 Some resources below to get started.
