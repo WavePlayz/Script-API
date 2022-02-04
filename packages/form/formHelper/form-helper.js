@@ -1,4 +1,6 @@
 const NULLS = [ "", null, undefined ]
+const IGNORE_FIELDS = [ "title", "body" ]
+
 
 export default class FormHelper {
 	constructor(form) {
@@ -7,6 +9,8 @@ export default class FormHelper {
 	}
 	
 	add(field, ...args) {
+		if ( IGNORE_FIELDS.includes(field) ) throw new Error("invalid field");
+		
 		const context = this
 		
 		return {
