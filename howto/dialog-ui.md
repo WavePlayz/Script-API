@@ -1,5 +1,5 @@
 ##### 1.18.20.21 Ui API Demo
-![imgur-mp4](images/20220128_165128.gif)
+![imgur-mp4](/images/20220128_165128.gif)
 
 ```javascript
 import { world as World } from "mojang-minecraft"
