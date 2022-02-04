@@ -1,3 +1,5 @@
+const NULLS = [ "", null, undefined ]
+
 export default class FormHelper {
 	constructor(form) {
 		this.form = form
@@ -17,24 +19,29 @@ export default class FormHelper {
 	}
 	
 	show(player, onCancel) {
+		const context = this
 		this.form
 				.show(player)
 				.then( formResponse => {
+					
 					if (formResponse.isCanceled) {
 						typeof onCancel == "function" && onCancel(formResponse)
 					}
 					
-					else if (formResponse.selection !== null) {
-						this.callbacks[ formResponse.selection ]?.call(formResponse)
+					else if (formResponse.selection != null) {
+						context.callbacks[ formResponse.selection ]()
 					}
 					
-					else if (formResponse.formValues !== null) {
+					else if (formResponse.formValues != null) {
 						formResponse
 								.formValues
 								.forEach( (value, index) => {
-									this.callbacks[ index ]?.call(formResponse, value)
+									if ( NULLS.includes(value) ) return;
+									
+									context.callbacks[ index ](value)
 								} )
 					}
+					
 				})
 	}
 	
