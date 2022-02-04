@@ -8,7 +8,7 @@ export default class FormHelper {
 		const context = this
 		
 		return {
-			on(callback) {
+			onInteract(callback) {
 				context.form[field]?.(...args)
 				context.callbacks.push(callback)
 				return context
@@ -25,14 +25,14 @@ export default class FormHelper {
 					}
 					
 					else if (formResponse.selection !== null) {
-						this.callbacks[ formResponse.selection ]?.(formResponse)
+						this.callbacks[ formResponse.selection ]?.call(formResponse)
 					}
 					
 					else if (formResponse.formValues !== null) {
 						formResponse
 								.formValues
 								.forEach( (value, index) => {
-									this.callbacks[ index ]?.(value)
+									this.callbacks[ index ]?.call(formResponse, value)
 								} )
 					}
 				})
