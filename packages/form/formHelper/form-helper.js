@@ -22,7 +22,7 @@ export default class FormHelper {
 		}
 	}
 	
-	show(player, onCancel) {
+	show(player, onCancel, onDone) {
 		const context = this
 		this.form
 				.show(player)
@@ -42,9 +42,11 @@ export default class FormHelper {
 								.forEach( (value, index) => {
 									if ( NULLS.includes(value) ) return;
 									
-									context.callbacks[ index ](value)
+									context.callbacks[ index ](value, index)
 								} )
 					}
+					
+					if (typeof onDone == "function") onDone(formResponse);
 					
 				})
 	}
