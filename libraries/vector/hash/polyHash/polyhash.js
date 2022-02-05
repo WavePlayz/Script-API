@@ -1,5 +1,5 @@
 export default class {
-	static get (string, { p: 53, m: 1e9 + 9}) {
+	static get (string, { p = 53, m = 1e9 + 9 } = {}) {
 		let powerOfP = 1
 		let hash = 0
 		
