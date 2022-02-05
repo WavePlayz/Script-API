@@ -1,54 +1,96 @@
 const NULLS = [ "", null, undefined ]
-const IGNORE_FIELDS = [ "title", "body" ]
+const INVALID_FIELDS = [ "title", "body" ]
+const PLAYERS_USING_DIALOG = []
 
+function callIfFunction (variable, ...args) {
+	return typeof variable == "function" && variable(...args)
+}
+
+class FormHelperField {
+	#formHelper
+	#callback
+	
+	constructor (formHelper, index, name, ...args) {
+		if ( INVALID_FIELDS.includes( name ) ) throw new Error("invalid field");
+		
+		this.#formHelper = formHelper
+		this.index = index
+		this.name = name
+		this.args = args
+	}
+	
+	onInteract (callback) {
+		this.#formHelper.form[ this.name ]?.( ...this.args )
+		this.#formHelper.fields.push( this )
+		
+		this.#callback = callback
+		
+		return this.#formHelper
+	}
+	
+	execute (value) {
+		const { index, name, args } = this
+		
+		this.#callback( value, { index, name, args } )
+	}
+}
 
 export default class FormHelper {
-	constructor(form) {
+	constructor (form) {
 		this.form = form
-		this.callbacks = []
+		this.isShowable = false
+		this.fields = []
 	}
 	
-	add(field, ...args) {
-		if ( IGNORE_FIELDS.includes(field) ) throw new Error("invalid field");
+	addField () {
+		const index = this.fields.length
 		
-		const context = this
+		this.isShowable = true
 		
-		return {
-			onInteract(callback) {
-				context.form[field]?.(...args)
-				context.callbacks.push(callback)
-				return context
+		return new FormHelperField(this, index, ...arguments)
+	}
+	
+	onError() {}
+	onCancel() {}
+	onFinish() {}
+	
+	#onResponse (formResponse, player) {
+		PLAYERS_USING_DIALOG.splice( player.namerTag, 1 )
+		
+		try {
+			if ( formResponse.isCanceled ) {
+				this.onCancel( formResponse )
+				return
 			}
+			
+			else if ("selection" in formResponse) {
+				const index = formResponse.selection
+				
+				this.fields[ index ].execute(index)
+			}
+			
+			else if ("formValues" in formResponse) {
+				formResponse.formValues.forEach( (formValue, index) => {
+					if ( NULLS.includes( formValue ) ) return;
+					
+					this.fields[ index ].execute( formValue )
+				} )
+			}
+		} catch (error) {
+			this.onError(error)
 		}
+		
+		this.onFinish( formResponse )
 	}
 	
-	show(player, onCancel, onDone) {
-		const context = this
+	show(player) {
+		if ( ! this.isShowable || PLAYERS_USING_DIALOG.includes[ player.namerTag ] ) return;
+		
 		this.form
-				.show(player)
-				.then( formResponse => {
-					
-					if (formResponse.isCanceled) {
-						typeof onCancel == "function" && onCancel(formResponse)
-					}
-					
-					else if (formResponse.selection != null) {
-						context.callbacks[ formResponse.selection ]()
-					}
-					
-					else if (formResponse.formValues != null) {
-						formResponse
-								.formValues
-								.forEach( (value, index) => {
-									if ( NULLS.includes(value) ) return;
-									
-									context.callbacks[ index ](value, index)
-								} )
-					}
-					
-					if (typeof onDone == "function") onDone(formResponse);
-					
-				})
+				.show( player )
+				.then( formResponse => this.#onResponse(formResponse, player) )
+		
+		PLAYERS_USING_DIALOG.push( player.namerTag )
+		
 	}
-	
 }
