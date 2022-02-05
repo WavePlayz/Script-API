@@ -4,14 +4,17 @@ import FormHelper from "./form-helper.js"
 
 let form = new FormHelper( new ActionFormData() )
 
-// form.add(<form-field-name>, form-field-arguments): { on(): Form  }
-form.add("button", "Play", "textures/item/apple").onInteract( eventData => {
+// form.addField(<form-field-name>, form-field-arguments): FormHelperField
+form
+  .add("button", "Play", "textures/item/apple")
+  .onInteract( (fieldValue, fieldData) => {
     // do stuff on button click
-})
+  })
 
-// form.show(<player>, [on-cancel] )
-form.show(<player>, eventData => {
-    // do stuff on form canceled
-} )
+form.onCancel = function(response) {}
+form.onError = function(error) {}
+form.onFinish = function(response) {}
 
+// form.show(<player>)
+form.show(<player>)
 ```
