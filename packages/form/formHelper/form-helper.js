@@ -28,10 +28,13 @@ class FormHelperField {
 		return this.#formHelper
 	}
 	
-	execute (value) {
+	get data() {
 		const { index, name, args } = this
-		
-		this.#callback( value, { index, name, args } )
+		return { index, name, args }
+	}
+	
+	execute (value) {
+		this.#callback( value, this.data )
 	}
 }
 
