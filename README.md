@@ -51,7 +51,7 @@ once done, you will see bunch of folder in the directory, mainly we are only int
 
 ### Getting Started
 ##### Creating folder 
-to start with we will first need to create the folder in the `development_behavior_packs` directory, the folder structure looks like this
+to start with, first we need to create the folder in the `development_behavior_packs` directory, folder structure looks like this
 
 ```
 development_behavior_packs/
@@ -63,16 +63,12 @@ development_behavior_packs/
 ```
 [**•** DOWNLOAD SAMPLE PACK](https://github.com/WavePlayz/Gametest-API/releases/latest)
 
-thats not it, the pack is not a gametest pack until we do the following changes in the `manifest.json`
+Then make the following changes in `manifest.json` in order to use the framework
 1. format version needs to be 2
 ```json
 "format_version": 2,
 ```
-2. min version needs to be 1.17.30 or above
-```json
-"min_engine_version": [ 1, 18, 20 ]
-```
-3. modules section must contain one module object with the type javascript and an entry point to a javascript file, which will be the main file for our gametest
+2. modules section must contain one module object with the type javascript and an entry point to a javascript file, which will be the main file for our gametest
 ```json
 {
 	"description": "Example gametest behavior pack",
@@ -82,7 +78,7 @@ thats not it, the pack is not a gametest pack until we do the following changes 
 	"entry": "scripts/script.js"
 }
 ```
-4. manifest must contain gametest dependencies to be able to import gametest modules within javascript files 
+3. manifest must contain gametest dependencies to be able to import gametest modules within javascript files 
 ```json
 "dependencies": [
 	{
