@@ -14,12 +14,12 @@ function getRandomGreet () {
 }
 
 world.events.chat.subscribe( eventData => {
-	const { entity, message } = eventData
+	const { sender, message } = eventData
 	
 	if (  GREETS.includes( message )  ) {
-		let entityName = entity.nameTag ?? "what's up."
+		let entityName = sender.nameTag ?? "what's up."
 		
-		entity.runCommand(`say ${ getRandomGreet() }! ${entityName}`)
+		sender.runCommand(`say ${ getRandomGreet() }! ${entityName}`)
 	}
 })
 
@@ -32,12 +32,12 @@ String.prototype.hasBannedWords = function() {
 }
 
 world.events.beforeChat.subscribe(eventData => {
-	const { entity, message } = eventData
+	const { sender, message } = eventData
 	
 	if ( message.hasBannedWords() ) {
-		let entityName = entity.nameTag ?? "Oops"
+		let entityName = sender.nameTag ?? "Oops"
 		
-		entity.runCommand(`§e${entityName}! found n-word, gonna clean it`)
+		sender.runCommand(`§e${entityName}! found n-word, gonna clean it`)
 		
 		eventData.cancel = true
 		
@@ -45,7 +45,7 @@ world.events.beforeChat.subscribe(eventData => {
 		
 		let cleanedMessage = message.replace( regex, "**" )
 		
-		entity.runCommand( `[Cleaned] ${cleanedMessage}` )
+		sender.runCommand( `[Cleaned] ${cleanedMessage}` )
 	}
 })
 
