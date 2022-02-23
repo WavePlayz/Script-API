@@ -1,20 +1,25 @@
 
 ```js
 const OVERWORLD = World.getDimension("overworld")
-const record = {}
+const confirms = new Map()
 
-function confirm(playerName, title, callback) {
-	OVERWORLD.runCommand(`msg "${playerName}" ${title}`, OVERWORLD )
-	record[playerName] = callback
+function confirm(player, title, callback) {
+	let playerName = player.nameTag
+	
+	player.dimension.runCommand( `msg "${playerName}" ${title}` )
+	
+	confirms.set( playerName, callback )
 }
 
 world.events.beforeChat.subscribe(eventData => {
-	const { message, sender: { nameTag } } = eventData
+	const { message, sender } = eventData
 	
-	if (nameTag in record) {
+	if ( confirms.has(nameTag) ) {
 		eventData.cancel = true
-		record[nameTag]?.(message)
-		delete record[nameTag]
+		
+		confirms.get(nameTag)?.(message)
+		
+		confirms.delete(nameTag)
 	} 
 })
 ```
