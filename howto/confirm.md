@@ -28,7 +28,8 @@ world.events.beforeChat.subscribe(eventData => {
 ## Usage
 ```js
 // usage
-confirm("Steve", "Are ypu sure?", response => {
+
+confirm(<mojang-minecraft.Player>, "Are ypu sure?", response => {
 	if (response == "yes") {
 		// do stuff
 	}
