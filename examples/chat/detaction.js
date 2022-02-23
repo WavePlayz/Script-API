@@ -1,49 +1,51 @@
+// v1.18.20
+
 import {
 	world
 } from "mojang-minecraft";
 
-const OVERWORLD = world.getDimension("overworld")
 
-function displayChat(content) {
-	OVERWORLD.runCommand(`say ${content}`)
+
+const GREETS = [ "hey", "hi", "hello" ]
+
+function getRandomGreet () {
+	const index = Math.floor( Math.random() * GREETS.length )
+	return GREETS[ index ]
 }
 
-const KEYWORDS = [ "hey", "hi", "hello" ]
-
-world.events.chat.subscribe(eventData => {
+world.events.chat.subscribe( eventData => {
 	const { entity, message } = eventData
 	
-	if (KEYWORDS.includes(message)) {
-		let randomIndex = Math.floor( Math.random() * KEYWORDS.length )
-		let randomGreat = KEYWORDS[ randomIndex ]
+	if (  GREETS.includes( message )  ) {
+		let entityName = entity.nameTag ?? "what's up."
 		
-		let entityName = entity.name ?? entity.nameTag ?? "what's up."
-		
-		displayChat(`${randomGreat}! ${entityName}`, OVERWORLD)
+		entity.runCommand(`say ${ getRandomGreet() }! ${entityName}`)
 	}
 })
 
-const N_WORDS = [ "fuq", "fuck" ]
+
+
+const BANNED_WORDS = [ "fuq", "fuck" ]
+
+String.prototype.hasBannedWords = function() {
+	return BANNED_WORDS.some(  word => this.toString().includes( word )  )
+}
 
 world.events.beforeChat.subscribe(eventData => {
 	const { entity, message } = eventData
 	
-	let containsNWord = N_WORDS.some(word => message.includes(word))
-	
-	if (containsNWord) {
-		let entityName = entity.name ?? entity.nameTag ?? "yoo"
+	if ( message.hasBannedWords() ) {
+		let entityName = entity.nameTag ?? "Oops"
 		
-		displayChat(`§e${entityName}! found a n-word mate, ima hide it.`, OVERWORLD)
+		entity.runCommand(`§e${entityName}! found n-word, gonna clean it`)
 		
 		eventData.cancel = true
 		
-		let cleanedMessage
+		let regex = new RegExp( BANNED_WORDS.join("|"), "gm" )
 		
-		N_WORDS.forEach(word => {
-			cleanedMessage = message.replaceAll(word, "*beep*")
-		})
+		let cleanedMessage = message.replace( regex, "**" )
 		
-		displayChat(`${entityName}! found n-word mate, ima hide it.`, OVERWORLD)
+		entity.runCommand( `[Cleaned] ${cleanedMessage}` )
 	}
 })
 
