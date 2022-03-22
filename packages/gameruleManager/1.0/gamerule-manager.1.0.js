@@ -66,18 +66,26 @@ class GameruleManager {
 		
 	}
 	
+	static isGamerule (gamerule) {
+		if (typeof gamerule !== "string" || gamerule in GAMERULES ) {
+			throw new Error( "invalid " + gamerule )
+		}
+		
+		return true
+	}
+	
 	static get (gamerule) {
+		this.isGamerule( gamerule )
 		return this.#defaults[ gamerule ]
 	}
 	
 	static set (gamerule, value) {
+		this.isGamerule( gamerule )
 		this.#defaults[ gamerule ] = String(value)
 	}
 	
 	static reset (gamerule = null) {
-		if (typeof gamerule !== "string" || gamerule in defaults ) {
-			throw new Error( "Reset failed for " + gamerule )
-		}
+		this.isGamerule( gamerule )
 		
 		for (let [ gamerule, value ] of this.#defaults) {
 			this.set(gamerule, value)
@@ -85,4 +93,5 @@ class GameruleManager {
 	}
 }
 
+export default GameruleManager
 
