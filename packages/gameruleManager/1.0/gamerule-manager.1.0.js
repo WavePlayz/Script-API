@@ -1,5 +1,5 @@
 
-import { Dimension } from "mojang-minecraft"
+import { world } from "mojang-minecraft"
 
 const GAMERULES = [
 	"commandBlocksEnabled",
