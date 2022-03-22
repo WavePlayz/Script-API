@@ -42,10 +42,10 @@ class GameruleManager {
 		}
 		
 		this.#dimension = dimention
-		this.#defaults = this.getDefaults()
+		this.#defaults = this.defaults
 	}
 	
-	static getDefaults () {
+	static get defaults () {
 		if (this.#defaults) {
 			return this.#defaults;
 		}
