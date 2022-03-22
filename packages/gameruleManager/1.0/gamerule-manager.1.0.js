@@ -36,12 +36,9 @@ class GameruleManager {
 	static #dimension = null
 	static #defaults = null
 	 
-	static initialize (dimention) {
-		if (! dimention instanceof Dimension ) {
-			throw new Error("Invalid argument")
-		}
+	static initialize () {
 		
-		this.#dimension = dimention
+		this.#dimension = world.getDimension( "overworld" )
 		this.#defaults = this.defaults
 	}
 	
