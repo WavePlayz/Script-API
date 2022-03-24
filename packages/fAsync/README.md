@@ -6,7 +6,7 @@
 # Usage
 ```javascript
 import { world as World } from "mojang-minecraft"
-import FAsync from "./fAsync.js"
+import FAsync from "./fAsync.0.1.0.js"
 
 // Required
 World.events.tick.subscribe(eventData => {
