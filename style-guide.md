@@ -1,9 +1,15 @@
-# Wave's Preferred Style Guide
+# Preferred Style Guide - 0.1.0-a
+
 
 ### STRUCTURE
-`root/libraries/` for general utilities  
-`root/packages/` for gametest utilities  
-`root/modules/` for project utilities  
+`root/libraries/`  
+for general utilities  
+
+`root/packages/`  
+for gametest utilities  
+
+`root/modules/`  
+for project utilities  
 
 ### NAMING
 `snake_case` or `camaleCase` for folders  
