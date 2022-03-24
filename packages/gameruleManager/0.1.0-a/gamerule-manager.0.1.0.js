@@ -78,7 +78,7 @@ class GameruleManager {
 	}
 	
 	static reset () {
-		for (let name in #defaults) {
+		for (let name in this.#defaults) {
 			this.set(name)
 		}
 	}
