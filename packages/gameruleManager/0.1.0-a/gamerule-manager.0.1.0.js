@@ -85,5 +85,5 @@ class Gamerule {
 	
 }
 
-export default GameruleManager
+export default Gamerule
 
