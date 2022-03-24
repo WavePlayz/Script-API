@@ -1,4 +1,4 @@
-# Preferred Style Guide - 0.1.0-a
+# Preferred Style Guide `0.1.0-a`
 
 
 ### STRUCTURE
