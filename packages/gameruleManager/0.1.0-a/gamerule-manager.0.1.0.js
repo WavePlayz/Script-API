@@ -35,7 +35,7 @@ const GAMERULES = [
 
 
 
-class Gamerule {
+class GameruleManager {
 	static VERSION = "0.1.0-a"
 	
 	static #defaults = this.#getDefaults()
@@ -85,5 +85,5 @@ class Gamerule {
 	
 }
 
-export default Gamerule
+export default GameruleManager
 
