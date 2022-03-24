@@ -1,5 +1,8 @@
 
-import { world } from "mojang-minecraft"
+import { world as World } from "mojang-minecraft"
+
+const DIMENSION = World.getDimension( "overworld" )
+
 
 const GAMERULES = [
 	"commandBlocksEnabled",
@@ -30,64 +33,56 @@ const GAMERULES = [
 	"showTags"
 ]
 
-class GameruleManager {
-	static VERSION = "1.0"
+
+
+class Gamerule {
+	static VERSION = "0.1.0-a"
 	
-	static #dimension = null
-	static #defaults = null
-	 
-	static initialize () {
-		
-		this.#dimension = world.getDimension( "overworld" )
-		this.#defaults = this.defaults
-	}
+	static #defaults = this.#getDefaults()
 	
-	static get defaults () {
-		if (this.#defaults) {
-			return this.#defaults;
-		}
-		
+	static #getDefaults() {
 		let data = {}
 		
 		GAMERULES.forEach( GAMERULE => {
-			let response = this.#dimension.runCommand( "gamerule " + GAMERULE )
-			
+			let response = DIMENSION.runCommand( `gamerule ${ GAMERULE }` )
 			let result = response.statusMessage
-			
-			let value = result.match( new RegExp(GAMERULE + "\\s+=\\s+(.*)") )[1]
-			
-			data[ GAMERULE ] = value
-		})
+			let value = result.match(/=\s+(.*)/)[1]
+			data[ GAMERULE ] = value 
+		} ) 
 		
 		return data
-		
 	}
 	
-	static isGamerule (gamerule) {
-		if (typeof gamerule !== "string" || gamerule in GAMERULES ) {
-			throw new Error( "invalid " + gamerule )
+	static get (name) {
+		return name 
+			? this.#defaults[ name ] 
+			: Object.freeze( this.#defaults )
+	}
+	
+	static set (name, value) {
+		let defaultValue = this.#defaults[name]
+		
+		if (value == defaultValue) return true;
+		
+		if (value == null) {
+			value = defaultValue
 		}
 		
-		return true
-	}
-	
-	static get (gamerule) {
-		this.isGamerule( gamerule )
-		return this.#defaults[ gamerule ]
-	}
-	
-	static set (gamerule, value) {
-		this.isGamerule( gamerule )
-		this.#defaults[ gamerule ] = String(value)
-	}
-	
-	static reset (gamerule = null) {
-		this.isGamerule( gamerule )
-		
-		for (let [ gamerule, value ] of this.#defaults) {
-			this.set(gamerule, value)
+		try { 
+			DIMENSION.runCommand( `gamerule ${ name } ${ value }` )
+			this.#defaults[name] = value
+			return true
+		} catch (error) {
+			throw new Error( `Failed to set ${name} to ${value}\n - ${error}\n - ${error.stack}` )
 		}
 	}
+	
+	static reset () {
+		for (let name in #defaults) {
+			this.set(name)
+		}
+	}
+	
 }
 
 export default GameruleManager
