@@ -18,7 +18,9 @@ world.events.tick.subscribe(eventData => {
 
 
 class FEvent {
-	static onWorldLoad() {}
+	static onWorldLoad() {
+		console.warn("fevent-world-loaded")
+	}
 	
 }
 
