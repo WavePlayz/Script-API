@@ -16,7 +16,6 @@ world.events.tick.subscribe(eventData => {
 })
 
 
-
 class FEvent {
 	
 	static onWorldLoad() {
@@ -25,5 +24,5 @@ class FEvent {
 	
 }
 
-
+export default FEvent
 
