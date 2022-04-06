@@ -5,8 +5,8 @@
 		"name": "Example gametest pack",
 		"description": "Example vanilla behavior pack",
 		"uuid": "b3bc569d-3144-4473-82ae-c5704a6064e3",
-		"version": [0, 0, 1],
-		"min_engine_version": [1, 18, 20 ]
+		"version": [0, 1, 0],
+		"min_engine_version": [1, 19, 0 ]
 	},
 	
 	"modules": [
@@ -14,6 +14,7 @@
 			"description": "gametest-module"
 			"type": "javascript",
 			"uuid": "9e896681-01d8-4a21-b1e2-e350e3c9c1ae",
+			"language: "javascript",
 			"version": [0, 0, 1],
 			"entry": "scripts/script.js"
 		}
