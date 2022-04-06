@@ -1,11 +1,15 @@
 # Gametest `API`  
+
 `v1.19.0.20` `BETA`
 
 guide to begain with *new scripting api*, **The GameTest Framework** \!
 
-[**DOWNLOAD SAMPLE PACK**](https://github.com/WavePlayz/Gametest-API/releases/latest)
+[![MCPACK](https://github.com/WavePlayz/Gametest-API/actions/workflows/pack.yml/badge.svg)](https://github.com/WavePlayz/Gametest-API/actions/workflows/pack.yml)
+
+[**DOWNLOAD SAMPLE PACK**](https://github.com/WavePlayz/Gametest-API/releases/latest)  
 
 ---
+
 ## Prerequisites
 - Basic understanding of **Javascript**,  
 Some resources below to get started.
