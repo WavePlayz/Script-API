@@ -1,0 +1,56 @@
+name: MCPACK
+
+on:
+  push:
+    paths:
+      - 'sample-pack/VERSION'
+  
+  workflow_dispatch:
+#    inputs:
+#      version:
+#        description: 'Version Tag'
+#        required: true
+#        default: 'v'
+        
+env:
+  REPO: '${{ github.event.repository.name }}'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: Set variables
+      run: |
+        
+        VERSION=$(cat VERSION)
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        
+        list=(${VERSION//-/ })
+        MCVERSION=${list[0]}
+        echo "MCVERSION=$MCVERSION" >> $GITHUB_ENV
+        
+        NAME="${REPO}_$VERSION.mcpack"
+        echo "NAME=$NAME" >> $GITHUB_ENV
+
+    
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
+      with:
+        type: 'zip'
+        filename: '${{ env.NAME }}'
+        path: "./sample-pack/"
+        exclusions: '*.git* /*node_modules/* .editorconfig'
+    
+    - name: Upload Release
+      uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: true
+        artifactErrorsFailBuild: true
+        artifacts: '${{ env.NAME }}'
+        name: '${{ env.NAME }}'
+        tag: '${{ env.MCVERSION }}'
+        omitBody: true
+        token: ${{ secrets.GITHUB_TOKEN }}
