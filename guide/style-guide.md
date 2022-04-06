@@ -1,37 +1,43 @@
-# Preferred Style Guide `0.1.0-a`
+# Preferred Style Guide `2.0`
 
 
 ### STRUCTURE
-`root/libraries/`  
-for general utilities  
+```markdown
++  AddonName/
+   +  libraries/ 
+      -  math-utils.X.X.X.js
+   +  packages/
+      -  commands.X.X.X.js
+   +  X.X.X/
+      +  modules/
+         -  chat.js
+      -  AddonName.js
+      -  .config.js
 
-`root/packages/`  
-for gametest utilities  
-
-`root/modules/`  
-for project utilities  
-
-### NAMING
-`snake_case` or `camaleCase` for folders  
-`spinal-case` / `kebab-case` for files  
-`PascalCase` for main file  
-
-### Imports
-for less imports
-```js
-import { one, two } from <file>
-```  
-for large imports
-```js
-import {
-	one,
-	two,
-	three
-} from <file>
+-  manifest.json
+-  pack_icon.png
 ```
 
+`libraries/` for general utils  
+`packages/` for gametest utils  
+`X.X.X` version of file/folder/addon eg. 1.3.0  
+`modules/` for project utils  
+
+### NAMING
+Folders
+- `snake_case`
+- `camaleCase`
+
+Files
+- `spinal-case`
+- `kebab-case`
+
+Main / entry file
+- `PascalCase`
+
+
 ### Exports
-everything as class
+as defualt in class
 ```js
 export default class {
 	static variable = ""
