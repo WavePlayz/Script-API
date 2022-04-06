@@ -1,7 +1,12 @@
-# Gametest-API × `BETA` `1.18.20.21`  
-guide to begain with the new scripting api, **The GameTest Framework** \!
+# Gametest `API`  
+`v1.19.0.20` `BETA`
 
-[**• DOWNLOAD SAMPLE PACK**](https://github.com/WavePlayz/Gametest-API/releases/latest)
+guide to begain with *new scripting api*, **The GameTest Framework** \!
+
+[**DOWNLOAD SAMPLE PACK**](https://github.com/WavePlayz/Gametest-API/releases/latest)
+
+---
+# Getting Started
 
 ### Prerequisites
 - Basic understanding of **Javascript**,  
@@ -24,7 +29,7 @@ Some resources below to get started.
   - Android  
 १ [JS Run (Preferred)](https://play.google.com/store/apps/details?id=com.mia.jsrun)  
 २ [JavaScript Editor](https://play.google.com/store/apps/details?id=com.sorincovor.javascript_editor)  
-३ [Termux with quickjs](/termux-with-quickjs.md)
+३ [Termux with quickjs](/guide/termux-with-quickjs.md)
 
 ### Setup
 ##### Accessing Minecraft directory
