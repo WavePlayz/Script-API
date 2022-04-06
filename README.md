@@ -6,9 +6,7 @@ guide to begain with *new scripting api*, **The GameTest Framework** \!
 [**DOWNLOAD SAMPLE PACK**](https://github.com/WavePlayz/Gametest-API/releases/latest)
 
 ---
-# Getting Started
-
-### Prerequisites
+## Prerequisites
 - Basic understanding of **Javascript**,  
 Some resources below to get started.
   - Crash Course by Amazing instructor [**Mosh Hamedani**](https://codewithmosh.com/) (Highly Recommended)  
@@ -31,7 +29,9 @@ Some resources below to get started.
 २ [JavaScript Editor](https://play.google.com/store/apps/details?id=com.sorincovor.javascript_editor)  
 ३ [Termux with quickjs](/guide/termux-with-quickjs.md)
 
-### Setup
+---
+
+## Setup
 ##### Accessing Minecraft directory
 this is the place where we will spend most of our time and work.
 
@@ -54,7 +54,9 @@ once done, you will see bunch of folder in the directory, mainly we are only int
  - `development_behavior_packs`
  - `development_resource_packs`
 
-### Getting Started
+---
+
+## Getting Started
 ##### Creating folder 
 to start with, first we need to create the folder in the `development_behavior_packs` directory, folder structure looks like this
 
@@ -160,7 +162,7 @@ the complete `manifest.json` will look something like this
 As of 1.18.10.20 we have two native modules to work with
 - `mojang-gametest`
 - `mojang-minecraft`  
-- `mojang-minecraft-ui` (in addition to beta 1.18.20.21)
+- `mojang-minecraft-ui` (beta 1.18.20.21+)
 
 the `mojang-gametest` module is not something to very excite about as its intended for game devlopers and is not very useful for us the creators plus it only works within the range of stucture blocks  
 on the other side `mojang-minecraft` module is what we can consider as the "new scripting api" that the creators can utilze to create stuff and where all the intresting things exists 
