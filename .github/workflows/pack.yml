@@ -24,7 +24,8 @@ jobs:
     
     - name: Set variables
       run: |
-        
+        cd sample-pack/
+
         VERSION=$(cat VERSION)
         echo "VERSION=$VERSION" >> $GITHUB_ENV
         
