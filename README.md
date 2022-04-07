@@ -37,6 +37,8 @@ Some resources below to get started.
 
 ## Setup
 ##### Accessing Minecraft directory
+<details>
+
 this is the place where we will spend most of our time and work.
 
 **Win10** users can find this at the given path
@@ -58,10 +60,15 @@ once done, you will see bunch of folder in the directory, mainly we are only int
  - `development_behavior_packs`
  - `development_resource_packs`
 
+</details>
+
 ---
 
 ## Getting Started
+
 ##### Creating folder 
+<details>
+
 to start with, first we need to create the folder in the `development_behavior_packs` directory, folder structure looks like this
 
 ```
@@ -110,7 +117,11 @@ Then make the following changes in `manifest.json` in order to use the framework
 ]
 ```
 
+</details>
+
 ##### manifest.json
+<details>
+
 the complete `manifest.json` will look something like this
 ```json
 {
@@ -161,8 +172,11 @@ the complete `manifest.json` will look something like this
 > 	"license": "TBD"
 > }
 
+</details>
 
 ##### Native modules
+<details>
+
 As of 1.18.10.20 we have two native modules to work with
 - `mojang-gametest`
 - `mojang-minecraft`  
@@ -191,8 +205,11 @@ your behavior pack now should have been moved to the "Active" section!
 
 now you can join the world to see everything works, but wait if you join you wont see anything diffrent its obvious since we have nothing added in the script file yet
 
-##### `script.js`
+</details>
+
 ##### creating our first script
+<details>
+
 the very first thing we need to do in the script is to import the native minecraft modules like that
 ```js
 // importing native minecraft module
@@ -207,7 +224,12 @@ Minecraft.world.events.tick.subscribe(eventData => {
 
 })
 ```
+
+</details>
+
 ##### chat spam, our first script
+<details>
+
 lets create chat spam as our first script to see if everything is all right
 ```js
 
@@ -248,5 +270,6 @@ Minecraft.world.events.tick.subscribe(eventData => {
 
 save the code in your `script.js` / main file then open the world, you should now see a spam in the chat.. if not then something is wrong :( recheck what went wrong.
 
+</details>
 
 
