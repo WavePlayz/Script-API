@@ -37,8 +37,6 @@ Some resources below to get started.
 
 </details>
 
----
-
 ## Setup
 ##### Accessing Minecraft directory
 <details>
@@ -65,8 +63,6 @@ once done, you will see bunch of folder in the directory, mainly we are only int
  - `development_resource_packs`
 
 </details>
-
----
 
 ## Getting Started
 
