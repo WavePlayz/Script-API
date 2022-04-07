@@ -11,6 +11,8 @@ guide to begain with *new scripting api*, **The GameTest Framework** \!
 ---
 
 ## Prerequisites
+<details>
+
 - Basic understanding of **Javascript**,  
 Some resources below to get started.
   - Crash Course by Amazing instructor [**Mosh Hamedani**](https://codewithmosh.com/) (Highly Recommended)  
@@ -32,6 +34,8 @@ Some resources below to get started.
 १ [JS Run (Preferred)](https://play.google.com/store/apps/details?id=com.mia.jsrun)  
 २ [JavaScript Editor](https://play.google.com/store/apps/details?id=com.sorincovor.javascript_editor)  
 ३ [Termux with quickjs](/guide/termux-with-quickjs.md)
+
+</details>
 
 ---
 
