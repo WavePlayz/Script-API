@@ -8,7 +8,7 @@
 		<style>
 			* {
 				font-weight: bold;
-				background: #282828;
+				background: #202325;
 				color: #ccc;
 				box-sizing: border-box;
 			}
@@ -27,27 +27,62 @@
 			
 			label {
 				color: #808590;
-				font-size: 12px;
+				font-size: 14px;
 				letter-spacing: 3px;
 				display: inline-block;
 				text-transform: uppercase;
 				padding: 7px 14px;
 				font-weight: bolder;
+				text-align: middle;
 			}
 			
 			
-			input[type=text] {
+			input,textarea {
 				color: #ccc;
 				font-size: 14px;
 				letter-spacing: 1px;
 				display: block;
 				width: 100%;
-				padding: 7px 14px;
-				border-style:none;
+				padding: 10px 14px;
+				outline: none;
+				border: none;
+				
 				background: #303540;
-				border-radius: 2px;
-				margin: 0 0 7px 0;
+				background-image: linear-gradient(to right, #303540, #262833);
+				
+				border-radius: 0px 0 0 10px;
+				margin: 0 0 14px 0;
 			}
+			
+			input[type=submit] {
+				
+				box-shadow: 0 0 20px #262833;
+				position: -webkit-sticky; /* Safari */
+				position: sticky;
+				bottom: 10;
+				letter-spacing: 7px;
+				
+				text-transform: uppercase;
+				
+				font-weight: bolder;
+			}
+			
+			
+			input:invalid {
+				outline: 2px dashed #red;
+				background-image: linear-gradient(to right, #303540, red);
+				
+			}
+			
+			input:focus {
+				outline: 2px dashed #303540;
+			}
+
+			.dark {
+				color: #808590 !important;
+			}
+			
+			
 			
 			hr {
 				border-style: none;
@@ -59,14 +94,14 @@
 		</style>
 	</head>
 	<body>
-	
+		
+	<form action="" method="post" name="myForm" onsubmit="download()">
 		<h3>Info</h3>
 		<label for="name">Name</label>
 		<input id="name" type="text" value="Gametest"/>
 		
 		<label for="description">Description</label>
-		<input id="description" type="text" value="sample gamtest pack"/>
-		
+		<textarea id="description" rows="4">Example gametest pack</textarea>
 		<label for="version">Version</label>
 		<input id="version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
 		
@@ -74,10 +109,10 @@
 		<input id="creators" type="text" value="Steve, Wave"/>
 		
 		<label for="min_engine_version">min_engine_version</label>
-		<input id="min_engine_version" type="text" value="1.18.0" pattern="\d+\.\d+.\d+"/>
+		<input class="dark" id="min_engine_version" type="text" value="1.18.0" pattern="\d+\.\d+.\d+"/>
 		
 		<label for="uuid">UUID</label>
-		<input id="uuid" type="text" value=""/>
+		<input class="dark" id="uuid" type="text" value="" />
 		
 		
 		<hr>
@@ -85,24 +120,16 @@
 		<label for="gametest_path">gametest path</label>
 		<input id="gametest_path" type="text" value="scripts/script.js"/>
 		
-		<input id="minecraft" type="checkbox" name="dependencies" value="mojang-minecraft"/>
-		<label for="minecraft">minecraft</label>
-		<br>
-		<input id="gametest" type="checkbox" name="dependencies" value="mojang-gametest"/>
-		<label for="gametest">gametest</label>
-		<br>
-		<input id="ui" type="checkbox" name="dependencies" value="mojnag-ui"/>
-		<label for="ui">ui</label>
-		<br>
+		
 		
 		<label for="gametest_version">gametest version</label>
-		<input id="gametest_version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
+		<input class="dark" id="gametest_version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
 		
 		<label for="gametest_uuid">gametest uuid</label>
-		<input id="gametest_uuid" type="text" value=""/>
+		<input class="dark" id="gametest_uuid" type="text" value=""/>
 		
 		<label for="gametest_description">gametest description</label>
-		<input id="gametest_description" type="text" value="gametest-module"/>
+		<input class="dark" id="gametest_description" type="text" value="gametest-module"/>
 		
 		<hr>
 			
@@ -110,18 +137,21 @@
 		<label for="licence">Licence</label>
 		<input id="licence" type="text" value="GPLv3"/>
 		
-		
-		
-	
+		<hr>
+			
+		<input type="submit" name="download" value="DOWNLOAD" />
+	</form>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 		<script>
+
 
 const elem = id => document.getElementById( id );
 
 elem("uuid").value = crypto.randomUUID()
 elem("gametest_uuid").value = crypto.randomUUID()
 elem("gametest_path").setAttribute("pattern", "^([^\\\/:\*\?\"<>|]|(?<!\/)(\/))*\.js$" )
+
 const dependencies = [
 	{
 		// Minecraft native module - needed to use the "mojang-minecraft" module
