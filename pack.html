@@ -1,37 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create Gametest Pack</title>
-    
-  </head>
-  <body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-        <script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Gametest Creator</title>
+		<style>
+			* {
+				font-weight: bold;
+				background: #282828;
+				color: #ddd;
+				box-sizing: border-box;
+				font-size: 12px;
+			}
+			label {
+				color: #ccddee;
+				letter-spacing: 2px;
+				display: block;
+				text-transform: uppercase;
+				padding: 0 0 0 14px;
+			}
+			input {
+				letter-spacing: 1px;
+				display: block;
+				width: 100%;
+				padding: 8px 10px;
+				border-style:none;
+				border-left: 4px solid #667788;
+				border-radius: 4px;
+				margin: 0 0 16px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>General</h3>
+		<label for"name">Name</label>
+		<input id="name" type="text" value="Gametest"/>
+		
+		<label for"description">Description</label>
+		<input id="description" type="text" value="sample gamtest pack"/>
+		
+		<label for"uuid">UUID</label>
+		<input id="uuid" type="text" value=""/>
+		
+		<label for"version">Version</label>
+		<input id="version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
+		
+		<label for"min_engine_version">min_engine_version</label>
+		<input id="min_engine_version" type="text" value="1.18.0" pattern="\d+\.\d+.\d+"/>
+		
+		<h3>Gametest</h3>
+		<input id="gametest_uuid" type="text" value=""/>
+		<input id="gametest_version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
+		<input id="gametest_path" type="text" value="scripts/script.js"/>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+		<script>
+
+const elem = id => document.getElementById( id );
+
+elem("uuid").value = crypto.randomUUID()
+elem("gametest_uuid").value = crypto.randomUUID()
+elem("gametest_path").setAttribute("pattern", "^([^\\\/:\*\?\"<>|]|(?<!\/)(\/))*\.js$" )
+const dependencies = [
+	{
+		// Minecraft native module - needed to use the "mojang-minecraft" module
+		"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
+		"version": [0, 1, 0]
+	},
+	{
+		// GameTest native module - needed to use the "mojang-gametest" module
+		"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
+		"version": [0, 1, 0]
+	},
+	{
+		// Minecraft Ui native module - needed to use the "mojang-minecraft-ui" module
+		"uuid": "2BD50A27-AB5F-4F40-A596-3641627C635E",
+		"version": [0, 1, 0]
+	}
+]
+			
+const manifest = {
+	"format_version": 2,
+	
+	"header": {
+		"name": "PurnEditor §8-§7 v1.1",
+		"description": "§7by WavePlayz§r\n §6+ §7Discord §8: §fWavePlayz#7915§r\n §2+ §7Twitter §8: §f@itsMrGhost§r",
+		"uuid": "3c030526-791a-489c-a8a7-00aef86ed01e",
+		"version": [0, 1, 1],
+		"min_engine_version": [1, 16, 20],
+	},
+	
+	"modules": [
+		{
+			"type": "javascript",
+			"description": "gametest-module",
+			"uuid": "05a49340-2fd4-4a9b-b1c4-2f2db739142a",
+			"version": [0, 0, 1],
+			"entry": "scripts/script.js"
+		}
+	],
+	
+	"dependencies": [
+		{
+			// Minecraft native module - needed to use the "mojang-minecraft" module
+			"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
+			"version": [0, 1, 0]
+		},
+		{
+			"uuid": "2BD50A27-AB5F-4F40-A596-3641627C635E",
+			"version": [0, 1, 0]
+		}
+	]
+}
 
 
-const pack = new JSZip()
-
-pack.file( 
-  "manifest.json", JSON.strinify(manifest, null, 1))
-
-const img = zip.folder("images");
-//img.file("smile.gif", imgData, {base64: true});
-zip.generateAsync({type:"blob"})
-.then(function(content) {
-    // see FileSaver.js
-    saveAs(content, "example.zip");
-});
-
-console.log(77)
-
-
-
-
-
-        </script>
-  </body>
+		</script>
+	</body>
 </html>
