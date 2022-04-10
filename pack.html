@@ -246,8 +246,8 @@ function getManifest() {
 
 
 function onUpdate (data) {
-	let percent = metadata.percent.toFixed(2).padStart(6,"0")
-	let file = metadata.currentFile
+	let percent = data.percent.toFixed(2).padStart(6,"0")
+	let file = data.currentFile
 	
 	let log = percent + ": " + file
 	
@@ -266,6 +266,8 @@ pack.file( ".packinfo", "created by https://waveplayz.github.io/Gametest-API/pac
 
 function downloadPack() {
 	loading(true)
+	
+	try {
 	
 	const manifest = getManifest()
 	const header = manifest.header
@@ -288,6 +290,10 @@ function downloadPack() {
 		
 		loading(false)
 	})
+	
+	} catch(error) {
+		alert("error",error)
+	)
 }
 
 
