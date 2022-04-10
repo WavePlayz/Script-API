@@ -99,7 +99,7 @@
 	</head>
 	<body>
 		
-	<form action="/" method="POST" myform="dd" onsubmit="downloadPackk()">
+	<form action="" method="POST" myform="pack" onsubmit="downloadPack()">
 		<h2>Info</h2>
 		<label for="name">Name</label>
 		<input id="name" type="text" value="Gametest"/>
@@ -201,10 +201,10 @@ function getManifest() {
 }
 
 
-function downloadPackk() {
+function downloadPack() {
 	const manifest = getManifest()
 	console.log(manifest)
-	return false
+	return true
 }
 
 
