@@ -195,6 +195,38 @@ for (let input in inputsPattern) {
 elem("uuid").value = crypto.randomUUID()
 elem("gametest_uuid").value = crypto.randomUUID()
 
+const urlParams = new URLSearchParams(window.location.search)
+
+let name = urlParams.get("n")
+name && elem("name").value = name
+
+let des = urlParams.get("d")
+des && elem("description").value = des
+
+let ver = urlParams.get("v")
+ver && elem("version").value = ver
+
+let crea = urlParams.get("c")
+crea && elem("creators").value = crea
+
+let mver = urlParams.get("mv")
+mver && elem("min_engine_version").value = mver
+
+let uuid = urlParams.get("id")
+uuid && elem("uuid").value = uuid
+
+let code = urlParams.get("src")
+code && elem("gametest_path").value = code
+
+let gver = urlParams.get("gv")
+gver && elem("gametest_version").value = gver
+
+let guid = urlParams.get("gid")
+guid && elem("gametest_uuid").value = guid
+
+let gdes = urlParams.get("gd")
+gdes && elem("gametest_description").value = gdes
+
 loading( true )
 
 </script>
