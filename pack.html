@@ -99,6 +99,8 @@
 
 </head>
 <body>
+	
+	<small id="wgtc">wgtc</small>
 		
 	<h2>Info</h2>
 	
@@ -152,21 +154,19 @@ world .events .tick .subscribe( eventData => {
 	
 	<div id="logs"></div>
 	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-	
-	<script>
+<script>
+const wgtc = "1.0"
 
 const elem = id => document.getElementById( id );
 const value = id => elem(id).value;
 
+elem("wgtc").innerText += "-" + wgtc
+
 
 const loading = isLoading => {
-	elem("submit").style.visibility = isLoading ? "hidden" : "visible"
+	let el = elem("submit")
+	el.style.visibility = isLoading ? "hidden" : "visible"
 }
-
-
-loading( true )
 
 elem("gametest_path").setAttribute(
 	"pattern", 
@@ -176,10 +176,16 @@ elem("gametest_path").setAttribute(
 elem("uuid").value = crypto.randomUUID()
 elem("gametest_uuid").value = crypto.randomUUID()
 
+loading( true )
+
+</script>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+	
+<script>
+
 loading( false )
-
-
-
 
 const dependencies = [
 	{
@@ -214,7 +220,8 @@ function getManifest() {
 		"uuid":  value("uuid"),
 		"version":  version( value("version") ),
 		"creators": value("creators").split(","),
-		"min_engine_version":  version( value("min_engine_version") )
+		"min_engine_version":  version( value("min_engine_version") ),
+		wgtc
 	}
 	
 	const modules = [
@@ -285,6 +292,6 @@ function downloadPack() {
 
 
 
-		</script>
-	</body>
+</script>
+</body>
 </html>
