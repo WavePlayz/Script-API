@@ -20,7 +20,7 @@
 				
 			}
 			
-			h3 {
+			h1,h2,h3,h4 {
 				letter-spacing: 4px;
 				text-transform: uppercase;
 				text-align: center;
@@ -62,7 +62,8 @@
 				box-shadow: 0 0 20px #262833;
 				position: -webkit-sticky; /* Safari */
 				position: sticky;
-				bottom: 10;
+				margin: 32px 0;
+				bottom: 16;
 				letter-spacing: 7px;
 				
 				text-transform: uppercase;
@@ -98,18 +99,19 @@
 	</head>
 	<body>
 		
-	<form action="" method="post" name="myForm" onsubmit="download()">
-		<h3>Info</h3>
+	<form action="/" method="POST" myform="dd" onsubmit="downloadPackk()">
+		<h2>Info</h2>
 		<label for="name">Name</label>
 		<input id="name" type="text" value="Gametest"/>
 		
 		<label for="description">Description</label>
 		<textarea id="description" rows="4">Example gametest pack</textarea>
+		
 		<label for="version">Version</label>
 		<input id="version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
 		
 		<label for="creators">Creators</label>
-		<input id="creators" type="text" value="Steve, Wave"/>
+		<input id="creators" rows="2" placeholder="Steve, WavePlayz, Thor"></textarea>
 		
 		<label for="min_engine_version">min_engine_version</label>
 		<input class="dark" id="min_engine_version" type="text" value="1.18.0" pattern="\d+\.\d+.\d+"/>
@@ -118,38 +120,32 @@
 		<input class="dark" id="uuid" type="text" value="" />
 		
 		
-		<hr>
+		<h2>Gametest</h2>
 		
-		<label for="gametest_path">gametest path</label>
+		<label for="gametest_path">path</label>
 		<input id="gametest_path" type="text" value="scripts/script.js"/>
 		
-		
-		
-		<label for="gametest_version">gametest version</label>
+		<label for="gametest_version">version</label>
 		<input class="dark" id="gametest_version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
 		
-		<label for="gametest_uuid">gametest uuid</label>
+		<label for="gametest_uuid">uuid</label>
 		<input class="dark" id="gametest_uuid" type="text" value=""/>
 		
-		<label for="gametest_description">gametest description</label>
+		<label for="gametest_description">description</label>
 		<input class="dark" id="gametest_description" type="text" value="gametest-module"/>
 		
-		<hr>
-			
 		
-		<label for="licence">Licence</label>
-		<input id="licence" type="text" value="GPLv3"/>
-		
-		<hr>
 			
 		<input type="submit" name="download" value="DOWNLOAD" />
 	</form>
+	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 		<script>
 
 
 const elem = id => document.getElementById( id );
+const value = id => elem(id).value;
 
 elem("uuid").value = crypto.randomUUID()
 elem("gametest_uuid").value = crypto.randomUUID()
@@ -172,40 +168,45 @@ const dependencies = [
 		"version": [0, 1, 0]
 	}
 ]
-			
-const manifest = {
-	"format_version": 2,
+
+function getManifest() {
+
+	const header = {
+		"name":  value("name"),
+		"description":  value("description"),
+		"uuid":  value("uuid"),
+		"version":  value("version").split("."),
+		"creators": value("creators").split(","),
+		"min_engine_version":  value("min_engine_version").split(".")
+	}
 	
-	"header": {
-		"name": "PurnEditor §8-§7 v1.1",
-		"description": "§7by WavePlayz§r\n §6+ §7Discord §8: §fWavePlayz#7915§r\n §2+ §7Twitter §8: §f@itsMrGhost§r",
-		"uuid": "3c030526-791a-489c-a8a7-00aef86ed01e",
-		"version": [0, 1, 1],
-		"min_engine_version": [1, 16, 20],
-	},
-	
-	"modules": [
+	const modules = [
 		{
 			"type": "javascript",
-			"description": "gametest-module",
-			"uuid": "05a49340-2fd4-4a9b-b1c4-2f2db739142a",
-			"version": [0, 0, 1],
-			"entry": "scripts/script.js"
-		}
-	],
-	
-	"dependencies": [
-		{
-			// Minecraft native module - needed to use the "mojang-minecraft" module
-			"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
-			"version": [0, 1, 0]
-		},
-		{
-			"uuid": "2BD50A27-AB5F-4F40-A596-3641627C635E",
-			"version": [0, 1, 0]
+			"description": value("gametest_description"),
+			"uuid": value("gametest_uuid"),
+			"version": value("gametest_version").split("."),
+			"entry": value("gametest_path")
 		}
 	]
+	
+	const manifest = {
+		"format_version": 2,
+		header,
+		modules,
+		dependencies
+	}
+	
+	return manifest
 }
+
+
+function downloadPackk() {
+	const manifest = getManifest()
+	console.log(manifest)
+	return false
+}
+
 
 
 		</script>
