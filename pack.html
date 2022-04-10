@@ -111,13 +111,13 @@
 	<textarea id="description" rows="4">Example gametest pack</textarea>
 	
 	<label for="version">Version</label>
-	<input id="version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
+	<input id="version" type="text" value="0.1.0"/>
 	
 	<label for="creators">Creators</label>
 	<input id="creators" rows="2" placeholder="Steve, WavePlayz, Thor"></textarea>
 	
 	<label for="min_engine_version">min_engine_version</label>
-	<input class="dark" id="min_engine_version" type="text" value="1.18.0" pattern="\d+\.\d+.\d+"/>
+	<input class="dark" id="min_engine_version" type="text" value="1.18.0"/>
 	
 	<label for="uuid">UUID</label>
 	<input class="dark" id="uuid" type="text" value="" />
@@ -170,10 +170,27 @@ const loading = isLoading => {
 	el.style.visibility = isLoading ? "hidden" : "visible"
 }
 
-elem("gametest_path").setAttribute(
-	"pattern", 
-	"^([^\\\/:\*\?\"<>|]|(?<!\/)(\/))*\\.js$" 
-)
+
+const reName = "[^\\\/:*?\"<>|]"
+const reNames = reName + "*"
+const reVersion = "\\d+\\.\\d+\\.\\d+"
+const reUuid = "[A-f\\d]{8}-[A-f\\d]{4}-[A-f\\d]{4}-[A-f\\d]{4}-[A-f\\d]{12}"
+const inputsPattern = {
+	name: reNames,
+	version: reVersion,
+	min_engine_version: reVersion,
+	uuid: reUuid,
+	gametest_path: `^(${  reName  }|/(?!/))*${ reName }*\\.js$`,
+	gametest_version: reVersion,
+	gametest_uuid: reUuid
+}
+
+for (let input in inputsPattern) {
+	let pattern = inputsPattern[ input ]
+	
+	elem( input ).pattern = pattern
+}
+
 
 elem("uuid").value = crypto.randomUUID()
 elem("gametest_uuid").value = crypto.randomUUID()
@@ -209,6 +226,19 @@ const dependencies = [
 		"version": [0, 1, 0]
 	}
 ]
+
+function hasValidInputs () {
+	let inputs = document.getElementsByTagName('input')
+	for (let i = 0; i < inputs.length; i++){
+		let input = inputs[i]
+		if (!input.pattern) continue;
+		
+		let regex = new RegExp( `^${ input.pattern }$` )
+		
+		if ( !regex.test(input.value) ) return false;
+	}
+	return true
+}
 
 function version (string) {
 	return string.split(".").map(Number)
@@ -270,6 +300,9 @@ function downloadPack() {
 	loading(true)
 	
 	try {
+		
+	if (!hasValidInputs()) throw Error()
+	
 	
 	const manifest = getManifest()
 	const header = manifest.header
@@ -283,10 +316,11 @@ function downloadPack() {
 	}, onUpdate )
 	
 	
-	
 	let filename = header.name + "_" + header.version.join(".")
 	
 	generator.then( function(content) {
+		alert("Packing done :D")
+		
 		// see FileSaver.js
 		saveAs(content, `${filename}.mcpack`);
 		
@@ -294,7 +328,9 @@ function downloadPack() {
 	})
 	
 	} catch(error) {
-		alert("error",error)
+		alert("Haila! Something went wrong ")
+		console.log(error)
+		loading(false)
 	}
 }
 
