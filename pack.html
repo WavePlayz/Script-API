@@ -100,7 +100,7 @@
 </head>
 <body>
 	
-	<small id="wgtc">wgtc</small>
+	<small id="wgtc"></small>
 		
 	<h2>Info</h2>
 	
@@ -155,12 +155,14 @@ world .events .tick .subscribe( eventData => {
 	<div id="logs"></div>
 	
 <script>
-const wgtc = "1.0"
+let hn = ["०","१","२","३","४","५","६","७","८","९"]
+
+const wgtc_version = "1.0".replace(/\d/g, v => hn[Number(v)])
 
 const elem = id => document.getElementById( id );
 const value = id => elem(id).value;
 
-elem("wgtc").innerText += "-" + wgtc
+elem("wgtc").innerText += wgtc_version
 
 
 const loading = isLoading => {
@@ -221,7 +223,7 @@ function getManifest() {
 		"version":  version( value("version") ),
 		"creators": value("creators").split(","),
 		"min_engine_version":  version( value("min_engine_version") ),
-		wgtc
+		wgtc_version
 	}
 	
 	const modules = [
@@ -272,7 +274,7 @@ function downloadPack() {
 	const manifest = getManifest()
 	const header = manifest.header
 	
-	pack.file( "manifest.json", JSON.stringify(manifest, null, 1) )
+	pack.file( "manifest.json", JSON.stringify(manifest, null, "\t") )
 	
 	
 	let generator = pack .generateAsync( { 
@@ -293,7 +295,7 @@ function downloadPack() {
 	
 	} catch(error) {
 		alert("error",error)
-	)
+	}
 }
 
 
