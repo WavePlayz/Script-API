@@ -139,7 +139,7 @@
 				margin: 0 0 16px 0;
 			}
 			
-			input[type=submit] {
+			input[type=button] {
 				
 				box-shadow: 0 0 20px #262833;
 				position: -webkit-sticky; /* Safari */
@@ -183,7 +183,7 @@
 		
 	<div id="loader" class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 		
-	<form id="form" action="" method="get" myform="pack" onsubmit="downloadPack()">
+	
 		<h2>Info</h2>
 		<label for="name">Name</label>
 		<input id="name" type="text" value="Gametest"/>
@@ -218,6 +218,7 @@ world .events .tick .subscribe( eventData => {
 	// Your code here
 })
 </textarea>
+<input type="file" id="picker" accept="text/plain">
 		
 		
 		<label for="gametest_version">version</label>
@@ -231,9 +232,9 @@ world .events .tick .subscribe( eventData => {
 		
 		
 			
-		<input id="submit" type="submit" name="download" value="DOWNLOAD" />
-	</form>
-	
+		<input id="submit" type="button" name="download" value="DOWNLOAD" onclick="downloadPack()"/>
+	<div id="logs">
+	</div>
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
@@ -312,7 +313,7 @@ const packIconError = "iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAADs0lEQVR4A
 
 const pack = new JSZip()
 pack.file( "scripts/script.js", value("script") )
-//pack.file( "pack_icon.png", packIcon, {base64: true} )
+pack.file( "pack_icon.png", packIcon, {base64: true} )
 
 function downloadPack() {
 	loading(true)
@@ -322,11 +323,39 @@ function downloadPack() {
 	let head = manifest.header
 	let filename = head.name + "_" + head.version.join(".")
 
-	pack.file( "manifest.json", JSON.strinify(manifest, null, 1) )
+	pack.file( "manifest.json", JSON.stringify(manifest, null, 1) )
 	
-	pack .generateAsync( { type: "blob" } ) .then(function(content) {
+	
+	
+	let last = ""
+	//elem("logs").
+	let fo = pack .generateAsync( { 
+		type: "blob", 
+		mimeType: "application/octet-stream"
+	}, function updateCallback(metadata) {
+			
+			let percent = metadata.percent.toFixed(2).padStart(6,"0")
+			let file = metadata.currentFile
+			
+			console.log("progression: " + percent + " %");
+			if(metadata.currentFile) {
+				console.log("current file = " + file);
+			}
+			
+			last += percent + ": " + file + "\n"
+			
+			let span = document.createElement("span")
+			span.innerText = last
+			
+			elem("logs").appendChild(span)
+		}
+	)
+
+	fo.then(function(content) {
 		// see FileSaver.js
-		saveAs(content, "${filename}.mcpack");
+		console.log(content)
+		content.type = ""
+		saveAs(content, `${filename}.mcpack`);
 		
 		loading(false)
 	});
