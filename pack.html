@@ -1,281 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Gametest Creator</title>
-		
-		<style>
-			* {
-				font-weight: bold;
-				
-				color: #ddd;
-				box-sizing: border-box;
-				font-family: sans-serif;
-			}
-			
-			body {
-				padding: 7px;
-				background-image: linear-gradient(to bottom, #202325, #212025);
-				
-			}
-			
-			.lds-grid {
-  display: inline-block;
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  visibility: hidden;
-  margin: 0 auto;
-  width: 80px;
-  height: 80px;
-}
-.lds-grid div {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 30%;
-  background: #808590;
-  animation: lds-grid 1.2s linear infinite;
-}
-.lds-grid div:nth-child(1) {
-  top: 8px;
-  left: 8px;
-  animation-delay: 0s;
-}
-.lds-grid div:nth-child(2) {
-  top: 8px;
-  left: 32px;
-  animation-delay: -0.4s;
-}
-.lds-grid div:nth-child(3) {
-  top: 8px;
-  left: 56px;
-  animation-delay: -0.8s;
-}
-.lds-grid div:nth-child(4) {
-  top: 32px;
-  left: 8px;
-  animation-delay: -0.4s;
-}
-.lds-grid div:nth-child(5) {
-  top: 32px;
-  left: 32px;
-  animation-delay: -0.8s;
-}
-.lds-grid div:nth-child(6) {
-  top: 32px;
-  left: 56px;
-  animation-delay: -1.2s;
-}
-.lds-grid div:nth-child(7) {
-  top: 56px;
-  left: 8px;
-  animation-delay: -0.8s;
-}
-.lds-grid div:nth-child(8) {
-  top: 56px;
-  left: 32px;
-  animation-delay: -1.2s;
-}
-.lds-grid div:nth-child(9) {
-  top: 56px;
-  left: 56px;
-  animation-delay: -1.6s;
-}
-@keyframes lds-grid {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
+<head>
 
-			
-			
-			h1,h2,h3,h4 {
-				letter-spacing: 4px;
-				text-transform: uppercase;
-				text-align: center;
-			}
-			
-			
-			#submit {
-				visibility: hidden;
-			}
-			
-			
-			label {
-				color: #808590;
-				font-size: 14px;
-				letter-spacing: 3px;
-				display: inline-block;
-				text-transform: uppercase;
-				padding: 8px 16px;
-				font-weight: bolder;
-				text-align: middle;
-			}
-			
-			
-			input,textarea {
-				color: #ccc;
-				font-size: 13px;
-				letter-spacing: 1px;
-				display: block;
-				width: 100%;
-				padding: 12px 16px;
-				outline: none;
-				border: none;
-				text-overflow: ellipsis;
-				background: #303540;
-				background-image: linear-gradient(to right, #303540, #303240);
-				white-space: pre;
-				overflow-wrap: normal;
-				overflow-x: scroll;
-				border-radius: 0px 0 0 10px;
-				margin: 0 0 16px 0;
-			}
-			
-			input[type=button] {
-				
-				box-shadow: 0 0 20px #262833;
-				position: -webkit-sticky; /* Safari */
-				position: sticky;
-				margin: 32px 0;
-				bottom: 16;
-				letter-spacing: 7px;
-				
-				text-transform: uppercase;
-				
-				font-weight: bolder;
-			}
-			
-			
-			input:invalid {
-				outline: 2px dashed #red;
-				background-image: linear-gradient(to right, #303540, red);
-				
-			}
-			
-			input:focus {
-				outline: 2px dashed #303540;
-			}
-
-			.dark {
-				color: #b0b5c5 !important;
-			}
-			
-			
-			
-			hr {
-				border-style: none;
-				background: #303540;
-				height: 4px; 
-				border-radius: 4px;
-				margin: 28px;
-			}
-		</style>
-	</head>
-	<body >
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		
-	<div id="loader" class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-		
+<title>Gametest Creator</title>
 	
-		<h2>Info</h2>
-		<label for="name">Name</label>
-		<input id="name" type="text" value="Gametest"/>
+<style>
+	* {
+		box-sizing: border-box;
+		color: #9ab;
+		font-family: sans-serif;
+		font-weight: bold;
+	}
+	
+	body {
+		padding: 7px;
+		background-image: linear-gradient(to bottom, #202325, #212025);
+	}
+	
+	h1,h2,h3,h4 {
+		letter-spacing: 5px;
+		text-transform: uppercase;
+		text-align: center;
+	}
+	
+	
+	#submit {
+		visibility: hidden;
+	}
+	
+	
+	label {
+		color: #808590;
+		font-size: 14px;
+		letter-spacing: 3px;
+		display: inline-block;
+		text-transform: uppercase;
+		padding: 8px 16px;
+		font-weight: bolder;
+	}
+	
+	input, textarea {
+		color: #ccc;
+		font-size: 13px;
+		letter-spacing: 1px;
+		display: block;
+		width: 100%;
+		padding: 12px 16px;
+		outline: none;
+		border: none;
+		text-overflow: ellipsis;
+		background: #303540;
+		background-image: linear-gradient(to right, #303540, #303240);
+		white-space: pre;
+		overflow-wrap: normal;
+		overflow-x: scroll;
+		border-radius: 0px 0 0 10px;
+		margin: 0 0 16px 0;
+	}
+	
+	input[type=button] {
+		box-shadow: 0 0 20px #262833;
+		position: -webkit-sticky; /* Safari */
+		position: sticky;
+		margin: 32px 0;
+		bottom: 16;
+		letter-spacing: 7px;
+		text-transform: uppercase;
+		font-weight: bolder;
+	}
+	
+	
+	input:invalid {
+		outline: 2px dashed #red;
+		background-image: linear-gradient(to right, #303540, red);
 		
-		<label for="description">Description</label>
-		<textarea id="description" rows="4">Example gametest pack</textarea>
+	}
+	
+	input:focus {
+		outline: 2px dashed #303540;
+	}
+
+	.dark {
+		color: #b0b5c5 !important;
+	}
+	
+	hr {
+		border-style: none;
+		background: #303540;
+		height: 4px; 
+		border-radius: 4px;
+		margin: 28px;
+	}
+</style>
+
+</head>
+<body>
 		
-		<label for="version">Version</label>
-		<input id="version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
-		
-		<label for="creators">Creators</label>
-		<input id="creators" rows="2" placeholder="Steve, WavePlayz, Thor"></textarea>
-		
-		<label for="min_engine_version">min_engine_version</label>
-		<input class="dark" id="min_engine_version" type="text" value="1.18.0" pattern="\d+\.\d+.\d+"/>
-		
-		<label for="uuid">UUID</label>
-		<input class="dark" id="uuid" type="text" value="" />
-		
-		
-		<h2>Gametest</h2>
-		
-		<label for="gametest_path">path</label>
-		<input id="gametest_path" type="text" value="scripts/script.js"/>
-		
-		<label for="script">Script</label>
-		<textarea contenteditable="true" id="script" rows="7" class="language-js">
-import { world } from "mojang-minecraft"
+	<h2>Info</h2>
+	
+	<label for="name">Name</label>
+	<input id="name" type="text" value="Gametest"/>
+	
+	<label for="description">Description</label>
+	<textarea id="description" rows="4">Example gametest pack</textarea>
+	
+	<label for="version">Version</label>
+	<input id="version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
+	
+	<label for="creators">Creators</label>
+	<input id="creators" rows="2" placeholder="Steve, WavePlayz, Thor"></textarea>
+	
+	<label for="min_engine_version">min_engine_version</label>
+	<input class="dark" id="min_engine_version" type="text" value="1.18.0" pattern="\d+\.\d+.\d+"/>
+	
+	<label for="uuid">UUID</label>
+	<input class="dark" id="uuid" type="text" value="" />
+	
+	
+	<h2>Gametest</h2>
+	
+	<label for="gametest_path">path</label>
+	<input id="gametest_path" type="text" value="scripts/script.js"/>
+	
+	<label for="script">Script</label>
+	<textarea contenteditable="true" id="script" rows="7" class="language-js">
 import * as UI from "mojang-minecraft-ui"
+import { world } from "mojang-minecraft"
 
 world .events .tick .subscribe( eventData => {
 	// Your code here
 })
+
 </textarea>
-<input type="file" id="picker" accept="text/plain">
-		
-		
-		<label for="gametest_version">version</label>
-		<input class="dark" id="gametest_version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
-		
-		<label for="gametest_uuid">uuid</label>
-		<input class="dark" id="gametest_uuid" type="text" value=""/>
-		
-		<label for="gametest_description">description</label>
-		<input class="dark" id="gametest_description" type="text" value="gametest-module"/>
-		
-		
-			
-		<input id="submit" type="button" name="download" value="DOWNLOAD" onclick="downloadPack()"/>
-	<div id="logs">
-	</div>
-		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-		<script>
-
-
+	
+	<label for="gametest_version">version</label>
+	<input class="dark" id="gametest_version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
+	
+	<label for="gametest_uuid">uuid</label>
+	<input class="dark" id="gametest_uuid" type="text" value=""/>
+	
+	<label for="gametest_description">description</label>
+	<input class="dark" id="gametest_description" type="text" value="gametest-module"/>
+	
+	<hr>
+	
+	<input id="submit" type="button" name="download" value="DOWNLOAD" onclick="downloadPack()"/>
+	
+	<div id="logs"></div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+	
+	<script>
 
 const elem = id => document.getElementById( id );
 const value = id => elem(id).value;
 
+
 const loading = isLoading => {
 	elem("submit").style.visibility = isLoading ? "hidden" : "visible"
-	//elem("loader").style.visibility = isLoading ? "visible" : "hidden"
 }
+
 
 loading( true )
 
+elem("gametest_path").setAttribute(
+	"pattern", 
+	"^([^\\\/:\*\?\"<>|]|(?<!\/)(\/))*\\.js$" 
+)
+
 elem("uuid").value = crypto.randomUUID()
 elem("gametest_uuid").value = crypto.randomUUID()
-elem("gametest_path").setAttribute("pattern", "^([^\\\/:\*\?\"<>|]|(?<!\/)(\/))*\\.js$" )
 
 loading( false )
+
+
 
 
 const dependencies = [
 	{
 		// Minecraft native module - needed to use the "mojang-minecraft" module
+		"description": "mojang-minecraft",
 		"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
 		"version": [0, 1, 0]
 	},
 	{
 		// GameTest native module - needed to use the "mojang-gametest" module
+		"description": "mojang-gametest",
 		"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
 		"version": [0, 1, 0]
 	},
 	{
 		// Minecraft Ui native module - needed to use the "mojang-minecraft-ui" module
-		"uuid": "2BD50A27-AB5F-4F40-A596-3641627C635E",
+		"description": "mojang-minecraft-ui",
+		"uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
 		"version": [0, 1, 0]
 	}
 ]
+
+function version (string) {
+	return version.split(".").map(Number)
+}
 
 function getManifest() {
 
@@ -283,9 +212,9 @@ function getManifest() {
 		"name":  value("name"),
 		"description":  value("description"),
 		"uuid":  value("uuid"),
-		"version":  value("version").split("."),
+		"version":  version( value("version") ),
 		"creators": value("creators").split(","),
-		"min_engine_version":  value("min_engine_version").split(".")
+		"min_engine_version":  version( value("min_engine_version") )
 	}
 	
 	const modules = [
@@ -293,7 +222,7 @@ function getManifest() {
 			"type": "javascript",
 			"description": value("gametest_description"),
 			"uuid": value("gametest_uuid"),
-			"version": value("gametest_version").split("."),
+			"version": version( value("gametest_version") ),
 			"entry": value("gametest_path")
 		}
 	]
@@ -308,59 +237,50 @@ function getManifest() {
 	return manifest
 }
 
+
+function onUpdate (data) {
+	let percent = metadata.percent.toFixed(2).padStart(6,"0")
+	let file = metadata.currentFile
+	
+	let log = percent + ": " + file
+	
+	console.log( log )
+}
+
+
 const packIcon = "iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAADyUlEQVR4Ae2dzUpVYRiF94kNTcqB1imO4iydFJGNugEbilegA8G7cCB4Dw2cKDjsAiJoFk1CjQNFOZM6mP0MpIkgaPfwDF4W3+N88b5rrYfvDL69t4Odz+vXHfj7eDQG6q4bzd9n+pmHSD/5c8b0p7+QnvqfwPm30PaK4xMQgPgKmQEBYPnFqwUgvkJmQABYfvFqAYivkBkQAJZfvFoA4itkBgSA5RevFoD4CpkBAWD5xasFIL5CZkAAWH7xagGIr5AZEACWX7x6sHrwHD0PMNy9RCGcb9xm+tMLpB/OTyE9vc+/2vqO5vfbc0jvCYDiyxcLQH6HyIEAoPjyxQKQ3yFyIAAovnyxAOR3iBwIAIovXywA+R0iBwKA4ssXC0B+h8iBAKD48sUCkN8hciAAKL58sQDkd4gcCACKL1/c0/v8pZU1lMLh7h7SDzv2PEG/zb5PQO/zR/fuIP/Hfh8A5de82J+AxhEQAAFoPIHG7XsCCEDjCTRu3xNAABpPoHH7ngAC0HgCjdv3BBCAxhNo3L4ngAA0nkDj9j0BGgdg8GpzGX0f4Odf9n7+g2n2fv5w5i6q8M2Hr0hP7/Op/6NvE7S/JwCKL18sAPkdIgcCgOLLFwtAfofIgQCg+PLFApDfIXIgACi+fLEA5HeIHAgAii9fLAD5HSIHAoDiyxcLQH6HyIEAoPjyxQKQ3yFyIAAovnxxT+/zJ7//oRSo/tnCCM2n9/lPHs2i+fR5BDT8v9gTgCYYrheA8ALp+gJAEwzXC0B4gXR9AaAJhusFILxAur4A0ATD9QIQXiBdXwBoguF6AQgvkK4vADTBcL0AhBdI1xcAmmC4XgDCC6TrCwBNMFzf0/vsrvuBIqDPA9D34+n/O/j0bh/5p88z0Oc5PAFQffliAcjvEDkQABRfvlgA8jtEDgQAxZcvFoD8DpEDAUDx5YsFIL9D5EAAUHz5YgHI7xA5EAAUX75YAPI7RA4EAMWXLxaA/A6RAwFA8eWL+/EJu8+n37unzwO8fLGIWjj/8hbpnz5eQPrq/D0BUH35YgHI7xA5EAAUX75YAPI7RA4EAMWXLxaA/A6RAwFA8eWLBSC/Q+RAAFB8+WIByO8QORAAFF++WADyO0QOBADFly8WgPwOkQMBQPHli3t6H08joO/nj9+/piuU6mn+9PsOngCl9dcPF4D6Dko3EIDS+OuHC0B9B6UbCEBp/PXDBaC+g9INBKA0/vrhAlDfQekGAlAaf/1wAajvoHQDASiNv364ANR3ULqBAJTGXz9cAOo7KN1AAErjrx9+A/YwXc+CLVwxAAAAAElFTkSuQmCC"
 const packIconError = "iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAADs0lEQVR4Ae2dzYrPYRiGZ/Q/AmPIx9JXzEYpC0lKFsoROAI7a2djoeyVJDVJ1OSrJPnKCsXgFHAO1+Lp6nfN/p7nue/76p3F+87/v373we2/a+Dn1evXQL22dvjIIaQ/sHkA6X/s/kD6b1+/Iz31T+fvQdsn1icQAPoKmYEAYPnp1QGgr5AZCACWn14dAPoKmYEAYPnp1QGgr5AZCACWn14dAPoKmYEAYPnp1QGgr5AZCACWn14dAPoKmYEAYPnp1St6n//x8VsWwkUmf7HD3iMcPMzeE9D7/O07D1EAl65fQfpOABSfXxwA/g6RgwBA8fnFAeDvEDkIABSfXxwA/g6RgwBA8fnFAeDvEDkIABSfXxwA/g6RgwBA8fnFAeDvEDkIABSfXxwA/g6RgwBA8fnFK3qff/nqNZTCo/v3kJ6Kz547g34Fvc/fv7mB5vf5ACi+xP0JWDgDARAAC09g4fY7AQJg4Qks3H4nQAAsPIGF2+8ECICFJ7Bw+50AAbDwBBZuvxMgABaewMLtdwIsHID1WzdvoO8L+PX7D4pw38ZepN+A+idPd9B8ep9P/b97/wnt3wmA4vOLA8DfIXIQACg+vzgA/B0iBwGA4vOLA8DfIXIQACg+vzgA/B0iBwGA4vOLA8DfIXIQACg+vzgA/B0iBwGA4vOLA8DfIXIQACg+v3hF7/N/7v5GKVD9qZPH0Hx6n3/i+FE0n75HQMP/izsBaIJyfQDIC6TrBwBNUK4PAHmBdP0AoAnK9QEgL5CuHwA0Qbk+AOQF0vUDgCYo1weAvEC6fgDQBOX6AJAXSNcPAJqgXB8A8gLp+gFAE5TrV/Q+m/qn7wHo/8fT7zt4+XQbRUDfM9D3HJ0AqD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84tXHz5+Ri7o593T9wAXzp9D+3//8h7pt7ZOI/10/p0AqD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84tX9D6eRkD/P//N82d0hVE9zZ9+vkMnwGj988MDYL6D0Q0CYDT++eEBMN/B6AYBMBr//PAAmO9gdIMAGI1/fngAzHcwukEAjMY/PzwA5jsY3SAARuOfHx4A8x2MbhAAo/HPDw+A+Q5GNwiA0fjnh/8DjkRdvTKf5oMAAAAASUVORK5CYII="
 
 const pack = new JSZip()
+
 pack.file( "scripts/script.js", value("script") )
 pack.file( "pack_icon.png", packIcon, {base64: true} )
+pack.file( ".packinfo", "created by https://waveplayz.github.io/Gametest-API/pack.html" )
 
 function downloadPack() {
 	loading(true)
 	
 	const manifest = getManifest()
+	const header = manifest.header
 	
-	let head = manifest.header
-	let filename = head.name + "_" + head.version.join(".")
-
 	pack.file( "manifest.json", JSON.stringify(manifest, null, 1) )
 	
 	
-	
-	let last = ""
-	//elem("logs").
-	let fo = pack .generateAsync( { 
+	let generator = pack .generateAsync( { 
 		type: "blob", 
 		mimeType: "application/octet-stream"
-	}, function updateCallback(metadata) {
-			
-			let percent = metadata.percent.toFixed(2).padStart(6,"0")
-			let file = metadata.currentFile
-			
-			console.log("progression: " + percent + " %");
-			if(metadata.currentFile) {
-				console.log("current file = " + file);
-			}
-			
-			last += percent + ": " + file + "\n"
-			
-			let span = document.createElement("span")
-			span.innerText = last
-			
-			elem("logs").appendChild(span)
-		}
-	)
-
-	fo.then(function(content) {
+	}, onUpdate )
+	
+	
+	
+	let filename = header.name + "_" + header.version.join(".")
+	
+	generator.then( function(content) {
 		// see FileSaver.js
-		console.log(content)
-		content.type = ""
 		saveAs(content, `${filename}.mcpack`);
 		
 		loading(false)
-	});
-	
-	return false
+	})
 }
 
 
