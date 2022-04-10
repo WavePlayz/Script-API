@@ -151,7 +151,7 @@ const elem = id => document.getElementById( id );
 
 elem("uuid").value = crypto.randomUUID()
 elem("gametest_uuid").value = crypto.randomUUID()
-elem("gametest_path").setAttribute("pattern", "^([^\\\/:\*\?\"<>|]|(?<!\/)(\/))*\.js$" )
+elem("gametest_path").setAttribute("pattern", "^([^\\\/:\*\?\"<>|]|(?<!\/)(\/))*\\.js$" )
 
 const dependencies = [
 	{
