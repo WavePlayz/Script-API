@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>Gametest Creator</title>
+		
 		<style>
 			* {
 				font-weight: bold;
@@ -20,12 +21,91 @@
 				
 			}
 			
+			.lds-grid {
+  display: inline-block;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+}
+.lds-grid div {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 30%;
+  background: #808590;
+  animation: lds-grid 1.2s linear infinite;
+}
+.lds-grid div:nth-child(1) {
+  top: 8px;
+  left: 8px;
+  animation-delay: 0s;
+}
+.lds-grid div:nth-child(2) {
+  top: 8px;
+  left: 32px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(3) {
+  top: 8px;
+  left: 56px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(4) {
+  top: 32px;
+  left: 8px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(5) {
+  top: 32px;
+  left: 32px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(6) {
+  top: 32px;
+  left: 56px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(7) {
+  top: 56px;
+  left: 8px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+  top: 56px;
+  left: 32px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+  top: 56px;
+  left: 56px;
+  animation-delay: -1.6s;
+}
+@keyframes lds-grid {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+			
+			
 			h1,h2,h3,h4 {
 				letter-spacing: 4px;
 				text-transform: uppercase;
 				text-align: center;
 			}
 			
+			
+			#submit {
+				visibility: hidden;
+			}
 			
 			
 			label {
@@ -41,7 +121,7 @@
 			
 			
 			input,textarea {
-				color: #bbb;
+				color: #ccc;
 				font-size: 13px;
 				letter-spacing: 1px;
 				display: block;
@@ -52,7 +132,9 @@
 				text-overflow: ellipsis;
 				background: #303540;
 				background-image: linear-gradient(to right, #303540, #303240);
-				
+				white-space: pre;
+				overflow-wrap: normal;
+				overflow-x: scroll;
 				border-radius: 0px 0 0 10px;
 				margin: 0 0 16px 0;
 			}
@@ -83,7 +165,7 @@
 			}
 
 			.dark {
-				color: #808590 !important;
+				color: #b0b5c5 !important;
 			}
 			
 			
@@ -97,9 +179,11 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body >
 		
-	<form action="" method="POST" myform="pack" onsubmit="downloadPack()">
+	<div id="loader" class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+		
+	<form id="form" action="" method="post" myform="pack" onsubmit="downloadPack()">
 		<h2>Info</h2>
 		<label for="name">Name</label>
 		<input id="name" type="text" value="Gametest"/>
@@ -125,6 +209,17 @@
 		<label for="gametest_path">path</label>
 		<input id="gametest_path" type="text" value="scripts/script.js"/>
 		
+		<label for="script">Script</label>
+		<textarea contenteditable="true" id="script" rows="7" class="language-js">
+import { world } from "mojang-minecraft"
+import * as UI from "mojang-minecraft-ui"
+
+world .events .tick .subscribe( eventData => {
+	// Your code here
+})
+</textarea>
+		
+		
 		<label for="gametest_version">version</label>
 		<input class="dark" id="gametest_version" type="text" value="0.1.0" pattern="\d+\.\d+.\d+"/>
 		
@@ -136,20 +231,32 @@
 		
 		
 			
-		<input type="submit" name="download" value="DOWNLOAD" />
+		<input id="submit" type="submit" name="download" value="DOWNLOAD" />
 	</form>
 	
+		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 		<script>
 
 
+
 const elem = id => document.getElementById( id );
 const value = id => elem(id).value;
+
+const loading = isLoading => {
+	elem("submit").style.visibility = isLoading ? "hidden" : "visible"
+	//elem("loader").style.visibility = isLoading ? "visible" : "hidden"
+}
+
+loading( true )
 
 elem("uuid").value = crypto.randomUUID()
 elem("gametest_uuid").value = crypto.randomUUID()
 elem("gametest_path").setAttribute("pattern", "^([^\\\/:\*\?\"<>|]|(?<!\/)(\/))*\\.js$" )
+
+loading( false )
+
 
 const dependencies = [
 	{
@@ -200,11 +307,31 @@ function getManifest() {
 	return manifest
 }
 
+const packIcon = "iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAADyUlEQVR4Ae2dzUpVYRiF94kNTcqB1imO4iydFJGNugEbilegA8G7cCB4Dw2cKDjsAiJoFk1CjQNFOZM6mP0MpIkgaPfwDF4W3+N88b5rrYfvDL69t4Odz+vXHfj7eDQG6q4bzd9n+pmHSD/5c8b0p7+QnvqfwPm30PaK4xMQgPgKmQEBYPnFqwUgvkJmQABYfvFqAYivkBkQAJZfvFoA4itkBgSA5RevFoD4CpkBAWD5xasFIL5CZkAAWH7xagGIr5AZEACWX7x6sHrwHD0PMNy9RCGcb9xm+tMLpB/OTyE9vc+/2vqO5vfbc0jvCYDiyxcLQH6HyIEAoPjyxQKQ3yFyIAAovnyxAOR3iBwIAIovXywA+R0iBwKA4ssXC0B+h8iBAKD48sUCkN8hciAAKL58sQDkd4gcCACKL1/c0/v8pZU1lMLh7h7SDzv2PEG/zb5PQO/zR/fuIP/Hfh8A5de82J+AxhEQAAFoPIHG7XsCCEDjCTRu3xNAABpPoHH7ngAC0HgCjdv3BBCAxhNo3L4ngAA0nkDj9j0BGgdg8GpzGX0f4Odf9n7+g2n2fv5w5i6q8M2Hr0hP7/Op/6NvE7S/JwCKL18sAPkdIgcCgOLLFwtAfofIgQCg+PLFApDfIXIgACi+fLEA5HeIHAgAii9fLAD5HSIHAoDiyxcLQH6HyIEAoPjyxQKQ3yFyIAAovnxxT+/zJ7//oRSo/tnCCM2n9/lPHs2i+fR5BDT8v9gTgCYYrheA8ALp+gJAEwzXC0B4gXR9AaAJhusFILxAur4A0ATD9QIQXiBdXwBoguF6AQgvkK4vADTBcL0AhBdI1xcAmmC4XgDCC6TrCwBNMFzf0/vsrvuBIqDPA9D34+n/O/j0bh/5p88z0Oc5PAFQffliAcjvEDkQABRfvlgA8jtEDgQAxZcvFoD8DpEDAUDx5YsFIL9D5EAAUHz5YgHI7xA5EAAUX75YAPI7RA4EAMWXLxaA/A6RAwFA8eWL+/EJu8+n37unzwO8fLGIWjj/8hbpnz5eQPrq/D0BUH35YgHI7xA5EAAUX75YAPI7RA4EAMWXLxaA/A6RAwFA8eWLBSC/Q+RAAFB8+WIByO8QORAAFF++WADyO0QOBADFly8WgPwOkQMBQPHli3t6H08joO/nj9+/piuU6mn+9PsOngCl9dcPF4D6Dko3EIDS+OuHC0B9B6UbCEBp/PXDBaC+g9INBKA0/vrhAlDfQekGAlAaf/1wAajvoHQDASiNv364ANR3ULqBAJTGXz9cAOo7KN1AAErjrx9+A/YwXc+CLVwxAAAAAElFTkSuQmCC"
+const packIconError = "iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAADs0lEQVR4Ae2dzYrPYRiGZ/Q/AmPIx9JXzEYpC0lKFsoROAI7a2djoeyVJDVJ1OSrJPnKCsXgFHAO1+Lp6nfN/p7nue/76p3F+87/v373we2/a+Dn1evXQL22dvjIIaQ/sHkA6X/s/kD6b1+/Iz31T+fvQdsn1icQAPoKmYEAYPnp1QGgr5AZCACWn14dAPoKmYEAYPnp1QGgr5AZCACWn14dAPoKmYEAYPnp1QGgr5AZCACWn14dAPoKmYEAYPnp1St6n//x8VsWwkUmf7HD3iMcPMzeE9D7/O07D1EAl65fQfpOABSfXxwA/g6RgwBA8fnFAeDvEDkIABSfXxwA/g6RgwBA8fnFAeDvEDkIABSfXxwA/g6RgwBA8fnFAeDvEDkIABSfXxwA/g6RgwBA8fnFK3qff/nqNZTCo/v3kJ6Kz547g34Fvc/fv7mB5vf5ACi+xP0JWDgDARAAC09g4fY7AQJg4Qks3H4nQAAsPIGF2+8ECICFJ7Bw+50AAbDwBBZuvxMgABaewMLtdwIsHID1WzdvoO8L+PX7D4pw38ZepN+A+idPd9B8ep9P/b97/wnt3wmA4vOLA8DfIXIQACg+vzgA/B0iBwGA4vOLA8DfIXIQACg+vzgA/B0iBwGA4vOLA8DfIXIQACg+vzgA/B0iBwGA4vOLA8DfIXIQACg+v3hF7/N/7v5GKVD9qZPH0Hx6n3/i+FE0n75HQMP/izsBaIJyfQDIC6TrBwBNUK4PAHmBdP0AoAnK9QEgL5CuHwA0Qbk+AOQF0vUDgCYo1weAvEC6fgDQBOX6AJAXSNcPAJqgXB8A8gLp+gFAE5TrV/Q+m/qn7wHo/8fT7zt4+XQbRUDfM9D3HJ0AqD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84tXHz5+Ri7o593T9wAXzp9D+3//8h7pt7ZOI/10/p0AqD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84sDwN8hchAAKD6/OAD8HSIHAYDi84tX9D6eRkD/P//N82d0hVE9zZ9+vkMnwGj988MDYL6D0Q0CYDT++eEBMN/B6AYBMBr//PAAmO9gdIMAGI1/fngAzHcwukEAjMY/PzwA5jsY3SAARuOfHx4A8x2MbhAAo/HPDw+A+Q5GNwiA0fjnh/8DjkRdvTKf5oMAAAAASUVORK5CYII="
+
+const pack = new JSZip()
+pack.file( "scripts/script.js", script )
+pack.file( "pack_icon.png", packIcon, {base64: true} )
 
 function downloadPack() {
+	loading(true)
+	
 	const manifest = getManifest()
-	console.log(manifest)
-	return true
+	
+	let head = manifest.header
+	let filename = head.name + "_" + head.version.join(".")
+
+	pack.file( "manifest.json", JSON.strinify(manifest, null, 1) )
+	
+	pack .generateAsync( { type: "blob" } ) .then(function(content) {
+		// see FileSaver.js
+		saveAs(content, "${filename}.mcpack");
+		
+		loading(false)
+	});
+	
+	return false
 }
 
 
