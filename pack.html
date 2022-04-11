@@ -14,6 +14,7 @@
 		color: #9ab;
 		font-family: sans-serif;
 		font-weight: bold;
+		letter-spacing: 1px;
 	}
 	
 	body {
@@ -95,9 +96,19 @@
 		border-radius: 4px;
 		margin: 28px;
 	}
-	pre{
+	
+	pre {
+		opacity: 0.7; 
 		font-family: monospace;
 		font-weight: none !important;
+	}
+	
+	#info {
+		opacity: 0.5; 
+		margin-top: 10%;
+		text-transform: uppercase;
+		font-size: 10px;
+		text-align: right;
 	}
 </style>
 
@@ -157,7 +168,7 @@ world .events .tick .subscribe( eventData => {
 	<input id="submit" type="button" name="download" value="DOWNLOAD" onclick="downloadPack()"/>
 	
 	<div id="logs"></div>
-<pre>
+<pre class="dark">
 Complete list of get/url parameters
   n: name
   d: description
@@ -173,7 +184,7 @@ gid: module uuid
  dl: to download without click
 </pre>
 
-<pre id="info"><pre>
+<pre id="info" class="dark"><pre>
 	
 <script>
 
@@ -217,18 +228,16 @@ function displayInfo() {
 	
 	hit("views", function() {
 		
-		elem("info").innerHTML = this.response.value + " VIEWS"
-	})
-	
-	getHit("downloads", function() {
-		console.log(this)
-		elem("info").innerHTML += " & " + (this?.response?.value??0) + " Downloads so far!"
+		let text = "·" + this.response.value + " VIEWS"
+		
+		getHit("downloads", function() {
+			console.log( this?.response?.value ?? 0 )
+			elem("info").innerHTML = text + "\n·" + (this?.response?.value??0) + " Downloads"
+		})
+		
 	})
 	
 }
-
-displayInfo()
-
 
 
 const reName = "[^\\\\/:*?\"<>|]"
@@ -436,6 +445,7 @@ const dl = urlParams.get("dl")
 
 if (dl != null) downloadPack();
 
+displayInfo()
 
 </script>
 </body>
