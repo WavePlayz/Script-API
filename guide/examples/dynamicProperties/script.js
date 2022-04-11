@@ -1,35 +1,27 @@
 import { 
 	world, 
+	MinecraftEntityTypes,
 	DynamicPropertiesDefinition, 
 } from "mojang-minecraft"
 
 
-const events = world.events
 
-const variables = {
-	string: "myString",
-	boolean: "myBoolean",
-	number: "myNumber"
-}
-
-const dynamicPropertiesDefinition = new DynamicPropertiesDefinition()
-
-//  Defines a string and length
-dynamicPropertiesDefinition
-	.defineString(  variables.string, 1000  )
+const properties = new DynamicPropertiesDefinition()
 
 //  Defines a boolean
-dynamicPropertiesDefinition
-	.defineBoolean(  variables.boolean  )
+properties .defineBoolean(  "myBoolean"  )
 
 // Defines a number
-dynamicPropertiesDefinition
-	.defineNumber(  variables.number  )
-	
+properties .defineNumber(  "myNumber"  )
+
+//  Defines a string and length
+properties .defineString(  "myString", 1000  )
+
 	
 
+const Events = world.events
 
-events. worldInitialize .subscribe(  worldInitializeEventData => {
+Events. worldInitialize .subscribe(  worldInitializeEventData => {
 	const { propertyRegistry } = worldInitializeEventData
 	
 	// world dynamic properties
@@ -38,39 +30,60 @@ events. worldInitialize .subscribe(  worldInitializeEventData => {
 			dynamicPropertiesDefinition 
 		)
 	
+	// entities dynamic properties
+	propertyRegistry
+		.registerEntityTypeDynamicProperties( 
+			dynamicPropertiesDefinition, MinecraftEntityTypes.player
+		)
+	
 }  )
 
 
-events. chat .subscribe(  eventData => {
+function setProperty (key, value, source) {
+	(source ?? world) .setDynamicProperty( key, value  )
+}
+
+function getProperty (key, source) {
+	(source ?? world) .getDynamicProperty( key  )
+}
+
+function removeProperty (key, source) {
+	(source ?? world) .setDynamicProperty( key  )
+}
+
+Events. chat .subscribe(  eventData => {
 	const { message, sender } = eventData
-	
-	try { 
 	
 	let string, boolean, number;
 	
+	try { 
+	
+	
+	
 	if (message == "set") {
-		world.setDynamicProperty( variables.string, "awesome" )
-		world.setDynamicProperty( variables.boolean, true  )
-		world.setDynamicProperty( variables.number, 108 )
+		setProperty( "myBoolean", true  )
+		setProperty( "myString", "awesome" )
+		setProperty( "myNumber", 108 )
 	}
 	
-	if (message == "remove") {
-		world.removeDynamicProperty( variables.string )
-		world.removeDynamicProperty( variables.boolean  )
-		world.removeDynamicProperty( variables.number )
+	else if (message == "remove") {
+		removeProperty( "myBoolean" )
+		removeProperty( "myString" )
+		removeProperty( "myNumber" )
 	}
 	
-	// get variables
-	string = world.getDynamicProperty( variables.string )
-	boolean = world.getDynamicProperty( variables.boolean )
-	number = world.getDynamicProperty( variables.number )
-	
-	let values = `${variables.string} = ${string} \n${variables.boolean} = ${boolean} \n${variables.number} = ${number}`
-	
-	sender.runCommand( "msg " + values )
-	
-	} catch (error) {
-		console.warn(error)
+	else if (message == "get") {
+		let myBoolean = getProperty( "myBoolean" )
+		let myString = getProperty( "myString" )
+		let myNumber = getProperty( "myNumber" )
+		
+		let values = [
+			"myBoolean", myBoolean,
+			"myString", myString,
+			"myNumber", myNumber
+		].join("\n")
+		
+		sender.runCommand( "msg world properties:- " + values )
 	}
 	
 }  )
