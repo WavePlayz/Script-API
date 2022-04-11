@@ -430,6 +430,8 @@ function downloadPack() {
 		saveAs(content, `${filename}.mcpack`);
 		
 		loading(false)
+		
+		hit("downloads")
 	})
 	
 	displayInfo()
