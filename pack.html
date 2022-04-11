@@ -196,7 +196,7 @@ const loading = isLoading => {
 
 
 function hit(key, callback) {
-	let counterBase = "https:\/\/api.countapi.xyz/hit/" + "waveplayz.github.io" + "/" + key
+	let counterBase = "https:\/\/api.countapi.xyz/hit/" + "waveplayz.github.io.gametest.api" + "/" + key
     let xhr = new XMLHttpRequest()
     xhr.open("GET", counterBase)
     xhr.responseType = "json"
@@ -205,7 +205,7 @@ function hit(key, callback) {
 }
 
 function getHit(key, callback) {
-	let counterBase = "https:\/\/api.countapi.xyz/get/" + "waveplayz.github.io" + "/" + key
+	let counterBase = "https:\/\/api.countapi.xyz/get/" + "waveplayz.github.io.gametest.api" + "/" + key
     let xhr = new XMLHttpRequest()
     xhr.open("GET", counterBase)
     xhr.responseType = "json"
@@ -216,16 +216,18 @@ function getHit(key, callback) {
 function displayInfo() {
 	
 	hit("views", function() {
-		console.log(this)
-		elem("info").innerHTML = "VIEWS " + this.response.value
+		
+		elem("info").innerHTML = this.response.value + " VIEWS"
 	})
 	
 	getHit("downloads", function() {
-		elem("downloads").innerHTML = " & " this.response.value + " Downloads so far!"
+		console.log(this)
+		elem("info").innerHTML += " & " + (this?.response?.value??0) + " Downloads so far!"
 	})
 	
 }
 
+displayInfo()
 
 
 
@@ -390,11 +392,6 @@ pack.file( "scripts/script.js", value("script") )
 pack.file( "pack_icon.png", packIcon, {base64: true} )
 pack.file( ".packinfo", "created by " + URL )
 
-function displaysDownloads() {
-	
-}
-displaysDownloads()
-
 function downloadPack() {
 	loading(true)
 	
@@ -426,8 +423,7 @@ function downloadPack() {
 		loading(false)
 	})
 	
-	hit("downloads")
-	displaysDownloads()
+	displayInfo()
 	
 	} catch(error) {
 		alert("Haila! Something went wrong ")
