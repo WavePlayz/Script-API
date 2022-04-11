@@ -95,6 +95,10 @@
 		border-radius: 4px;
 		margin: 28px;
 	}
+	pre{
+		font-family: monospace;
+		font-weight: none !important;
+	}
 </style>
 
 </head>
@@ -153,6 +157,21 @@ world .events .tick .subscribe( eventData => {
 	<input id="submit" type="button" name="download" value="DOWNLOAD" onclick="downloadPack()"/>
 	
 	<div id="logs"></div>
+<pre>
+Complete list of get/url parameters
+  n: name
+  d: description
+  v: version
+  c: creators
+ id: uuid
+ mv: min engine version
+  p: script path
+src: script code
+ gv: module version
+gid: module uuid
+ gd: module description
+ dl: to download without click
+</pre>
 	
 <script>
 let hn = ["०","१","२","३","४","५","६","७","८","९"]
@@ -209,14 +228,18 @@ if(ver) elem("version").value = ver
 let crea = urlParams.get("c")
 if(crea) elem("creators").value = crea
 
-let mver = urlParams.get("mv")
-if(mver) elem("min_engine_version").value = mver
-
 let uuid = urlParams.get("id")
 if(uuid) elem("uuid").value = uuid
 
+let mver = urlParams.get("mv")
+if(mver) elem("min_engine_version").value = mver
+
+
+let path = urlParams.get("p")
+if(path) elem("gametest_path").value = path
+
 let code = urlParams.get("src")
-if(code) elem("gametest_path").value = code
+if(code) elem("script").value = code
 
 let gver = urlParams.get("gv")
 if(gver) elem("gametest_version").value = gver
@@ -366,6 +389,9 @@ function downloadPack() {
 	}
 }
 
+const dl = urlParams.get("dl")
+
+if (dl != null) downloadPack();
 
 
 </script>
