@@ -172,8 +172,13 @@ gid: module uuid
  gd: module description
  dl: to download without click
 </pre>
+
+<pre id="info"><pre>
 	
 <script>
+
+const URL = "https:\/\/waveplayz.github.io/Gametest-API/pack.html"
+
 let hn = ["०","१","२","३","४","५","६","७","८","९"]
 
 const wgtc_version = "1.0".replace(/\d/g, v => hn[Number(v)])
@@ -188,6 +193,40 @@ const loading = isLoading => {
 	let el = elem("submit")
 	el.style.visibility = isLoading ? "hidden" : "visible"
 }
+
+
+function hit(key, callback) {
+	let counterBase = "https:\/\/api.countapi.xyz/hit/" + "waveplayz.github.io" + "/" + key
+    let xhr = new XMLHttpRequest()
+    xhr.open("GET", counterBase)
+    xhr.responseType = "json"
+    xhr.onload = callback
+    xhr.send();
+}
+
+function getHit(key, callback) {
+	let counterBase = "https:\/\/api.countapi.xyz/get/" + "waveplayz.github.io" + "/" + key
+    let xhr = new XMLHttpRequest()
+    xhr.open("GET", counterBase)
+    xhr.responseType = "json"
+    xhr.onload = callback
+    xhr.send();
+}
+
+function displayInfo() {
+	
+	hit("views", function() {
+		console.log(this)
+		elem("info").innerHTML = "VIEWS " + this.response.value
+	})
+	
+	getHit("downloads", function() {
+		elem("downloads").innerHTML = " & " this.response.value + " Downloads so far!"
+	})
+	
+}
+
+
 
 
 const reName = "[^\\\\/:*?\"<>|]"
@@ -349,7 +388,12 @@ const pack = new JSZip()
 
 pack.file( "scripts/script.js", value("script") )
 pack.file( "pack_icon.png", packIcon, {base64: true} )
-pack.file( ".packinfo", "created by https://waveplayz.github.io/Gametest-API/pack.html" )
+pack.file( ".packinfo", "created by " + URL )
+
+function displaysDownloads() {
+	
+}
+displaysDownloads()
 
 function downloadPack() {
 	loading(true)
@@ -381,6 +425,9 @@ function downloadPack() {
 		
 		loading(false)
 	})
+	
+	hit("downloads")
+	displaysDownloads()
 	
 	} catch(error) {
 		alert("Haila! Something went wrong ")
