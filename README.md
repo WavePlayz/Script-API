@@ -1,13 +1,14 @@
-# Gametest `API`  
+# Gametest `API` 
 
-`v1.19.0.20` `BETA`
+`v1.19.0.20` `BETA`  
 
 guide to begain with *new scripting api*, **The GameTest Framework** \!
 
 [![MCPACK](https://github.com/WavePlayz/Gametest-API/actions/workflows/pack.yml/badge.svg)](https://github.com/WavePlayz/Gametest-API/actions/workflows/pack.yml)
-![](https://komarev.com/ghpvc/?username=WavePlayz)
+![](https://komarev.com/ghpvc/?username=WavePlayz&color=grey&label=Hits)
 
 [**DOWNLOAD SAMPLE PACK**](https://github.com/WavePlayz/Gametest-API/releases/latest)  
+
 
 ---
 
