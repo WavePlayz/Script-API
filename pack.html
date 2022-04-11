@@ -65,8 +65,13 @@
 	
 	input[type=button] {
 		box-shadow: 0 0 20px #262833;
-		position: -webkit-sticky; /* Safari */
+		
 		position: sticky;
+		position: -webkit-sticky;
+		position: -moz-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		
 		margin: 32px 0;
 		bottom: 16;
 		letter-spacing: 7px;
@@ -231,7 +236,7 @@ function displayInfo() {
 		let text = "·" + this.response.value + " VIEWS"
 		
 		getHit("downloads", function() {
-			console.log( this?.response?.value ?? 0 )
+			
 			elem("info").innerHTML = text + "\n·" + (this?.response?.value??0) + " Downloads"
 		})
 		
