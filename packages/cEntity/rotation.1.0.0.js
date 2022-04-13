@@ -1,6 +1,6 @@
 Number.prototype.DEGREES_IN_RADIAN = 180 / Math.PI
 
-function getEntityRotation (entity) {
+export default function getEntityRotation (entity) {
 	const { x, y, z } = entity.viewVector
 	
 	let pitch = Math.asin(-y) * Number.DEGREES_IN_RADIAN
@@ -9,7 +9,4 @@ function getEntityRotation (entity) {
 	return { pitch, yaw }
 }
 
-export default class CEntity {
-static getRotation = getEntityRotation
-}
 
