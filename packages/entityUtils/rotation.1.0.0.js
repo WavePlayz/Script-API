@@ -1,3 +1,9 @@
+
+const NAME = "entityRotation"
+const VERSION = "1.0.0"
+const TAG = NAME + ":" + VERSION
+
+
 Number.prototype.DEGREES_IN_RADIAN = 180 / Math.PI
 
 export default function getEntityRotation (entity) {
