@@ -1,28 +1,34 @@
-## Features
+# fAsync `0.1.0`
+
 - timeouts
 - intervals
 - async loops
 
-# Usage
+## Usage
+1. Import and setup fasync
 ```javascript
-import { world as World } from "mojang-minecraft"
+import { world } from "mojang-minecraft"
 import FAsync from "./fAsync.0.1.0.js"
 
 // Required
-World.events.tick.subscribe(eventData => {
-	FAsync.update()
-})
+world.events.tick.subscribe(() => FAsync.update() )
+```
 
-
+2. Initialize function and delay
+```js
 let func = function() {}
 let delayInTicks = 10
-
-// timeout - equals to setTimeout
+```
+3. Use
+```js
+// timeout / setTimeout
 FAsync.timeout(func, delayInTicks)
-
-// interval - equals to setInterval
+```
+```js
+// interval / setInterval
 FAsync.interval(func, delayInTicks)
-
+```
+```js
 // timeout - equals to for (let i; i; i++)
 FAsync.forloop(
 	// initialization
@@ -40,5 +46,5 @@ FAsync.forloop(
 	// iteration delay in ticks
 	delayInTicks
 )
-
 ```
+
