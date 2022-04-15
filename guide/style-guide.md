@@ -3,7 +3,7 @@
 
 ### STRUCTURE
 ```py
-+ <AddonName>/
++ AddonName/
   + libraries/
   + packages/
   + utilities/
