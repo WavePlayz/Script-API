@@ -1,27 +1,27 @@
-# Preferred Style Guide `2.0`
+# Preferred Style Guide `3.0`
 
 
 ### STRUCTURE
 ```markdown
-+  AddonName/
-   +  libraries/ 
-      -  math-utils.X.X.X.js
-   +  packages/
-      -  commands.X.X.X.js
-   +  X.X.X/
-      +  modules/
-         -  chat.js
-      -  AddonName.js
-      -  .config.js
-
--  manifest.json
--  pack_icon.png
++ <AddonName>/
+  + libraries/
+  + packages/
+  + utilities/
+  + source/
+    + M.M.M.M-X.X.X
+      + modules/
+      - script.js
+- manifest.json
+- pack_icon.png
 ```
 
 `libraries/` for general utils  
 `packages/` for gametest utils  
-`X.X.X` version of file/folder/addon eg. 1.3.0  
-`modules/` for project utils  
+`M.M.M` game version eg. 1.18.30
+`X.X.X` file/folder version eg. 1.3.0
+`M.M.M-X.X.X` addon version eg. 1.80.30-1.3.0
+`utilities/` for project utils  
+`modules/` for code utils 
 
 ### NAMING
 Folders
