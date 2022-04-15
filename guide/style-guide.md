@@ -2,7 +2,7 @@
 
 
 ### STRUCTURE
-```markdown
+```py
 + <AddonName>/
   + libraries/
   + packages/
