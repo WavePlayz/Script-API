@@ -8,9 +8,10 @@
   + packages/
   + utilities/
   + source/
-    + M.M.M.M-X.X.X
-      + modules/
-      - script.js
+    + M.M.M.M/
+      + X.X.X
+        + modules/
+        - script.js
 - manifest.json
 - pack_icon.png
 ```
