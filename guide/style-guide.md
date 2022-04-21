@@ -24,6 +24,8 @@
 `utilities/` for project utils  
 `modules/` for code utils 
 
+<img align="center" src="/guide/Screenshot_2022-04-21-08-18-07-30_f9ee0578fe1cc94de7482bd41accb329"></img>
+
 ### NAMING
 Folders
 - `snake_case`
