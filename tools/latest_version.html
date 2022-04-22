@@ -19,7 +19,9 @@ get(url, r=>{
 	console.log(v)
 	//console.log(document)
 	
-	get( sh.replace( '{ver}', v ), r => document.write(r.response))
+	//get( 
+window.location.replace( sh.replace( '{ver}', v ) )
+//, r => document.write(r.response))
 })
 
 
