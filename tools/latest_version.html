@@ -6,9 +6,10 @@ let sh = 'https://img.shields.io/static/v1?label=BE&message={ver}&color=202020'
 
 function get(url, func) {
 	var r = new XMLHttpRequest();
-	r.addEventListener("load", (e) => func(r,e))
-	r.open("GET", url);
+	//r.addEventListener("load", (e) => )
+	r.open("GET", url, false);
 	r.send();
+	func(r)
 }
 
 get(url, r=>{
@@ -16,10 +17,9 @@ get(url, r=>{
 	let v = a.splice(a.length-1)
 	
 	console.log(v)
+	//console.log(document)
 	
-	get( sh.replace( '{ver}', v ), r => {
-		document.write(r.response)
-	})
+	get( sh.replace( '{ver}', v ), r => document.write(r.response))
 })
 
 
