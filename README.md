@@ -7,9 +7,6 @@ guide to begain with *new scripting api*, **The GameTest Framework** \!
 [![MCPACK](https://github.com/WavePlayz/Gametest-API/actions/workflows/pack.yml/badge.svg)](https://github.com/WavePlayz/Gametest-API/actions/workflows/pack.yml)
 ![](https://komarev.com/ghpvc/?username=WavePlayz&color=grey&label=Hits)
 
-![](https://waveplayz.github.io/Gametest-API/tools/latest_version.html)
-
-
 [**DOWNLOAD SAMPLE PACK**](https://github.com/WavePlayz/Gametest-API/releases/latest)  
 
 
