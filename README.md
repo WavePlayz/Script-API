@@ -38,11 +38,9 @@ guide to begain with *new scripting api*, **The GameTest Framework** \!
 २ [JavaScript Editor](https://play.google.com/store/apps/details?id=com.sorincovor.javascript_editor)  
 ३ [Termux with quickjs](/guide/termux-with-quickjs.md)
 
-</details>
 
 ## Setup
 ##### Accessing Minecraft directory
-<details>
 
 The place where we will be spending most of our time.
 
@@ -67,7 +65,7 @@ As per android restrictions, A-10 users won't be able to access the folder direc
 
 > **Tip:** Create shortcuts to those directories for quick access.
 
-next hope on to these folders that we will use during during the development process
+next locate these folder that we will use during our the development
  - `development_behavior_packs`
  - `development_resource_packs`
 
@@ -76,9 +74,8 @@ next hope on to these folders that we will use during during the development pro
 ## Getting Started
 
 ##### Creating folder 
-<details>
 
-to start with, first we need to create the folder in the `development_behavior_packs` directory, folder structure looks like this
+To start with, first we need to create a folder in `development_behavior_packs` directory, folder structure will look like this
 
 ```
 development_behavior_packs/
@@ -90,12 +87,9 @@ development_behavior_packs/
 ```
 [**•** DOWNLOAD SAMPLE PACK](https://github.com/WavePlayz/Gametest-API/releases/latest)
 
-Then make the following changes in `manifest.json` in order to use the framework
-1. format version needs to be 2
-```json
-"format_version": 2,
-```
-2. modules section must contain one module object with the type javascript and an entry point to a javascript file, which will be the main file for our gametest
+next update our `manifest.json` in order to use the gametest framework
+
+1. include this module in modules section with the type and entry point, this which will be the main file for our gametest
 ```json
 {
 	"description": "Example gametest behavior pack",
@@ -105,7 +99,7 @@ Then make the following changes in `manifest.json` in order to use the framework
 	"entry": "scripts/script.js"
 }
 ```
-3. manifest must contain gametest dependencies to be able to import gametest modules within javascript files 
+3. add gametest dependencies to make use of those within javascript files 
 ```json
 "dependencies": [
 	{
@@ -126,12 +120,9 @@ Then make the following changes in `manifest.json` in order to use the framework
 ]
 ```
 
-</details>
-
 ##### manifest.json
-<details>
 
-the complete `manifest.json` will look something like this
+a complete `manifest.json` will look something like this
 ```json
 {
 	"format_version": 2,
@@ -172,41 +163,37 @@ the complete `manifest.json` will look something like this
 		}
 	]
 }
-```
-> **Tip:** Add additional properties such as metadata for additional info
-> ```json
-> "metadata": {
-> 	"authors": ["<your-name>"],
-> 	"url": "<your-github-repo-url>",
-> 	"license": "TBD"
-> }
-
-</details>
 
 ##### Native modules
-<details>
 
-As of 1.18.10.20 we have two native modules to work with
+As of 1.19.0.27 we got three native modules to work with
 - `mojang-gametest`
 - `mojang-minecraft`  
 - `mojang-minecraft-ui` (beta 1.18.20.21+)
 
-the `mojang-gametest` module is not something to very excite about as its intended for game devlopers and is not very useful for us the creators plus it only works within the range of stucture blocks  
-on the other side `mojang-minecraft` module is what we can consider as the "new scripting api" that the creators can utilze to create stuff and where all the intresting things exists 
+`mojang-gametest`
+is the very first module but is not something to very excite about, its intended for game devlopers for automate game mechanics thus not very useful for creators plus it only works within the range of stucture blocks  
+
+`mojang-minecraft`
+on the other hand is something that we can consider as the "new scripting api" which the creators can utilze to create more powerful programed addons..
+
+`mojang-minecraft-ui`
+addition to beta 1.18.20.21, now provide us a way to create "server forms" like you see on featured minigame servers, with ActionForm, MessageForm and ModalForm user inputs can be more interactive
+
 
 ##### Importing pack
-once your done with the above steps, you can now load the pack into the world, lets create a new one, in the game option scroll down till you see an option with title **Enable Gametest Framework** enable it, 
+now you can now load the pack into the world lets create a new one, in the game options turn on the **Enable Gametest Framework** option to make scripts run 
 
 ![gametest-option](images/gametest-option.jpg)
 
-then head over **Behavior Packs** button in the lower-left corner of the "Add-Ons" sub-menu. 
+then head over to **Behavior Packs** section at the lower-left corner of the "Add-Ons" sub-menu. 
 
 ![addon-button](images/addon-button.jpg "Addon")
 
 Click `Behavior Packs > My Packs`
-your add-on now should show up in the list of behavior packs!
+your pack now should show up in the list of behavior packs!
 
-Clicking on your add-on should bring up a button titled "Activate". Click it.
+Clicking the pack should show a button named "Activate". Click to active it.
 
 ![pack-section](images/pack-section.jpg "Pack")
 
@@ -214,10 +201,9 @@ your behavior pack now should have been moved to the "Active" section!
 
 now you can join the world to see everything works, but wait if you join you wont see anything diffrent its obvious since we have nothing added in the script file yet
 
-</details>
+
 
 ##### creating our first script
-<details>
 
 the very first thing we need to do in the script is to import the native minecraft modules like that
 ```js
@@ -234,10 +220,8 @@ Minecraft.world.events.tick.subscribe(eventData => {
 })
 ```
 
-</details>
-
 ##### chat spam, our first script
-<details>
+
 
 lets create chat spam as our first script to see if everything is all right
 ```js
@@ -279,6 +263,5 @@ Minecraft.world.events.tick.subscribe(eventData => {
 
 save the code in your `script.js` / main file then open the world, you should now see a spam in the chat.. if not then something is wrong :( recheck what went wrong.
 
-</details>
 
 
