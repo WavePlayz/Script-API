@@ -13,10 +13,9 @@ guide to begain with *new scripting api*, **The GameTest Framework** \!
 ---
 
 ## Prerequisites
-<details>
 
-- Basic understanding of **Javascript**,  
-Some resources below to get started.
+
+- Basic understanding of **Javascript**, Some resources below.
   - Crash Course by Amazing instructor [**Mosh Hamedani**](https://codewithmosh.com/) (Highly Recommended)  
 १ [Javascript in 1 hour](https://youtu.be/W6NZfCO5SIk)  
 २ [ES6 / Modern Javascript in 1 Hour](https://youtu.be/NCwa_xi0Uuc)  
@@ -28,9 +27,11 @@ Some resources below to get started.
   - Desktop  
 १ [Visual Studio Code (Recommended)](https://code.visualstudio.com/)  
 २ [Sublime Text](https://www.sublimetext.com/)  
+
   - Android  
 १ [QuickEdit (Recommended)](https://play.google.com/store/apps/details?id=com.rhmsoft.edit)  
 २ [Squircle - Code Editor](https://play.google.com/store/apps/details?id=com.blacksquircle.ui)  
+
 - Javascript executer - *optional but useful*
   - Android  
 १ [JS Run (Preferred)](https://play.google.com/store/apps/details?id=com.mia.jsrun)  
@@ -43,28 +44,34 @@ Some resources below to get started.
 ##### Accessing Minecraft directory
 <details>
 
-this is the place where we will spend most of our time and work.
+The place where we will be spending most of our time.
 
-**Win10** users can find this at the given path
+**Win10**  
+users can find this at 
+
 `%localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`
 
 
-**Android** users can find this by visiting the following path
+**Android**  
+users can find this at 
+
 `/Android/data/com.mojang.minecraftpe/files/games/com.mojang/`
 
-but if you are a **Android 10+** user you won't be able to access the folder directly as per android restrictions, but dont worry we got a way! no its not root :P, all you need is an external **File Manager** app which will allow you to locate those internal folders, here are some apps that you can use
+
+**Android 10+** 
+As per android restrictions, A-10 users won't be able to access the folder directly, tjis can be solved with file explorer, all you need is an external **File Manager** app which will allow you to locate those internal folders, some apps you can try...
 - ES File Explore (Recommended) **Google it**
 - [Solid Explorer](https://play.google.com/store/apps/details?id=pl.solidexplorer2)
 - [Explorer](https://play.google.com/store/apps/details?id=com.speedsoftware.explorer)
 - [X-plore](https://play.google.com/store/apps/details?id=com.lonelycatgames.Xplore)
 
-> **Tip:** Create shortcuts to those directories for quicker access.
+> **Tip:** Create shortcuts to those directories for quick access.
 
-once done, you will see bunch of folder in the directory, mainly we are only intrested in two of them during the development process
+next hope on to these folders that we will use during during the development process
  - `development_behavior_packs`
  - `development_resource_packs`
 
-</details>
+
 
 ## Getting Started
 
