@@ -18,7 +18,6 @@
 ---
 
 ## Scoreboard 1.19.0.26/27
-###### 1.19.0.26/27-Events
 - \+ **getObjective** (objectiveId : `String`) : `ScoreboardObjective`
 
 - \+ **getObjectives** : `ScoreboardObjective[]`
