@@ -70,7 +70,7 @@
 ---
 
 ### World
-###### 1.19.0.26/27-Events
+###### 1.19.0.26/27-World
 - \+ **scoreboard** : `Scoreboard`
 
 
