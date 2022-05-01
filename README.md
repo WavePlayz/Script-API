@@ -47,8 +47,8 @@ The place where we will be spending most of our time.
 **Win10**  
 users can find this at 
 
-`%localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`
-
+- Minecraft: `%localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`
+- Minecraft Preview: `%localappdata%\Packages\Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe\LocalState\games\com.mojang`
 
 **Android**  
 users can find this at 
@@ -100,21 +100,25 @@ next update our `manifest.json` in order to use the gametest framework
 }
 ```
 3. add gametest dependencies to make use of those within javascript files 
-```json
+```jsonc
 "dependencies": [
 	{
 		// Minecraft native module - needed to use the "mojang-minecraft" module
+		"description": "mojang-minecraft",
 		"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
 		"version": [0, 1, 0]
 	},
 	{
 		// GameTest native module - needed to use the "mojang-gametest" module
+		"description": "mojang-gametest",
 		"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
 		"version": [0, 1, 0]
 	},
 	{
-		// Minecraft Ui native module - needed to use the "mojang-minecraft-ui" module
-		"uuid": "2BD50A27-AB5F-4F40-A596-3641627C635E",
+		// Minecraft UI native module - needed to use the "mojang-minecraft-ui" module
+		// You must be using Minecraft versions above Beta 1.18.20.21 or Release 1.18.30
+		"description": "mojang-minecraft-ui",
+		"uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
 		"version": [0, 1, 0]
 	}
 ]
@@ -123,7 +127,7 @@ next update our `manifest.json` in order to use the gametest framework
 ##### manifest.json
 
 a complete `manifest.json` will look something like this
-```json
+```jsonc
 {
 	"format_version": 2,
 	
@@ -148,22 +152,26 @@ a complete `manifest.json` will look something like this
 	"dependencies": [
 		{
 			// Minecraft native module - needed to use the "mojang-minecraft" module
+			"description": "mojang-minecraft",
 			"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
 			"version": [0, 1, 0]
 		},
 		{
 			// GameTest native module - needed to use the "mojang-gametest" module
+			"description": "mojang-gametest",
 			"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
 			"version": [0, 1, 0]
 		},
 		{
-			// Minecraft Ui native module - needed to use the "mojang-minecraft-ui" module
-			"uuid": "2BD50A27-AB5F-4F40-A596-3641627C635E",
+			// Minecraft UI native module - needed to use the "mojang-minecraft-ui" module
+			// You must be using Minecraft versions above Beta 1.18.20.21 or Release 1.18.30
+			"description": "mojang-minecraft-ui",
+			"uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
 			"version": [0, 1, 0]
 		}
 	]
 }
-
+```
 ##### Native modules
 
 As of 1.19.0.27 we got three native modules to work with
