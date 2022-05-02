@@ -1,13 +1,11 @@
 # Gametest `API` 
-
-`v1.19.0.20` 
-
 guide to begain with *new scripting api*, **The GameTest Framework** \!
+
+---
 
 ![MCPACK](https://github.com/WavePlayz/Gametest-API/actions/workflows/pack.yml/badge.svg?branch=main)
 ![](https://komarev.com/ghpvc/?username=WavePlayz&color=grey&label=Hits)  
-[![pages-build-deployment](https://github.com/WavePlayz/Gametest-API/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/WavePlayz/Gametest-API/actions/workflows/pages/pages-build-deployment)
-
+[![pages-build-deployment](https://github.com/WavePlayz/Gametest-API/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/WavePlayz/Gametest-API/actions/workflows/pages/pages-build-deployment)  
 ![](https://img.shields.io/github/repo-size/WavePlayz/Gametest-API)
 ![](https://img.shields.io/github/v/release/WavePlayz/Gametest-API?display_name=tag)
 
