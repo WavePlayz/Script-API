@@ -1,4 +1,12 @@
 
+- [ ] 1.17.x.x/x
+- [ ] 1.18.x.x/x
+- [x] 1.19.0.20/21
+- [x] 1.19.0.26/27
+- [x] 1.19.0.28/29
+
+---
+
 ### DynamicPropertiesDefinition 1.19.0.20/21
 - \+ **defineNumber** (identifier: `string`)
 
