@@ -1,4 +1,4 @@
-# Preferred Style Guide `3.0`
+# Preferred Style Guide `3.1`
 
 
 ### STRUCTURE
@@ -36,7 +36,8 @@ Files
 - `kebab-case`
 
 Main / entry file
-- `PascalCase`
+- `snake_case`
+- `spinal-case`
 
 
 ### Exports
