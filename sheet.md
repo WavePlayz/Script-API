@@ -32,6 +32,13 @@
 ---
 
 ### Entity
+###### 1.19.0.20/21-Entity
+- \+ **setDynamicProperty** (identifier: `string`, value: `boolean | string | number`)
+
+- \+ **getDynamicProperty** (identifier: string): `boolean | string | number`
+
+- \+ **removeDynamicProperty** (identifier: `string`): `boolean`
+
 ###### 1.19.0.26/27-Entity
 - \+ **scoreboard** : `ScoreboardIdentity`
 
@@ -56,7 +63,7 @@
 
 ---
 
-### Player
+### Player : `Entity`
 ###### 1.19.0.20/21-Player
 - \+ **onScreenDisplay** : `ScreenDisplay`
 
