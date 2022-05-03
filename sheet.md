@@ -94,7 +94,7 @@
 
 ### Entity
 ###### 1.18.30.26/27-Entity
-- \+ **addEffect** (...showParticles?: `bool` = true)
+- \+ **addEffect** (effectType: `EffectType`, duration: `number`, amplifier?: `number`, showParticles?: `boolean`)
 
 ###### 1.19.0.20/21-Entity
 - \+ **setDynamicProperty** (identifier: `string`, value: `boolean | string | number`)
