@@ -189,7 +189,7 @@
 - \+ **playMusic** (trackName : `string`, musicOptions : `MusicOptions`)
 - \+ **stopMusic()**
 
-Added MusicOptions JS class with volume, fadeSeconds and loop properties
+
 ###### 1.19.0.20/21-World
 - \+ **setDynamicProperty** (identifier: `string`, value: `boolean | string | number`)
 
