@@ -3,7 +3,7 @@
 - [ ] 1.18.x.x/x
 - [x] 1.18.30.20/21
 - [x] 1.18.30.22/23
-- [ ] 1.18.30.x/x
+- [x] 1.18.30.26/27
 - [x] 1.19.0.20/21
 - [x] 1.19.0.26/27
 - [x] 1.19.0.28/29
@@ -47,6 +47,9 @@
 ###### 1.18.30.20/21-Events
 - \+ **entityHurt** : `EntityHurtEvent` 
 
+###### 1.18.30.26/27-Events
+- \+ **leverActivate** : 
+
 ###### 1.19.0.20/21-Events
 - \+ **projectileHit**
 
@@ -70,6 +73,9 @@
 ---
 
 ### Entity
+###### 1.18.30.26/27-Entity
+- \+ **addEffect** (...showParticles?: `bool` = true)
+
 ###### 1.19.0.20/21-Entity
 - \+ **setDynamicProperty** (identifier: `string`, value: `boolean | string | number`)
 
