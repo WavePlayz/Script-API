@@ -15,8 +15,7 @@
 - [ ] 1.18.20.21
 - [ ] 1.18.20.23
 - [ ] 1.18.20.25
-- [ ] 1.18.20.27
-- [ ] 1.18.20.21
+- [x] 1.18.20.27
 
 `1.18.30.x/x`
 - [x] 1.18.30.20/21
@@ -32,6 +31,7 @@
 
 ### 1.18.30.20/21
 - +- `"Minecraft"` to `"mojang-minecraft"`
+
 - +- `"GameTest"` to `"mojang-gametest"`
 
 ---
@@ -39,6 +39,10 @@
 ### BlockExplodeEvent
 ###### 1.18.30.20/21-BlockExplodeEvent
 - \- destroyedBlockPermutation
+
+---
+
+### BlockInventoryComponent
 
 ---
 
@@ -51,6 +55,45 @@
 
 ---
 
+# Entity Components 
+### EntityFrictionModifierComponent 1.18.20.27
+- \+ *readonly* **id**: `string`
+
+- \+ *read-only* **value**: `number`
+
+### EntityGroundOffsetComponent 1.18.20.27
+- \+ *readonly* **id**: `string`
+
+- \+ *read-only* **value**: `number`
+
+### EntityMarkVariantComponent 1.18.20.27
+- \+ *readonly* **id**: `string`
+
+- \+ *read-only* **value**: `number`
+
+### EntityPushThroughComponent 1.18.20.27
+- \+ *readonly* **id**: `string`
+
+- \+ *read-only* **value**: `number`
+
+### EntityScaleComponent 1.18.20.21
+- \+ *readonly* **id**: `string`
+
+- \+ *read-only* **value**: `number`
+
+
+### EntitySkinIdComponent 1.18.20.2
+- \+ *readonly* **id**: `string`
+
+- \+ *read-only* **value**: `number`
+
+### EntityVariantComponent 1.18.20.27
+- \+ *readonly* **id**: `string`
+
+- \+ *read-only* **value**: `number`
+
+---
+
 ### EntityType
 ###### 1.18.30.22/23-EntityType
 - \+ *readonly* **id** : `string`
@@ -58,12 +101,16 @@
 ### EntityTypes
 ###### 1.18.30.22/23-EntityTypes
 - \+ **get** (identifier: `string`): `EntityType`
+
 - \+ **getAll()** : `EntityTypeIterator`
 
 
 ---
 
 ### Events
+###### 1.18.20.27-Events
+- \+ **entityHit** : `EntityHitEvent`
+
 ###### 1.18.30.20/21-Events
 - \+ **entityHurt** : `EntityHurtEvent` 
 
@@ -127,6 +174,13 @@
 
 ---
 
+### MinecraftDimensionTypes 1.18.20.25
+- \+ static *readonly* **nether** = `"minecraft:nether"`
+- \+ static *readonly* **overworld** = `"minecraft:overworld"`
+\ \+ static *readonly* **theEnd*8 = `"minecraft:the_end"`
+
+---
+
 ### MinecraftEntityTypes 1.18.30.22/23
 > Provides EntityType constants for each standard Minecraft entity type
 
@@ -134,12 +188,17 @@
 
 ### MusicOptions 1.18.30.20/21
 - \+ **volume** : `Int`
+
 - \+ **fadeSeconds** : `Int`
+
 - \+ **loop** : `boolean`
 
 ---
 
 ### Player : `Entity`
+###### 1.18.20.37-Player
+- \+ **playSound** (soundID : `String`, soundOptions : `SoundOptions`) 
+
 ###### 1.19.0.20/21-Player
 - \+ **onScreenDisplay** : `ScreenDisplay`
 
@@ -230,7 +289,9 @@
 ### World
 ###### 1.18.30.20/21-World
 - \+ **queueMusic** (trackName : `string`, musicOptions : `MusicOptions`)
+
 - \+ **playMusic** (trackName : `string`, musicOptions : `MusicOptions`)
+
 - \+ **stopMusic()**
 
 
