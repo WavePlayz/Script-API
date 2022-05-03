@@ -2,6 +2,7 @@
 - [ ] 1.17.x.x/x
 - [ ] 1.18.x.x/x
 - [x] 1.18.30.20/21
+- [x] 1.18.30.22/23
 - [ ] 1.18.30.x/x
 - [x] 1.19.0.20/21
 - [x] 1.19.0.26/27
@@ -27,6 +28,18 @@
 - \+ **defineString** (identifier: `string`, maxLength: `number`)
 
 - \+ **defineBoolean** (identifier: `string`)
+
+---
+
+### EntityType
+###### 1.18.30.22/23-EntityType
+- \+ *readonly* **id** : `string`
+
+### EntityTypes
+###### 1.18.30.22/23-EntityTypes
+- \+ **get** (identifier: `string`): `EntityType`
+- \+ **getAll()** : `EntityTypeIterator`
+
 
 ---
 
@@ -85,6 +98,11 @@
 ### LeverActivateEvent 
 ###### 1.19.0.20/21-LeverActivateEvent
 - \+ **player**: `Player`
+
+---
+
+### MinecraftEntityTypes 1.18.30.22/23
+> Provides EntityType constants for each standard Minecraft entity type
 
 ---
 
