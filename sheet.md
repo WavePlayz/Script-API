@@ -38,7 +38,7 @@
 
 ### BlockExplodeEvent
 ###### 1.18.30.20/21-BlockExplodeEvent
-- \- destroyedBlockPermutation
+- \- *r* destroyedBlockPermutation
 
 ---
 
@@ -57,46 +57,46 @@
 
 # Entity Components 
 ### EntityFrictionModifierComponent 1.18.20.27
-- \+ *readonly* **id**: `string`
+- \+ *r* **id**: `string`
 
-- \+ *read-only* **value**: `number`
+- \+ *r* **value**: `number`
 
 ### EntityGroundOffsetComponent 1.18.20.27
-- \+ *readonly* **id**: `string`
+- \+ *r* **id**: `string`
 
-- \+ *read-only* **value**: `number`
+- \+ *r* **value**: `number`
 
 ### EntityMarkVariantComponent 1.18.20.27
-- \+ *readonly* **id**: `string`
+- \+ *r* **id**: `string`
 
-- \+ *read-only* **value**: `number`
+- \+ *r* **value**: `number`
 
 ### EntityPushThroughComponent 1.18.20.27
-- \+ *readonly* **id**: `string`
+- \+ *r* **id**: `string`
 
-- \+ *read-only* **value**: `number`
+- \+ *r* **value**: `number`
 
 ### EntityScaleComponent 1.18.20.21
-- \+ *readonly* **id**: `string`
+- \+ *r* **id**: `string`
 
-- \+ *read-only* **value**: `number`
+- \+ *r* **value**: `number`
 
 
 ### EntitySkinIdComponent 1.18.20.2
-- \+ *readonly* **id**: `string`
+- \+ *r* **id**: `string`
 
-- \+ *read-only* **value**: `number`
+- \+ *r* **value**: `number`
 
 ### EntityVariantComponent 1.18.20.27
-- \+ *readonly* **id**: `string`
+- \+ *r* **id**: `string`
 
-- \+ *read-only* **value**: `number`
+- \+ *r* **value**: `number`
 
 ---
 
 ### EntityType
 ###### 1.18.30.22/23-EntityType
-- \+ *readonly* **id** : `string`
+- \+ *r* **id** : `string`
 
 ### EntityTypes
 ###### 1.18.30.22/23-EntityTypes
@@ -109,33 +109,33 @@
 
 ### Events
 ###### 1.18.20.27-Events
-- \+ **entityHit** : `EntityHitEvent`
+- \+ *r* **entityHit** : `EntityHitEvent`
 
 ###### 1.18.30.20/21-Events
-- \+ **entityHurt** : `EntityHurtEvent` 
+- \+ *r* **entityHurt** : `EntityHurtEvent` 
 
 ###### 1.18.30.26/27-Events
-- \+ **leverActivate** : 
+- \+ *r* **leverActivate** : 
 
 ###### 1.19.0.20/21-Events
-- \+ **projectileHit**
+- \+ *r* **projectileHit**
 
-- \+ **itemStartUseOn**
+- \+ *r* **itemStartUseOn**
 
-- \+ **itemStopUseOn**
+- \+ *r* **itemStopUseOn**
 
-- \+ **itemStartCharge**
+- \+ *r* **itemStartCharge**
 
-- \+ **itemCompleteCharge**
+- \+ *r* **itemCompleteCharge**
 
-- \+ **itemReleaseCharge**
+- \+ *r* **itemReleaseCharge**
 
-- \+ **itemStopCharge**
+- \+ *r* **itemStopCharge**
 
-- \+ **worldInitialize** : `WorldInitializeEvent`
+- \+ *r* **worldInitialize** : `WorldInitializeEvent`
 
 ###### 1.19.0.28/29-Events
-- \+ **buttonPush** : `ButtonPushEvent`
+- \+ *r* **buttonPush** : `ButtonPushEvent`
 
 ---
 
@@ -151,33 +151,33 @@
 - \+ **removeDynamicProperty** (identifier: `string`): `boolean`
 
 ###### 1.19.0.26/27-Entity
-- \+ **scoreboard** : `ScoreboardIdentity`
+- \+ *r* **scoreboard** : `ScoreboardIdentity`
 
 ###### 1.19.0.28/29-Entity
 - \+ **setRotation** (degreesX: `number`, degreesY: `number`)
 
-- \+ *readonly* **rotation**: `XYRotation`
+- \+ *r* **rotation**: `XYRotation`
 
-- \- bodyRotation
+- \- *r* bodyRotation
 
 ---
 
 ### ItemStartUseOnEvent 
 ###### 1.19.0.20/21-ItemStartUseOnEvent
-- \+ *readonly* **buildBlockLocation** : `BlockLocation`
+- \+ *r* **buildBlockLocation** : `BlockLocation`
 
 ---
 
 ### LeverActivateEvent 
 ###### 1.19.0.20/21-LeverActivateEvent
-- \+ **player**: `Player`
+- \+ *r* **player**: `Player`
 
 ---
 
 ### MinecraftDimensionTypes 1.18.20.25
-- \+ static *readonly* **nether** = `"minecraft:nether"`
-- \+ static *readonly* **overworld** = `"minecraft:overworld"`
-\ \+ static *readonly* **theEnd*8 = `"minecraft:the_end"`
+- \+ static *r* **nether** = `"minecraft:nether"`
+- \+ static *r* **overworld** = `"minecraft:overworld"`
+\ \+ static *r* **theEnd*8 = `"minecraft:the_end"`
 
 ---
 
@@ -187,11 +187,13 @@
 ---
 
 ### MusicOptions 1.18.30.20/21
-- \+ **volume** : `Int`
+- \+ **new MusicOptions()**
 
-- \+ **fadeSeconds** : `Int`
+- \+ *rw* **volume** : `Int`
 
-- \+ **loop** : `boolean`
+- \+ *rw* **fadeSeconds** : `Int`
+
+- \+ *rw* **loop** : `boolean`
 
 ---
 
@@ -200,7 +202,7 @@
 - \+ **playSound** (soundID : `String`, soundOptions : `SoundOptions`) 
 
 ###### 1.19.0.20/21-Player
-- \+ **onScreenDisplay** : `ScreenDisplay`
+- \+ *r* **onScreenDisplay** : `ScreenDisplay`
 
 ---
 
@@ -220,9 +222,9 @@
 
 
 ### ScoreboardObjective 1.19.0.26/27
-- \+ *readonly* **id** : `String` 
+- \+ *r* **id** : `String` 
 
-- \+ *readonly* **displayName** : `String`
+- \+ *r* **displayName** : `String`
 
 - \+ **getParticipants()** : `ScoreboardIdentity[]`
 
@@ -232,24 +234,24 @@
 
 
 ### ScoreboardIdentity 1.19.0.26/27
-- \+ *readonly* **type** : `ScoreboardIdentityType`
+- \+ *r* **type** : `ScoreboardIdentityType`
 
-- \+ *readonly* **id** : `Int` 
+- \+ *r* **id** : `Int` 
 
-- \+ *readonly* **displayName** : `String`
+- \+ *r* **displayName** : `String`
 
 - \+ **getEntity()** : `ScriptActor` 
 
 
 ### ScoreboardIdentityType 1.19.0.26/27
-- \+ **Entity**
-- \+ **FakePlayer** 
-- \+ **Player** 
+- \+ *r* **Entity**
+- \+ *r* **FakePlayer** 
+- \+ *r* **Player** 
 
 ### ScoreboardScoreInfo 1.19.0.26/27
-- \+ *readonly* **participant** : `ScoreboardIdentity`
+- \+ *r* **participant** : `ScoreboardIdentity`
 
-- \+ *readonly* **score** : `Int`
+- \+ *r* **score** : `Int`
 
 ---
 
@@ -276,13 +278,13 @@
 
 ---
 
-### XYRotation 1.19.0.28/29
+### XYRotation/ 1.19.0.28/29
 ###### 1.19.0.28/29-XYRotation
-- +- `PitchYawRotation` to `XYRotation`
+`PitchYawRotation` to `XYRotation`
 
-- +- **pitch** to **x**
+- +- *r* **pitch** to **x**
 
-- +- **yaw** to **y**
+- +- *r* **yaw** to **y**
 
 ---
 
@@ -303,6 +305,6 @@
 - \+ **removeDynamicProperty** (identifier: `string`): `boolean`
 
 ###### 1.19.0.26/27-World
-- \+ **scoreboard** : `Scoreboard`
+- \+ *r* **scoreboard** : `Scoreboard`
 
 
