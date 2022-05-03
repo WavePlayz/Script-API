@@ -1,9 +1,23 @@
 
 - [ ] 1.17.x.x/x
 - [ ] 1.18.x.x/x
+- [x] 1.18.30.20/21
+- [ ] 1.18.30.x/x
 - [x] 1.19.0.20/21
 - [x] 1.19.0.26/27
 - [x] 1.19.0.28/29
+
+---
+
+### 1.18.30.20/21
+- +- `"Minecraft"` to `"mojang-minecraft"`
+- +- `"GameTest"` to `"mojang-gametest"`
+
+---
+
+### BlockExplodeEvent
+###### 1.18.30.20/21-BlockExplodeEvent
+- \- destroyedBlockPermutation
 
 ---
 
@@ -17,6 +31,9 @@
 ---
 
 ### Events
+###### 1.18.30.20/21-Events
+- \+ entityHurt : `EntityHurtEvent` 
+
 ###### 1.19.0.20/21-Events
 - \+ **projectileHit**
 
@@ -68,6 +85,13 @@
 ### LeverActivateEvent 
 ###### 1.19.0.20/21-LeverActivateEvent
 - \+ **player**: `Player`
+
+---
+
+### MusicOptions 1.18.30.20/21
+- \+ volume : `Int`
+- \+ fadeSeconds : `Int`
+- \+ loop : `boolean`
 
 ---
 
@@ -160,6 +184,12 @@
 ---
 
 ### World
+###### 1.18.30.20/21-World
+- \+ **queueMusic** (trackName : `string`, musicOptions : `MusicOptions`)
+- \+ **playMusic** (trackName : `string`, musicOptions : `MusicOptions`)
+- \+ **stopMusic()**
+
+Added MusicOptions JS class with volume, fadeSeconds and loop properties
 ###### 1.19.0.20/21-World
 - \+ **setDynamicProperty** (identifier: `string`, value: `boolean | string | number`)
 
