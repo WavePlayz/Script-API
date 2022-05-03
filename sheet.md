@@ -32,7 +32,7 @@
 
 ### Events
 ###### 1.18.30.20/21-Events
-- \+ entityHurt : `EntityHurtEvent` 
+- \+ **entityHurt** : `EntityHurtEvent` 
 
 ###### 1.19.0.20/21-Events
 - \+ **projectileHit**
@@ -72,7 +72,7 @@
 
 - \+ *readonly* **rotation**: `XYRotation`
 
-- \- **bodyRotation**
+- \- bodyRotation
 
 ---
 
@@ -89,9 +89,9 @@
 ---
 
 ### MusicOptions 1.18.30.20/21
-- \+ volume : `Int`
-- \+ fadeSeconds : `Int`
-- \+ loop : `boolean`
+- \+ **volume** : `Int`
+- \+ **fadeSeconds** : `Int`
+- \+ **loop** : `boolean`
 
 ---
 
