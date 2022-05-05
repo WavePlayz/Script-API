@@ -100,7 +100,8 @@ before 1.19.0.30
 	"uuid": "9e896681-01d8-4a21-b1e2-e350e3c9c1ae",
 	"version": [0, 0, 1],
 	"entry": "scripts/script.js"
-}```
+}
+```
 after 1.19.0.30
 ```json
 {
