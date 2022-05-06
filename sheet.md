@@ -114,7 +114,6 @@
 |::|`1.18.30.22/23` |
 |:-:|:-|
 |+| **get** ( identifier: `string` ): `EntityType`|
-
 |+| **getAll** () : `EntityTypeIterator`|
 
 
