@@ -104,13 +104,18 @@
 
 ### EntityType
 ###### 1.18.30.22/23-EntityType
-- \+ *r* **id** : `string`
+|::|`1.18.30.22/23` |
+|:-:|:-|
+|+r|**id**: `string`|
+
 
 ### EntityTypes
 ###### 1.18.30.22/23-EntityTypes
-- \+ **get** (identifier: `string`): `EntityType`
+|::|`1.18.30.22/23` |
+|:-:|:-|
+|+| **get** ( identifier: `string` ): `EntityType`
 
-- \+ **getAll()** : `EntityTypeIterator`
+|+| **getAll** () : `EntityTypeIterator`
 
 
 ---
