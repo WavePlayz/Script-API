@@ -29,13 +29,6 @@
 
 ---
 
-### 1.18.30.20/21
-- +- `"Minecraft"` to `"mojang-minecraft"`
-
-- +- `"GameTest"` to `"mojang-gametest"`
-
----
-
 ### BlockExplodeEvent
 ###### 1.18.30.20/21-BlockExplodeEvent
 |::|`1.18.30.20/21` |
@@ -49,7 +42,7 @@
 
 ---
 
-### DynamicPropertiesDefinition 1.19.0.20/21
+### DynamicPropertiesDefinition `+1.19.0.20/21`
 |::|`1.19.0.20/21` |
 |:-:|:-|
 |+| **defineNumber** ( identifier: `string`) |
@@ -59,45 +52,53 @@
 ---
 
 # Entity Components 
-### EntityFrictionModifierComponent 1.18.20.27
-|::|`1.19.0.20/21` |
+### EntityFrictionModifierComponent `+1.18.20.27`
+|::|`1.18.20.27` |
 |:-:|:-|
 |+r|**id**: `string`|
 |+r|**value**: `number`|
 
 
-### EntityGroundOffsetComponent 1.18.20.27
-|::|`1.19.0.20/21` |
+### EntityGroundOffsetComponent `+1.18.20.27`
+|::|`1.18.20.27` |
 |:-:|:-|
 |+r|**id**: `string`|
 |+r|**value**: `number`|
 
 
-### EntityMarkVariantComponent 1.18.20.27
-- \+ *r* **id**: `string`
-
-- \+ *r* **value**: `number`
-
-### EntityPushThroughComponent 1.18.20.27
-- \+ *r* **id**: `string`
-
-- \+ *r* **value**: `number`
-
-### EntityScaleComponent 1.18.20.21
-- \+ *r* **id**: `string`
-
-- \+ *r* **value**: `number`
+### EntityMarkVariantComponent `+1.18.20.27`
+|::|`1.18.20.27` |
+|:-:|:-|
+|+r|**id**: `string`|
+|+r|**value**: `number`|
 
 
-### EntitySkinIdComponent 1.18.20.2
-- \+ *r* **id**: `string`
+### EntityPushThroughComponent `+1.18.20.27`
+|::|`1.18.20.27` |
+|:-:|:-|
+|+r|**id**: `string`|
+|+r|**value**: `number`|
 
-- \+ *r* **value**: `number`
 
-### EntityVariantComponent 1.18.20.27
-- \+ *r* **id**: `string`
+### EntityScaleComponent `+1.18.20.27`
+|::|`1.18.20.27` |
+|:-:|:-|
+|+r|**id**: `string`|
+|+r|**value**: `number`|
 
-- \+ *r* **value**: `number`
+
+### EntitySkinIdComponent `+1.18.20.27`
+|::|`1.18.20.27` |
+|:-:|:-|
+|+r|**id**: `string`|
+|+r|**value**: `number`|
+
+
+### EntityVariantComponent `+1.18.20.27`
+|::|`1.18.20.27` |
+|:-:|:-|
+|+r|**id**: `string`|
+|+r|**value**: `number`|
 
 ---
 
