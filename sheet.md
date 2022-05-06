@@ -38,7 +38,10 @@
 
 ### BlockExplodeEvent
 ###### 1.18.30.20/21-BlockExplodeEvent
-- \- *r* destroyedBlockPermutation
+|::|`1.18.30.20/21` |
+|:-:|:-|
+|-r| destroyedBlockPermutation |
+
 
 ---
 
@@ -47,24 +50,28 @@
 ---
 
 ### DynamicPropertiesDefinition 1.19.0.20/21
-- \+ **defineNumber** (identifier: `string`)
-
-- \+ **defineString** (identifier: `string`, maxLength: `number`)
-
-- \+ **defineBoolean** (identifier: `string`)
+|::|`1.19.0.20/21` |
+|:-:|:-|
+|+| **defineNumber** ( identifier: `string`) |
+|+| **defineString** ( identifier: `string`, maxLength: `number`) |
+|+| **defineBoolean** ( identifier: `string`) |
 
 ---
 
 # Entity Components 
 ### EntityFrictionModifierComponent 1.18.20.27
-- \+ *r* **id**: `string`
+|::|`1.19.0.20/21` |
+|:-:|:-|
+|+r|**id**: `string`|
+|+r|**value**: `number`|
 
-- \+ *r* **value**: `number`
 
 ### EntityGroundOffsetComponent 1.18.20.27
-- \+ *r* **id**: `string`
+|::|`1.19.0.20/21` |
+|:-:|:-|
+|+r|**id**: `string`|
+|+r|**value**: `number`|
 
-- \+ *r* **value**: `number`
 
 ### EntityMarkVariantComponent 1.18.20.27
 - \+ *r* **id**: `string`
