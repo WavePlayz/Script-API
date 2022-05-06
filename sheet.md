@@ -104,31 +104,31 @@
 
 ### EntityType
 ###### 1.18.30.22/23-EntityType
-|::|`1.18.30.22/23` |
-|:-:|:-|
-|+r|**id**: `string`|
+|::|`1.18.30.22/23` | type |
+|:-:|:-|:-:|
+|+r|**id** | `string`|
 
 
 ### EntityTypes
 ###### 1.18.30.22/23-EntityTypes
-|::|`1.18.30.22/23` |
-|:-:|:-|
-|+| **get** ( identifier: `string` ): `EntityType`|
-|+| **getAll** () : `EntityTypeIterator`|
+|::|`1.18.30.22/23` | type |
+|:-:|:-|:-:|
+|+| **get** ( identifier: `string` ) | `EntityType`|
+|+| **getAll** () | `EntityTypeIterator`|
 
 
 ---
 
 ### Events
 ###### 1.18.20.27-Events
-|::|`1.18.20.27` |
-|:-:|:-|
-|+r| **entityHit** : `EntityHitEvent`|
+|::|`1.18.20.27` | type |
+|:-:|:-|:-:|
+|+r| **entityHit** | `EntityHitEvent`|
 
 ###### 1.18.30.20/21-Events
-|::|`1.18.30.20/21` |
-|:-:|:-|
-|+r| **entityHurt** : `EntityHurtEvent` |
+|::|`1.18.30.20/21` | type |
+|:-:|:-|:-:
+|+r| **entityHurt** | `EntityHurtEvent` |
 
 
 ###### 1.18.30.26/27-Events
