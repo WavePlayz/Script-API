@@ -113,22 +113,30 @@
 ###### 1.18.30.22/23-EntityTypes
 |::|`1.18.30.22/23` |
 |:-:|:-|
-|+| **get** ( identifier: `string` ): `EntityType`
+|+| **get** ( identifier: `string` ): `EntityType`|
 
-|+| **getAll** () : `EntityTypeIterator`
+|+| **getAll** () : `EntityTypeIterator`|
 
 
 ---
 
 ### Events
 ###### 1.18.20.27-Events
-- \+ *r* **entityHit** : `EntityHitEvent`
+|::|`1.18.20.27` |
+|:-:|:-|
+|+r| **entityHit** : `EntityHitEvent`|
 
 ###### 1.18.30.20/21-Events
-- \+ *r* **entityHurt** : `EntityHurtEvent` 
+|::|`1.18.30.20/21` |
+|:-:|:-|
+|+r| **entityHurt** : `EntityHurtEvent` |
+
 
 ###### 1.18.30.26/27-Events
-- \+ *r* **leverActivate** : 
+|::|`1.18.30.20/21` |
+|:-:|:-|
+|+r|**leverActivate**|
+
 
 ###### 1.19.0.20/21-Events
 - \+ *r* **projectileHit**
