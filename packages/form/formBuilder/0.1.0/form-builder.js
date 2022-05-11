@@ -46,6 +46,10 @@ class FormBuilder {
 		this.player = player
 	}
 	
+	addField (name, value) {
+		this.form[ name ][]
+	}
+	
 	
 	show (toPlayer) {
 		const player = toPlayer ?? this.player
