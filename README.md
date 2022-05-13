@@ -59,7 +59,7 @@ users can find this at
 
 
 **Android 10+** 
-As per android restrictions, A-10 users won't be able to access the folder directly, tjis can be solved with file explorer, all you need is an external **File Manager** app which will allow you to locate those internal folders, some apps you can try...
+As per android restrictions, A-10 users won't be able to access the folder directly, this can be solved with file explorer, all you need is an external **File Manager** app which will allow you to locate those internal folders, some apps you can try...
 - ES File Explore (Recommended) **Google it**
 - [Solid Explorer](https://play.google.com/store/apps/details?id=pl.solidexplorer2)
 - [Explorer](https://play.google.com/store/apps/details?id=com.speedsoftware.explorer)
