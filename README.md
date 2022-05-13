@@ -269,7 +269,7 @@ Minecraft.world.events.tick.subscribe(eventData => {
 	// current world tick count value returned by the event
 	const { currentTick } = eventData
 	
-	// if world not has player or current tick is not divisable by TICKS_IN_FIVE_SECONDS the break the code
+	// if world not has player or current tick is not divisable by TICKS_IN_FIVE_SECONDS then break the code
 	if (!worldHasPlayer || currentTick % TICKS_IN_FIVE_SECONDS !== 0) return;
 	
 	// get all players 
