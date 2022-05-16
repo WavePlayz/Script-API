@@ -191,7 +191,9 @@ a complete `manifest.json` will look something like this
 As of 1.19.0.27 we got three native modules to work with
 - `mojang-gametest`
 - `mojang-minecraft`  
-- `mojang-minecraft-ui` (beta 1.18.20.21+)
+- `mojang-minecraft-ui` (1.18.20.21+)
+- `mojang-net` (1.19.0.32/33+)
+- `mojang-server-admin` (1.19.0.32/33+)
 
 `mojang-gametest`
 is the very first module but is not something to very excite about, its intended for game devlopers for automate game mechanics thus not very useful for creators plus it only works within the range of stucture blocks  
@@ -202,6 +204,11 @@ on the other hand is something that we can consider as the "new scripting api" w
 `mojang-minecraft-ui`
 addition to beta 1.18.20.21, now provide us a way to create "server forms" like you see on featured minigame servers, with ActionForm, MessageForm and ModalForm user inputs can be more interactive
 
+`mojang-net`
+Unknown
+
+`mojang-server-admin`
+Unknown
 
 ##### Importing pack
 now you can now load the pack into the world lets create a new one, in the game options turn on the **Enable Gametest Framework** option to make scripts run 
