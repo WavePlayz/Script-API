@@ -2,5 +2,5 @@ Todo
 - [ ] Acon
 - [ ] Formit
 - [ ] Agya
-- [ ] GameruleManager
+- [ ] Gamerulez
 - [ ] Perms
