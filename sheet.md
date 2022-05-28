@@ -338,7 +338,7 @@
 |:-:|:-:|:-:|:-:|
 |+r| setDynamicProperty | (identifier: `string`, value: `boolean \| string \| number`) | `void` |
 |+r| getDynamicProperty | (identifier: `string`) | `boolean \| string \| number` |
-|+r| removeDynamicProperty | (identifier: `string`) | boolean |
+|+r| removeDynamicProperty | (identifier: `string`) | `boolean` |
 
 
 | ::| 1.19.0.26/27| | |
