@@ -36,6 +36,11 @@
 #### BlockComponent
 #### BlockEvent
 #### BlockExplodeEvent
+
+|::|1.18.30.20/21|||
+|:-:|:-:|:-:|:-:|
+|-r| destroyedBlockPermutation | | [`BlockPermutation`](#BlockPermutation) |
+
 #### BlockExplodeEventSignal
 #### BlockHitInformation
 #### BlockInventoryComponent
@@ -179,6 +184,10 @@
 #### EntityVariantComponent
 #### EntityWantsJockeyComponent
 #### Events
+|::|1.18.30.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r| entityHurt | | [`EntityHurtEvent`](#EntityHurtEvent) |
+
 |::|1.19.0.20/21|||
 |:-:|:-:|:-:|:-:|
 |+r| projectileHit |||
@@ -253,6 +262,12 @@
 #### MinecraftItemTypes
 #### MolangVariableMap
 #### MusicOptions
+
+
+|+r| volume || 
+|+r| fadeSeconds ||
+|+r| loop ||
+
 #### NavigationResult
 #### NumberRange
 #### PistonActivateEvent
@@ -342,6 +357,12 @@
 #### WeatherChangeEvent
 #### WeatherChangeEventSignal
 #### World
+|::|1.18.30.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r|queueMusic | (trackName : `string`, musicOptions : [`MusicOptions`](#MusicOptions) ) ||
+playMusic(trackName : string, musicOptions : MusicOptions) ||
+|+r|stopMusic |() ||
+
 |::|1.19.0.20/21|||
 |:-:|:-:|:-:|:-:|
 |+r| setDynamicProperty | (identifier: `string`, value: `boolean \| string \| number`) | `void` |
