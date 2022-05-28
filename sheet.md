@@ -360,8 +360,8 @@
 |::|1.18.30.20/21|||
 |:-:|:-:|:-:|:-:|
 |+r|queueMusic | (trackName : `string`, musicOptions : [`MusicOptions`](#MusicOptions) ) ||
-playMusic(trackName : string, musicOptions : MusicOptions) ||
-|+r|stopMusic |() ||
+|+r|playMusic | (trackName : string, musicOptions : [`MusicOptions`](#MusicOptions) ) ||
+|+r|stopMusic | () ||
 
 |::|1.19.0.20/21|||
 |:-:|:-:|:-:|:-:|
