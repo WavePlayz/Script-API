@@ -69,7 +69,7 @@
 |::|1.19.0.20/21|||
 |:-:|:-:|:-:|:-:|
 |+r| defineNumber | (identifier: `string`) | void|
-|+r| defineString | (identifier: `string`, maxLength: number) | void|
+|+r| defineString | (identifier: `string`, maxLength: `number`) | void|
 |+r| defineBoolean | (identifier: `string`)| void|
 
 #### Effect
