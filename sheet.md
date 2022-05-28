@@ -1,6 +1,7 @@
 
 - [x] 1.19.10.20
 - [x] 1.19.0.xx
+- [x] 1.18.30.xx
 
 ### Enumerations
 #### Direction
@@ -86,6 +87,10 @@
 #### EnchantmentSlot
 #### EnchantmentType
 #### Entity
+|::|1.18.30.22/33|||
+|:-:|:-:|:-:|:-:|
+|+r| addEffect | (effectType: [`EffectType`](#EffectType), duration: `number`, amplifier?: `number`, showParticles?: `boolean`) | `void` |
+
 |::|1.19.0.20/21|||
 |:-:|:-:|:-:|:-:|
 |+r| setDynamicProperty | (identifier: `string`, value: `boolean \| string \| number`) | `void` |
@@ -193,6 +198,10 @@
 #### EntityVariantComponent
 #### EntityWantsJockeyComponent
 #### Events
+|::| 1.18.30.26/27 |||
+|:-:|:-:|:-:|:-:|
+|+r|leverActivate|||
+
 |::|1.18.30.20/21|||
 |:-:|:-:|:-:|:-:|
 |+r| entityHurt | | [`EntityHurtEvent`](#EntityHurtEvent) |
