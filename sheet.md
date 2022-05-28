@@ -178,8 +178,17 @@
 #### EntityStrengthComponent
 #### EntityTameableComponent
 #### EntityType
+|::|1.18.30.22/33|||
+|:-:|:-:|:-:|:-:|
+|+r| id| |`string` |
+
 #### EntityTypeIterator
 #### EntityTypes
+|::|1.18.30.22/33|||
+|:-:|:-:|:-:|:-:|
+|+r|get|(identifier: `string`)| [`EntityType`](#EntityType) |
+|+r|getAll|()| [`EntityTypeIterator`](#EntityTypeIterator) |
+
 #### EntityUnderwaterMovementComponent
 #### EntityVariantComponent
 #### EntityWantsJockeyComponent
@@ -259,6 +268,7 @@
 #### MinecraftEffectTypes
 #### MinecraftEnchantmentTypes
 #### MinecraftEntityTypes
+\+ in 1.18.30.22/33
 #### MinecraftItemTypes
 #### MolangVariableMap
 #### MusicOptions
