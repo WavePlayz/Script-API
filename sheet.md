@@ -224,6 +224,10 @@
 #### ItemStartChargeEvent
 #### ItemStartChargeEventSignal
 #### ItemStartUseOnEvent
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r| buildBlockLocation|| [`BlockLocation`](#BlockLocation) |
+
 #### ItemStartUseOnEventSignal
 #### ItemStopChargeEvent
 #### ItemStopChargeEventSignal
@@ -235,6 +239,10 @@
 #### ItemUseOnEvent
 #### ItemUseOnEventSignal
 #### LeverActionEvent
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r|player|| [`Player`](#Player)
+
 #### LeverActionEventSignal
 #### Location
 #### MinecraftBlockTypes
