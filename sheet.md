@@ -68,7 +68,7 @@
 #### Entity
 | ::|1.19.10.20| ||
 |:-:|:-:|:-:|:-:|
-|+r |teleport |(location: `Location`, dimension: `Dimension`, xRotation: `number`, yRotation: `number`, keepVelocity?: `boolean`)| `void`|
+|+r |teleport |(location: [Location](#Location), dimension: [`Dimension`](#Dimension), xRotation: `number`, yRotation: `number`, keepVelocity?: `boolean`)| `void`|
 
 | ::|1.19.0.28/29| ||
 |:-:|:-:|:-:|:-:|
@@ -155,7 +155,7 @@
 | ::|1.19.0.28/29| ||
 |:-:|:-:|:-:|:-:|
 |-r||||
-|+r|buttonPush|| ButtonPushEventSignal|
+|+r|buttonPush|| [ButtonPushEventSignal](#ButtonPushEventSignal) |
 
 
 #### ExplosionEvent
@@ -244,12 +244,12 @@
 ### Constants
 | ::| | | |
 |:-:|:-:|:-:|:-:|
-|-sr | TicksPerSecond | | 20 |
+|sr | TicksPerSecond | | 20 |
 
 ---
 
 ### Objects
 | ::| | | |
 |:-:|:-:|:-:|:-:|
-|-sr | world | | [World](#World) |
+|sr | world | | [World](#World) |
 
