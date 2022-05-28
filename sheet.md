@@ -87,7 +87,7 @@
 #### EnchantmentSlot
 #### EnchantmentType
 #### Entity
-|::|1.18.30.22/33|||
+|::|1.18.30.26/27|||
 |:-:|:-:|:-:|:-:|
 |+r| addEffect | (effectType: [`EffectType`](#EffectType), duration: `number`, amplifier?: `number`, showParticles?: `boolean`) | `void` |
 
@@ -198,13 +198,13 @@
 #### EntityVariantComponent
 #### EntityWantsJockeyComponent
 #### Events
-|::| 1.18.30.26/27 |||
-|:-:|:-:|:-:|:-:|
-|+r|leverActivate|||
-
 |::|1.18.30.20/21|||
 |:-:|:-:|:-:|:-:|
 |+r| entityHurt | | [`EntityHurtEvent`](#EntityHurtEvent) |
+
+|::| 1.18.30.26/27 |||
+|:-:|:-:|:-:|:-:|
+|+r|leverActivate|||
 
 |::|1.19.0.20/21|||
 |:-:|:-:|:-:|:-:|
