@@ -1,3 +1,11 @@
+### Enumerations
+#### Direction
+#### GameMode
+#### ScoreboardIdentityType
+
+---
+
+### Classes
 #### BeforeChatEvent
 #### BeforeChatEventSignal
 #### BeforeDataDrivenEntityTriggerEvent
@@ -20,6 +28,7 @@
 #### BlockEvent
 #### BlockExplodeEvent
 #### BlockExplodeEventSignal
+#### BlockHitInformation
 #### BlockInventoryComponent
 #### BlockInventoryComponentContainer
 #### BlockLavaContainerComponent
@@ -36,14 +45,18 @@
 #### BlockType
 #### BlockWaterContainerComponent
 #### BoolBlockProperty
+#### ButtonPushEvent
+#### ButtonPushEventSignal
 #### ChatEvent
 #### ChatEventSignal
 #### Color
+#### CommandResult
 #### Container
 #### DataDrivenEntityTriggerEvent
 #### DataDrivenEntityTriggerEventSignal
 #### DefinitionModifier
 #### Dimension
+#### DynamicPropertiesDefinition
 #### Effect
 #### EffectAddEvent
 #### EffectAddEventSignal
@@ -53,6 +66,16 @@
 #### EnchantmentSlot
 #### EnchantmentType
 #### Entity
+| ::|1.19.10.20| ||
+|:-:|:-:|:-:|:-:|
+|+r |teleport |(location: `Location`, dimension: `Dimension`, xRotation: `number`, yRotation: `number`, keepVelocity?: `boolean`)| `void`|
+
+| ::|1.19.0.28/29| ||
+|:-:|:-:|:-:|:-:|
+|-r|bodyRotation|||
+|+r|rotation||XYRotation|
+|+r|setRotation|(degreesX: number, degreesY: number)| void|
+
 #### EntityAddRiderComponent
 #### EntityAgeableComponent
 #### EntityBreathableComponent
@@ -74,6 +97,7 @@
 #### EntityHealthComponent
 #### EntityHitEvent
 #### EntityHitEventSignal
+#### EntityHitInformation
 #### EntityHurtEvent
 #### EntityHurtEventSignal
 #### EntityInventoryComponent
@@ -128,6 +152,12 @@
 #### EntityVariantComponent
 #### EntityWantsJockeyComponent
 #### Events
+| ::|1.19.0.28/29| ||
+|:-:|:-:|:-:|:-:|
+|-r||||
+|+r|buttonPush|| ButtonPushEventSignal|
+
+
 #### ExplosionEvent
 #### ExplosionEventSignal
 #### ExplosionOptions
@@ -139,23 +169,34 @@
 #### IEntityComponent
 #### IntBlockProperty
 #### InventoryComponentContainer
+#### ItemCompleteChargeEvent
+#### ItemCompleteChargeEventSignal
 #### ItemCooldownComponent
 #### ItemDefinitionEventSignal
 #### ItemDefinitionTriggeredEvent
 #### ItemDurabilityComponent
 #### ItemEnchantsComponent
 #### ItemFoodComponent
+#### ItemReleaseChargeEvent
+#### ItemReleaseChargeEventSignal
 #### Items
 #### ItemStack
+#### ItemStartChargeEvent
+#### ItemStartChargeEventSignal
+#### ItemStartUseOnEvent
+#### ItemStartUseOnEventSignal
+#### ItemStopChargeEvent
+#### ItemStopChargeEventSignal
+#### ItemStopUseOnEvent
+#### ItemStopUseOnEventSignal
 #### ItemType
 #### ItemUseEvent
 #### ItemUseEventSignal
 #### ItemUseOnEvent
 #### ItemUseOnEventSignal
 #### LeverActionEvent
-#### LeverActivateEventSignal
+#### LeverActionEventSignal
 #### Location
-#### MessageReceiveEvent
 #### MinecraftBlockTypes
 #### MinecraftDimensionTypes
 #### MinecraftEffectTypes
@@ -168,7 +209,6 @@
 #### NumberRange
 #### PistonActivateEvent
 #### PistonActivateEventSignal
-#### PitchYawRotation
 #### Player
 #### PlayerInventoryComponentContainer
 #### PlayerIterator
@@ -176,15 +216,40 @@
 #### PlayerJoinEventSignal
 #### PlayerLeaveEvent
 #### PlayerLeaveEventSignal
-#### SculkSpreader
+#### ProjectileHitEvent
+#### ProjectileHitEventSignal
+#### PropertyRegistry
+#### Scoreboard
+#### ScoreboardIdentity
+#### ScoreboardObjective
+#### ScoreboardScoreInfo
+#### ScreenDisplay
 #### Seat
-#### ServerMessageSignal
 #### SoundOptions
 #### StringBlockProperty
 #### TickEvent
 #### TickEventSignal
+#### TitleDisplayOptions
 #### Trigger
 #### Vector
 #### WeatherChangeEvent
 #### WeatherChangeEventSignal
 #### World
+#### WorldInitializeEvent
+#### WorldInitializeEventSignal
+#### XYRotation
+
+---
+
+### Constants
+| ::| | | |
+|:-:|:-:|:-:|:-:|
+|-sr | TicksPerSecond | | 20 |
+
+---
+
+### Objects
+| ::| | | |
+|:-:|:-:|:-:|:-:|
+|-sr | world | | [World](#World) |
+
