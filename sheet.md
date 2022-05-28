@@ -66,6 +66,12 @@
 #### DefinitionModifier
 #### Dimension
 #### DynamicPropertiesDefinition
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r| defineNumber | (identifier: `string`) | void|
+|+r| defineString | (identifier: `string`, maxLength: number) | void|
+|+r| defineBoolean | (identifier: `string`)| void|
+
 #### Effect
 #### EffectAddEvent
 #### EffectAddEventSignal
@@ -75,6 +81,13 @@
 #### EnchantmentSlot
 #### EnchantmentType
 #### Entity
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r| setDynamicProperty | (identifier: `string`, value: `boolean \| string \| number`) | `void` |
+|+r| getDynamicProperty | (identifier: `string`) | `boolean \| string \| number` |
+|+r| removeDynamicProperty | (identifier: `string`) | boolean |
+
+
 | ::| 1.19.0.26/27| | |
 |:-:|:-:|:-:|:-:|
 |+r| scoreboard || [`ScoreboardIdentity`](#ScoreboardIdentity) |
@@ -253,6 +266,11 @@
 #### ProjectileHitEvent
 #### ProjectileHitEventSignal
 #### PropertyRegistry
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r| registerEntityTypeDynamicProperties | (propertiesDefinition: [`DynamicPropertiesDefinition`](#DynamicPropertiesDefinition), entityType: [`EntityType`](#EntityType)) |`void`|
+|+r| registerWorldDynamicProperties | (propertiesDefinition: [`DynamicPropertiesDefinition`](#DynamicPropertiesDefinition) ) |`void`|
+
 #### Scoreboard
 \+ in 1.19.0.26/27
 | ::| 1.19.0.26/27| | |
@@ -318,9 +336,10 @@
 #### World
 |::|1.19.0.20/21|||
 |:-:|:-:|:-:|:-:|
-|+r| defineNumber | (identifier: string): void
-|+r| defineString | (identifier: string, maxLength: number): void
-|+r| defineBoolean | (identifier: string): void
+|+r| setDynamicProperty | (identifier: `string`, value: `boolean \| string \| number`) | `void` |
+|+r| getDynamicProperty | (identifier: `string`) | `boolean \| string \| number` |
+|+r| removeDynamicProperty | (identifier: `string`) | boolean |
+
 
 | ::| 1.19.0.26/27| | |
 |:-:|:-:|:-:|:-:|
