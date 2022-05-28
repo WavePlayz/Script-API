@@ -66,15 +66,16 @@
 #### EnchantmentSlot
 #### EnchantmentType
 #### Entity
-| ::|1.19.10.20| ||
-|:-:|:-:|:-:|:-:|
-|+r |teleport |(location: [`Location`](#Location), dimension: [`Dimension`](#Dimension), xRotation: `number`, yRotation: `number`, keepVelocity?: `boolean`)| `void`|
-
 | ::|1.19.0.28/29| ||
 |:-:|:-:|:-:|:-:|
 |-r|bodyRotation|||
 |+r|rotation||[`XYRotation`](#XYRotation)|
 |+r|setRotation|(degreesX: number, degreesY: number)| void|
+
+| ::|1.19.10.20| ||
+|:-:|:-:|:-:|:-:|
+|+r |teleport |(location: [`Location`](#Location), dimension: [`Dimension`](#Dimension), xRotation: `number`, yRotation: `number`, keepVelocity?: `boolean`)| `void`|
+
 
 #### EntityAddRiderComponent
 #### EntityAgeableComponent
