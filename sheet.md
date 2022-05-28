@@ -2,7 +2,12 @@
 #### Direction
 #### GameMode
 #### ScoreboardIdentityType
-
+\+ in 1.19.0.26/27
+| ::| 1.19.0.26/27| | |
+|:-:|:-:|:-:|:-:|
+|+sr|Entity||||
+|+sr|Player||||
+|+sr|FakePlayer||||
 ---
 
 ### Classes
