@@ -209,6 +209,8 @@
 #### NumberRange
 #### PistonActivateEvent
 #### PistonActivateEventSignal
+#### PitchYawRotation
+\- in 1.19.0.28/29
 #### Player
 #### PlayerInventoryComponentContainer
 #### PlayerIterator
@@ -238,6 +240,7 @@
 #### WorldInitializeEvent
 #### WorldInitializeEventSignal
 #### XYRotation
+\+ in 1.19.0.28/29
 
 ---
 
