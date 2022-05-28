@@ -1,3 +1,7 @@
+
+- [x] 1.19.10.20
+- [x] 1.19.0.26/27
+
 ### Enumerations
 #### Direction
 #### GameMode
