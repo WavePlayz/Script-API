@@ -66,6 +66,10 @@
 #### EnchantmentSlot
 #### EnchantmentType
 #### Entity
+| ::| 1.19.0.26/27| | |
+|:-:|:-:|:-:|:-:|
+|+r| scoreboard || [`ScoreboardIdentity`](#ScoreboardIdentity) |
+
 | ::|1.19.0.28/29| ||
 |:-:|:-:|:-:|:-:|
 |-r|bodyRotation|||
@@ -223,9 +227,42 @@
 #### ProjectileHitEventSignal
 #### PropertyRegistry
 #### Scoreboard
+\+ in 1.19.0.26/27
+| ::| 1.19.0.26/27| | |
+|:-:|:-:|:-:|:-:|
+|+r| getObjective | (objectiveId : `String`) | [`ScoreboardObjective`](#ScoreboardObjective) 
+|+r| getObjectives |()| [`ScoreboardObjective[]`](#ScoreboardObjective) |
+|+r| getParticipants | ()| [`ScoreboardIdentity[]`](#ScoreboardIdentity) |
+
 #### ScoreboardIdentity
+\+ in 1.19.0.26/27
+
+| ::| 1.19.0.26/27| | |
+|:-:|:-:|:-:|:-:|
+|+r|type || [`ScoreboardIdentityType`](#ScoreboardIdentityType) |
+|+r|id || `Int` |
+|+r|displayName || `String` |
+|+r|getEntity || `ScriptActor` |
+
 #### ScoreboardObjective
+\+ in 1.19.0.26/27
+
+| ::| 1.19.0.26/27| | |
+|:-:|:-:|:-:|:-:|
+|+r|id || `String` |
+|+r|displayName || `String` |
+|+r|getParticipants |()| [`ScoreboardIdentity[]`](#ScoreboardIdentity) |
+|+r|getScores |()| [`ScoreboardScoreInfo[]`](#ScoreboardScoreInfo) |
+|+r|getScore | (participant : [`ScoreboardIdentity`](#ScoreboardIdentity)) | Int | 
+
 #### ScoreboardScoreInfo
+\+ in 1.19.0.26/27
+
+| ::| 1.19.0.26/27| | |
+|:-:|:-:|:-:|:-:|
+|+r|participant || [`ScoreboardIdentity`](#ScoreboardIdentity) |
+|+r|score || `Int`
+
 #### ScreenDisplay
 #### Seat
 #### SoundOptions
@@ -238,6 +275,10 @@
 #### WeatherChangeEvent
 #### WeatherChangeEventSignal
 #### World
+| ::| 1.19.0.26/27| | |
+|:-:|:-:|:-:|:-:|
+|+r| scoreboard || [`Scoreboard`](#Scoreboard) |
+
 #### WorldInitializeEvent
 #### WorldInitializeEventSignal
 #### XYRotation
