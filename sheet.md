@@ -272,11 +272,10 @@
 #### MinecraftItemTypes
 #### MolangVariableMap
 #### MusicOptions
-
-
-|+r| volume || 
-|+r| fadeSeconds ||
-|+r| loop ||
+|::|1.18.30.20/21|||
+|+r| volume || `Int` | 
+|+r| fadeSeconds || `Int` | 
+|+r| loop || `boolean` | 
 
 #### NavigationResult
 #### NumberRange
