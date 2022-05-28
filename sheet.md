@@ -1,7 +1,6 @@
 
 - [x] 1.19.10.20
-- [x] 1.19.0.28/29
-- [x] 1.19.0.26/27
+- [x] 1.19.0.xx
 
 ### Enumerations
 #### Direction
@@ -167,10 +166,23 @@
 #### EntityVariantComponent
 #### EntityWantsJockeyComponent
 #### Events
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r| projectileHit |||
+|+r| itemStartUseOn |||
+|+r| itemStopUseOn |||
+|+r| itemStartCharge |||
+|+r| itemCompleteCharge |||
+|+r| itemReleaseCharge |||
+|+r| itemStopCharge |||
+|+r| worldInitialize || [`WorldInitializeEvent`](#WorldInitializeEvent) |
+
+
 | ::|1.19.0.28/29| ||
 |:-:|:-:|:-:|:-:|
 |-r||||
 |+r|buttonPush|| [`ButtonPushEventSignal`](#ButtonPushEventSignal) |
+
 
 
 #### ExplosionEvent
@@ -227,6 +239,11 @@
 #### PitchYawRotation
 \- in 1.19.0.28/29
 #### Player
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r|onScreenDisplay || [`ScreenDisplay`](#ScreenDisplay) |
+
+
 #### PlayerInventoryComponentContainer
 #### PlayerIterator
 #### PlayerJoinEvent
@@ -274,17 +291,37 @@
 |+r|score || `Int`
 
 #### ScreenDisplay
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r| setTitle | (title : `String`, options? : [`TitleDisplayOptions`](#TitleDisplayOptions)) 
+|+r| clearTitle | () | |
+|+r| updateSubtitle | (subtitle : `String`) | |
+|+r| setActionBar|(text : `String`) ||
+
 #### Seat
 #### SoundOptions
 #### StringBlockProperty
 #### TickEvent
 #### TickEventSignal
 #### TitleDisplayOptions
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r| subtitle? || `String` |
+|+r| fadeInSeconds || `Int` |
+|+r| staySeconds || `Int`|
+|+r| fadeOutSeconds || `Int`|
+
 #### Trigger
 #### Vector
 #### WeatherChangeEvent
 #### WeatherChangeEventSignal
 #### World
+|::|1.19.0.20/21|||
+|:-:|:-:|:-:|:-:|
+|+r| defineNumber | (identifier: string): void
+|+r| defineString | (identifier: string, maxLength: number): void
+|+r| defineBoolean | (identifier: string): void
+
 | ::| 1.19.0.26/27| | |
 |:-:|:-:|:-:|:-:|
 |+r| scoreboard || [`Scoreboard`](#Scoreboard) |
