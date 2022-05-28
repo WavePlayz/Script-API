@@ -117,22 +117,28 @@ after 1.19.0.30
 ```jsonc
 "dependencies": [
 	{
-		// Minecraft native module - needed to use the "mojang-minecraft" module
 		"description": "mojang-minecraft",
 		"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
 		"version": [0, 1, 0]
 	},
 	{
-		// GameTest native module - needed to use the "mojang-gametest" module
 		"description": "mojang-gametest",
 		"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
 		"version": [0, 1, 0]
 	},
 	{
-		// Minecraft UI native module - needed to use the "mojang-minecraft-ui" module
-		// You must be using Minecraft versions above Beta 1.18.20.21 or Release 1.18.30
+		"description": "mojang-minecraft-server-admin",
+		"uuid": "53d7f2bf-bf9c-49c4-ad1f-7c803d947920",
+		"version": [0, 1, 0]
+	},
+	{
 		"description": "mojang-minecraft-ui",
 		"uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
+		"version": [0, 1, 0]
+	},
+	{
+		"description": "mojang-net",
+		"uuid": "777b1798-13a6-401c-9cba-0cf17e31a81b",
 		"version": [0, 1, 0]
 	}
 ]
@@ -165,22 +171,28 @@ a complete `manifest.json` will look something like this
 	
 	"dependencies": [
 		{
-			// Minecraft native module - needed to use the "mojang-minecraft" module
 			"description": "mojang-minecraft",
 			"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
 			"version": [0, 1, 0]
 		},
 		{
-			// GameTest native module - needed to use the "mojang-gametest" module
 			"description": "mojang-gametest",
 			"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
 			"version": [0, 1, 0]
 		},
 		{
-			// Minecraft UI native module - needed to use the "mojang-minecraft-ui" module
-			// You must be using Minecraft versions above Beta 1.18.20.21 or Release 1.18.30
+			"description": "mojang-minecraft-server-admin",
+			"uuid": "53d7f2bf-bf9c-49c4-ad1f-7c803d947920",
+			"version": [0, 1, 0]
+		},
+		{
 			"description": "mojang-minecraft-ui",
 			"uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
+			"version": [0, 1, 0]
+		},
+		{
+			"description": "mojang-net",
+			"uuid": "777b1798-13a6-401c-9cba-0cf17e31a81b",
 			"version": [0, 1, 0]
 		}
 	]
@@ -193,7 +205,7 @@ As of 1.19.0.27 we got three native modules to work with
 - `mojang-minecraft`  
 - `mojang-minecraft-ui` (1.18.20.21+)
 - `mojang-net` (1.19.0.32/33+)
-- `mojang-server-admin` (1.19.0.32/33+)
+- `mojang-minecraft-server-admin` (1.19.0.32/33+)
 
 `mojang-gametest`
 is the very first module but is not something to very excite about, its intended for game devlopers for automate game mechanics thus not very useful for creators plus it only works within the range of stucture blocks  
@@ -205,10 +217,10 @@ on the other hand is something that we can consider as the "new scripting api" w
 addition to beta 1.18.20.21, now provide us a way to create "server forms" like you see on featured minigame servers, with ActionForm, MessageForm and ModalForm user inputs can be more interactive
 
 `mojang-net`
-Unknown
+Minecraft's module for executing HTTP-based requests. This module can only be used on Bedrock Dedicated Server.
 
-`mojang-server-admin`
-Unknown
+`mojang-minecraft-server-admin`
+Minecraft's module for administering a Bedrock Dedicated Server. This allows Minecraft to modify configuration of variables and secrets in JSON files in the Bedrock Dedicated Server folder. Cannot be used on Minecraft clients.
 
 ##### Importing pack
 now you can now load the pack into the world lets create a new one, in the game options turn on the **Enable Gametest Framework** option to make scripts run 
