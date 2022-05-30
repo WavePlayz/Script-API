@@ -200,7 +200,7 @@ a complete `manifest.json` will look something like this
 ```
 ##### Native modules
 
-As of 1.19.0.27 we got three native modules to work with
+As of 1.19.0.27 we got 5 native modules to work with
 - `mojang-gametest`
 - `mojang-minecraft`  
 - `mojang-minecraft-ui` (1.18.20.21+)
