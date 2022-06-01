@@ -11,7 +11,6 @@ guide to begain with *new scripting api*, **The GameTest Framework** \!
 
 [**DOWNLOAD SAMPLE PACK**](https://github.com/WavePlayz/Gametest-API/releases/latest)  
 
-
 ---
 
 ## Prerequisites
