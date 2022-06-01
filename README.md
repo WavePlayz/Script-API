@@ -38,7 +38,7 @@ guide to begain with *new scripting api*, **The GameTest Framework** \!
   - Android  
 १ [JS Run (Preferred)](https://play.google.com/store/apps/details?id=com.mia.jsrun)  
 २ [JavaScript Editor](https://play.google.com/store/apps/details?id=com.sorincovor.javascript_editor)  
-३ [Termux with quickjs](/guide/termux-with-quickjs.md)
+३ [Termux quickjs](/guide/termux-quickjs-setup.md)
 
 
 ## Setup
