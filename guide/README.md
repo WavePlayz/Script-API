@@ -15,13 +15,12 @@
   - initialize.js
 - manifest.json
 ```
-@libraries, for general utilities, eg. math.js
-@packages, for gametest utilities, eg. custom-command.js 
-@MA.MI.PA.B? beta / stable minecraft version, eg. 1.18.30
-@X.X.X file/folder version eg. 1.3.0
+`libraries` for general utilities, eg. math.js
+`packages` for gametest utilities, eg. custom-command.js 
+`MA.MI.PA.B?` beta / stable minecraft version, eg. 1.18.30
+`X.X.X` file/folder version eg. 1.3.0
 `M.M.M-X.X.X` addon version eg. 1.80.30-1.3.0
-`utilities/` for project utils  
-`modules/` for code utils 
+`modules/` for project utilities 
 
 ### Naming
 Folders
@@ -35,6 +34,7 @@ Main / entry file
 1. `spinal-case`
 
 ### Exports
+everything as default / in singal object
 ```js
 export default class {
 	static variable = ""
