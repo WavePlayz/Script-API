@@ -1,5 +1,20 @@
-# Preferred Style Guide `3.1`
+# Preferred Style Guide `4.0.0`
 
+## Pack structure  
+```py
++ <addonName>
+  + libraries/
+  + packages/
+  + modules/
+  + source/
+    + <M.M.M.M?>/
+      + <MAJOR.MINOR.PATCH>
+        + locals/*
+        - script.js
+  - vinyaas.js
+  - initialize.js
+- manifest.json
+```
 
 ### STRUCTURE
 ```py
@@ -15,7 +30,7 @@
 - manifest.json
 - pack_icon.png
 ```
-
+ 
 `libraries/` for general utils  
 `packages/` for gametest utils  
 `M.M.M` game version eg. 1.18.30
