@@ -41,6 +41,15 @@ export default class {
 	static function() {}
 }
 ```
+or
+```js
+class Acon {}
+
+Acon.kdk = skd
+
+export Acon
+
+```
 
 
 
