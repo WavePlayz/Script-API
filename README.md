@@ -156,13 +156,14 @@ a complete `manifest.json` will look something like this
 		"description": "Example gametest behavior pack",
 		"uuid": "b3bc569d-3144-4473-82ae-c5704a6064e3",
 		"version": [0, 0, 1],
-		"min_engine_version": [1, 18, 20]
+		"min_engine_version": [1, 19, 10]
 	},
 	
 	"modules": [
 		{
 			"description": "Example gametest behavior pack",
-			"type": "javascript",
+			"type": "script",
+			"language": "javascript",
 			"uuid": "9e896681-01d8-4a21-b1e2-e350e3c9c1ae",
 			"version": [0, 0, 1],
 			"entry": "scripts/script.js"
