@@ -1,4 +1,7 @@
-# Preferred Style Guide `4.0.0`
+# Preferred Gametest Style Guide `4.0.0`
+
+PGSG-4.0.0
+PGC-4.0.0
 
 ## Pack structure  
 ```py
