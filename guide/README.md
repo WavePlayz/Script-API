@@ -5,7 +5,7 @@
 + <addonName>
   + libraries/
   + packages/
-  + modules/
+  + globals/
   + source/
     + <M.M.M.M?>/
       + <MAJOR.MINOR.PATCH>
@@ -17,19 +17,6 @@
 ```
 
 ### STRUCTURE
-```py
-+ AddonName/
-  + libraries/
-  + packages/
-  + utilities/
-  + source/
-    + M.M.M.M/
-      + X.X.X
-        + modules/
-        - script.js
-- manifest.json
-- pack_icon.png
-```
  
 `libraries/` for general utils  
 `packages/` for gametest utils  
