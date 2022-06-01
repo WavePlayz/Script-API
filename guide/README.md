@@ -7,7 +7,7 @@
   + packages/
   + globals/
   + source/
-    + <M.M.M.M?>/
+    + <MAJOR.MINOR.PATCH.BETA>/ru
       + <MAJOR.MINOR.PATCH>
         + locals/*
         - script.js
@@ -15,35 +15,26 @@
   - initialize.js
 - manifest.json
 ```
-
-### STRUCTURE
- 
-`libraries/` for general utils  
-`packages/` for gametest utils  
-`M.M.M` game version eg. 1.18.30
-`X.X.X` file/folder version eg. 1.3.0
+@libraries, for general utilities, eg. math.js
+@packages, for gametest utilities, eg. custom-command.js 
+@MA.MI.PA.B? beta / stable minecraft version, eg. 1.18.30
+@X.X.X file/folder version eg. 1.3.0
 `M.M.M-X.X.X` addon version eg. 1.80.30-1.3.0
 `utilities/` for project utils  
 `modules/` for code utils 
 
-<img align="center" src="/guide/Screenshot_2022-04-21-08-18-07-30_f9ee0578fe1cc94de7482bd41accb329.jpg"></img>
-
-### NAMING
+### Naming
 Folders
-- `snake_case`
-- `camaleCase`
+1. `camaleCase`
+2. `snake_case`
 
 Files
-- `spinal-case`
-- `kebab-case`
+1. `spinal-case`
 
 Main / entry file
-- `snake_case`
-- `spinal-case`
-
+1. `spinal-case`
 
 ### Exports
-as defualt in class
 ```js
 export default class {
 	static variable = ""
