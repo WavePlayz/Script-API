@@ -91,17 +91,6 @@ development_behavior_packs/
 next update our `manifest.json` in order to use the gametest framework
 
 1. include this module in modules section with the type and entry point, this which will be the main file for our gametest
-before 1.19.0.30
-```json
-{
-	"description": "gametest-module",
-	"type": "javascript",
-	"uuid": "9e896681-01d8-4a21-b1e2-e350e3c9c1ae",
-	"version": [0, 0, 1],
-	"entry": "scripts/script.js"
-}
-```
-after 1.19.0.30
 ```json
 {
 	"description": "gametest-module",
