@@ -1,7 +1,4 @@
-# Into to Gametest Scripting
-
-guide to begain with *new scripting api*, **The GameTest Framework** \!
-
+# Into to Bedrock Script API
 ---
 
 ## Prerequisites
