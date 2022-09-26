@@ -10,9 +10,9 @@
 
 ---
 
-[Intro to Gametest Scripting](intro-to-gametest-scripting.md)  
+[Intro to Bedrock Script API](intro-to-bedrock-script-api.md)  
 
-[Sample Gametest Pack](sample-pack/)
+[Sample Pack](sample-pack/)
 
 ---
 
