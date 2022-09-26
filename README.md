@@ -1,4 +1,4 @@
-# Gametest `API` 
+# Script `API` 
 
 ![MCPACK](https://github.com/WavePlayz/Gametest-API/actions/workflows/pack.yml/badge.svg?branch=main)
 ![](https://komarev.com/ghpvc/?username=WavePlayz&color=grey&label=Hits)  
@@ -22,9 +22,6 @@
 
 
 [Guids](guide/)
-- [Run Javascript in Termux - Quickjs](guide/termux-quickjs-setup.md)  
-- [VsCode Android setup](guide/vscode-android-setup.md)  
-
 - [How to(s)](guide/howto/)
   - [Get entity rotation](guide/howto/player-rotation.md)
   - [Do Dialogs](guide/howto/dialog-ui.md)
@@ -36,6 +33,9 @@
   - [Chat](guide/examples/chat/)
     - [Spam](guide/examples/chat/spam.js)
     - [Word detection](guide/examples/chat/detaction.js)
+
+- [Run Javascript in Termux - Quickjs](guide/termux-quickjs-setup.md)  
+- [VsCode Android setup](guide/vscode-android-setup.md)  
 
 ---
 
