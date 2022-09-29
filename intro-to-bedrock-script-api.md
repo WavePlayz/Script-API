@@ -134,26 +134,26 @@ next update our `manifest.json` file to this
 ```
 ##### Native modules
 
-As of 1.19.0.27 we got 5 native modules to work with
-- `mojang-gametest`
-- `mojang-minecraft`  
-- `mojang-minecraft-ui` (1.18.20.21+)
-- `mojang-net` (1.19.0.32/33+)
-- `mojang-minecraft-server-admin` (1.19.0.32/33+)
+As of 1.19.40.23 we got 5 native modules to work with
+- `@minecraft/server-gametest`
+- `@minecraft/server`  
+- `@minecraft/server-ui` (1.18.20.21+)
+- `@minecraft/server-net` (1.19.0.32/33+)
+- `@minecraft/server-admin` (1.19.0.32/33+)
 
-`mojang-gametest`
+`mojang-gametest` or new `@minecraft/server-gametest`
 is the very first module but is not something to very excite about, its intended for game devlopers for automate game mechanics thus not very useful for creators plus it only works within the range of stucture blocks  
 
-`mojang-minecraft`
+`mojang-minecraft` or new `@minecraft/server`  
 on the other hand is something that we can consider as the "new scripting api" which the creators can utilze to create more powerful programed addons..
 
-`mojang-minecraft-ui`
+`mojang-minecraft-ui` or new `@minecraft/server-ui`
 addition to beta 1.18.20.21, now provide us a way to create "server forms" like you see on featured minigame servers, with ActionForm, MessageForm and ModalForm user inputs can be more interactive
 
-`mojang-net`
+`mojang-net` or new `@minecraft/server-net`
 Minecraft's module for executing HTTP-based requests. This module can only be used on Bedrock Dedicated Server.
 
-`mojang-minecraft-server-admin`
+`mojang-minecraft-server-admin` or new `@minecraft/server-admin`
 Minecraft's module for administering a Bedrock Dedicated Server. This allows Minecraft to modify configuration of variables and secrets in JSON files in the Bedrock Dedicated Server folder. Cannot be used on Minecraft clients.
 
 ##### Importing pack
@@ -183,7 +183,7 @@ now you can join the world to see everything works, but wait if you join you won
 the very first thing we need to do in the script is to import the native minecraft modules like that
 ```js
 // importing native minecraft module
-import * as Minecraft from "mojang-minecraft"
+import * as Minecraft from "@minecraft/server"
 ```
 next we need to listen for some event, in this tutorial we will use the tick event which runs every tick, here is how you do it
 ```js
@@ -202,7 +202,7 @@ lets create chat spam as our first script to see if everything is all right
 ```js
 
 // importing native minecraft module
-import * as Minecraft from "mojang-minecraft";
+import * as Minecraft from "@minecraft/server";
 
 // variable to track world is empty or filled
 let worldHasPlayer = false 
@@ -217,8 +217,9 @@ Minecraft.world.events.playerJoin.subscribe(player => {
 const TICKS_IN_FIVE_SECONDS = 20 * 5
 
 // world tick event that fires our function every tick - 20 time in a sec
-Minecraft.world.events.tick.subscribe(eventData => {
-
+function tick(eventData) {
+	Minecraft.system.run(this)
+	
 	// current world tick count value returned by the event
 	const { currentTick } = eventData
 	
@@ -233,7 +234,7 @@ Minecraft.world.events.tick.subscribe(eventData => {
 		// run command as player 
 		player.runCommand("say Hello " + player.nameTag)
 	}
-})
+}
 ```
 
 save the code in your `script.js` / main file then open the world, you should now see a spam in the chat.. if not then something is wrong :( recheck what went wrong.
