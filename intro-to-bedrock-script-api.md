@@ -1,4 +1,4 @@
-# Into to Bedrock Script API
+# Into to Bedrock Script API 
 ---
 
 ## Prerequisites
@@ -75,55 +75,9 @@ development_behavior_packs/
 ```
 [**•** DOWNLOAD SAMPLE PACK](https://github.com/WavePlayz/Gametest-API/releases/latest)
 
-next update our `manifest.json` in order to use the gametest framework
-
-1. include this module in modules section with the type and entry point, this which will be the main file for our gametest
-```jsonc
-{
-	"description": "gametest-module",
-	"type": "script",
-	"language": "JavaScript",
-	"uuid": "9e896681-01d8-4a21-b1e2-e350e3c9c1ae",
-	"version": [0, 0, 1],
-	"entry": "scripts/script.js"
-}
-```
-
-3. add gametest dependencies to make use of those within javascript files 
-```jsonc
-"dependencies": [
-	{
-		"description": "mojang-minecraft",
-		"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
-		"version": "1.0.0-beta"
-	},
-	{
-		"description": "mojang-minecraft-ui",
-		"uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
-		"version": "1.0.0-beta"
-	},
-
-	{
-		"description": "mojang-gametest",
-		"uuid": "6f4b6893-1bb6-42fd-b458-7fa3d0c89616",
-		"version": "1.0.0-beta"
-	},
-	{
-		"description": "mojang-minecraft-server-admin",
-		"uuid": "53d7f2bf-bf9c-49c4-ad1f-7c803d947920",
-		"version": [0, 1, 0]
-	},
-	{
-		"description": "mojang-net",
-		"uuid": "777b1798-13a6-401c-9cba-0cf17e31a81b",
-		"version": [0, 1, 0]
-	}
-]
-```
-
 ##### manifest.json
+next update our `manifest.json` file to this
 
-a complete `manifest.json` will look something like this
 ```jsonc
 {
 	"format_version": 2,
@@ -132,8 +86,8 @@ a complete `manifest.json` will look something like this
 		"name": "Example gametest behavior pack",
 		"description": "Example gametest behavior pack",
 		"uuid": "b3bc569d-3144-4473-82ae-c5704a6064e3",
-		"version": [0, 0, 1],
-		"min_engine_version": [1, 19, 10]
+		"version": [0, 1, 0],
+		"min_engine_version": [1, 19, 40]
 	},
 	
 	"modules": [
@@ -143,7 +97,8 @@ a complete `manifest.json` will look something like this
 			"language": "javascript",
 			"uuid": "9e896681-01d8-4a21-b1e2-e350e3c9c1ae",
 			"version": [0, 0, 1],
-			"entry": "scripts/script.js"
+			"entry": "scripts/script.js",
+			"capabilities": [ "script_eval" ]
 		}
 	],
 	
@@ -167,12 +122,12 @@ a complete `manifest.json` will look something like this
 		{
 			"description": "mojang-minecraft-server-admin",
 			"uuid": "53d7f2bf-bf9c-49c4-ad1f-7c803d947920",
-			"version": [0, 1, 0]
+			"version": "1.0.0-beta"
 		},
 		{
 			"description": "mojang-net",
 			"uuid": "777b1798-13a6-401c-9cba-0cf17e31a81b",
-			"version": [0, 1, 0]
+			"version": "1.0.0-beta"
 		}
 	]
 }
