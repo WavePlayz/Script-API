@@ -218,7 +218,7 @@ const TICKS_IN_FIVE_SECONDS = 20 * 5
 
 // world tick event that fires our function every tick - 20 time in a sec
 function tick(eventData) {
-	Minecraft.system.run(this)
+	Minecraft.system.run(tick)
 	
 	// current world tick count value returned by the event
 	const { currentTick } = eventData
@@ -235,7 +235,7 @@ function tick(eventData) {
 		player.runCommand("say Hello " + player.nameTag)
 	}
 }
-Minecraft.system.run(this)
+Minecraft.system.run(tick)
 ```
 
 save the code in your `script.js` / main file then open the world, you should now see a spam in the chat.. if not then something is wrong :( recheck what went wrong.
