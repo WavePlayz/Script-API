@@ -235,6 +235,7 @@ function tick(eventData) {
 		player.runCommand("say Hello " + player.nameTag)
 	}
 }
+Minecraft.system.run(this)
 ```
 
 save the code in your `script.js` / main file then open the world, you should now see a spam in the chat.. if not then something is wrong :( recheck what went wrong.
