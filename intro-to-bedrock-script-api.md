@@ -78,6 +78,31 @@ development_behavior_packs/
 
 [**•** DOWNLOAD SAMPLE PACK](https://github.com/WavePlayz/Gametest-API/releases/latest)
 
+##### Native modules
+
+As of 1.19.40.23 we got 5 native modules to work with
+- `@minecraft/server-gametest`
+- `@minecraft/server`  
+- `@minecraft/server-ui` (1.18.20.21+)
+- `@minecraft/server-net` (1.19.0.32/33+)
+- `@minecraft/server-admin` (1.19.0.32/33+)
+
+`@minecraft/server-gametest` or `mojang-gametest`  
+is the very first module but is not something to very excite about, its intended for game devlopers for automate game mechanics thus not very useful for creators plus it only works within the range of stucture blocks  
+
+`@minecraft/server` or `mojang-minecraft`  
+on the other hand is something that we can consider as the "new scripting api" which the creators can utilze to create more powerful programed addons..
+
+`@minecraft/server-ui` or `mojang-minecraft-ui`  
+addition to beta 1.18.20.21, now provide us a way to create "server forms" like you see on featured minigame servers, with ActionForm, MessageForm and ModalForm user inputs can be more interactive
+
+`@minecraft/server-net` or `mojang-net`  
+Minecraft's module for executing HTTP-based requests. This module can only be used on Bedrock Dedicated Server.
+
+`@minecraft/server-admin` or `mojang-minecraft-server-admin`  
+Minecraft's module for administering a Bedrock Dedicated Server. This allows Minecraft to modify configuration of variables and secrets in JSON files in the Bedrock Dedicated Server folder. Cannot be used on Minecraft clients.
+
+
 ##### Manifest
 next our `manifest.json` file will be like this
 
@@ -140,30 +165,6 @@ next our `manifest.json` file will be like this
 	"version": "1.0.0-beta"
 }
 ```
-
-##### Native modules
-
-As of 1.19.40.23 we got 5 native modules to work with
-- `@minecraft/server-gametest`
-- `@minecraft/server`  
-- `@minecraft/server-ui` (1.18.20.21+)
-- `@minecraft/server-net` (1.19.0.32/33+)
-- `@minecraft/server-admin` (1.19.0.32/33+)
-
-`@minecraft/server-gametest` or `mojang-gametest`
-is the very first module but is not something to very excite about, its intended for game devlopers for automate game mechanics thus not very useful for creators plus it only works within the range of stucture blocks  
-
-`@minecraft/server` or `mojang-minecraft`  
-on the other hand is something that we can consider as the "new scripting api" which the creators can utilze to create more powerful programed addons..
-
-`@minecraft/server-ui` or `mojang-minecraft-ui`
-addition to beta 1.18.20.21, now provide us a way to create "server forms" like you see on featured minigame servers, with ActionForm, MessageForm and ModalForm user inputs can be more interactive
-
-`@minecraft/server-net` or `mojang-net`
-Minecraft's module for executing HTTP-based requests. This module can only be used on Bedrock Dedicated Server.
-
-`@minecraft/server-admin` or `mojang-minecraft-server-admin`
-Minecraft's module for administering a Bedrock Dedicated Server. This allows Minecraft to modify configuration of variables and secrets in JSON files in the Bedrock Dedicated Server folder. Cannot be used on Minecraft clients.
 
 ##### Importing pack
 next load the pack into the world and make sure to enable "Enable Gametest Framework" in the world options to allow API for that world
