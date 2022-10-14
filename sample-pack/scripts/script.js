@@ -1,27 +1,23 @@
-// Native Modules
-import * as Minecraft from "mojang-minecraft";
 
-let worldHasPlayer = false 
+// #1 step
+import * as server from "@minecraft/server"
 
-Minecraft.world.events.playerJoin(player => {
-    worldHasPlayer = true
-})
 
-const TICKS_IN_FIVE_SECONDS = 20 * 5
+// #2 step
+const system = server.system
 
-Minecraft.world.events.tick.subscribe(eventData => {
+function tickEvent (eventData) {
     const { currentTick } = eventData
     
-    if (!worldHasPlayer || currentTick % TICKS_IN_FIVE_SECONDS !== 0) return;
     
-    let players = Minecraft.world.getPlayers()
+    // #3 step
+    server.world.say( "hello world" )
+}
+
+system.run( function run (eventData) {
+    try {
+        tickEvent( eventData )
+    } catch {}
     
-    for (let player of players) {
-        player.runCommand("say Hello " + player.nameTag)
-    }
-})
-
-
-/**
-* Your code here
-**/
+    system.run(run)
+} )
