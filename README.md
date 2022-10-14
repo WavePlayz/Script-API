@@ -10,7 +10,7 @@
 
 ---
 
-[Intro to Bedrock Script API](intro-to-bedrock-script-api.md)  
+## [Intro to Bedrock Script API](intro-to-bedrock-script-api.md)  
 
 [Sample Pack](sample-pack/)
 
