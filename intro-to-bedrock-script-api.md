@@ -80,7 +80,7 @@ development_behavior_packs/
 
 ##### Native modules
 
-As of 1.19.40.23 we got 5 native modules to work with
+As of 1.19.50.21 we got 5 native modules to work with
 - `@minecraft/server-gametest`
 - `@minecraft/server`  
 - `@minecraft/server-ui` (1.18.20.21+)
