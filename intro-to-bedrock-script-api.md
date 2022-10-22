@@ -115,7 +115,7 @@ next our `manifest.json` file will be like this
 		"description": "demo script pack",
 		"uuid": "b3bc569d-3144-4473-82ae-c5704a6064e3",
 		"version": [0, 1, 0],
-		"min_engine_version": [1, 19, 40]
+		"min_engine_version": [1, 19, 50]
 	},
 	
 	"modules": [
@@ -136,7 +136,7 @@ next our `manifest.json` file will be like this
 		{
 			"description": "mojang-minecraft",
 			"uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
-			"version": "1.0.0-beta"
+			"version": "1.1.0-beta"
 		},
 		{
 			"description": "mojang-minecraft-ui",
