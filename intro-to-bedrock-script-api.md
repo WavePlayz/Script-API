@@ -204,6 +204,6 @@ system.run( function run (eventData) {
 ```
 and done! thats our first script, the chat spam script.
 
-save the code in `script.js` file and open the world, if everything right you will see a chat spam congrats! if not? report WavePlayz#7915 on Discord for help and issues, Thanks!
+save the code in `script.js` file and open the world, if everything right you will see a chat spam congrats! if not? report `Discord@WavePlayz#7915` on Discord for help and issues, Thanks!
 
 
